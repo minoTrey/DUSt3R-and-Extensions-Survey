@@ -1,6 +1,6 @@
 # Geo4D: Leveraging Video Generators for Geometric 4D Scene Reconstruction
 
-## Overview
+## 📋 Overview
 
 **Paper Title**: Geo4D: Leveraging Video Generators for Geometric 4D Scene Reconstruction  
 **Conference**: ICCV 2025  
@@ -99,7 +99,7 @@ Extensive experiments show Geo4D significantly outperforms:
 - Multi-window processing for long videos
 - Real-time applicability potential
 
-## Related Work
+## 🔗 Related Work
 
 ### Dynamic Extensions of DUSt3R
 - **MonST3R**: Extends DUSt3R for dynamic scenes

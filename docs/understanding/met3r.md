@@ -1,6 +1,6 @@
 # MEt3R: Measuring Multi-View Consistency in Generated Images
 
-## Overview
+## 📋 Overview
 
 MEt3R (Measuring Multi-View Consistency in Generated Images) is a metric designed to evaluate the geometric consistency of multi-view generated images. The paper was accepted at CVPR 2025 and introduces a novel approach to assess the quality of multi-view image generation models.
 
@@ -134,6 +134,6 @@ MEt3R addresses a crucial challenge in evaluating multi-view generative models. 
 
 This makes it an essential tool for researchers developing and evaluating multi-view generation models, particularly as the field advances with large-scale generative models for 3D inference from sparse observations.
 
-## Related Work
+## 🔗 Related Work
 
 MEt3R builds upon the DUSt3R foundation for 3D reconstruction and combines it with modern feature extraction methods (DINO, FeatUp) to create a robust evaluation metric for the growing field of multi-view image generation.

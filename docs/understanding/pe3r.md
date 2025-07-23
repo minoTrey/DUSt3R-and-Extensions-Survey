@@ -1,6 +1,6 @@
 # PE3R: Perception-Efficient 3D Reconstruction
 
-## Overview
+## 📋 Overview
 
 PE3R (Perception-Efficient 3D Reconstruction) is a novel framework designed to enhance both accuracy and efficiency in 3D reconstruction from 2D images. Published on arXiv in March 2025, PE3R addresses critical challenges in existing methods, including limited generalization across scenes, suboptimal perception accuracy, and slow reconstruction speeds.
 

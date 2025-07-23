@@ -1,6 +1,6 @@
 # EasySplat: View-Adaptive Learning makes 3D Gaussian Splatting Easy
 
-## Overview
+## 📋 Overview
 
 **Paper**: [EasySplat: View-Adaptive Learning makes 3D Gaussian Splatting Easy](https://arxiv.org/abs/2501.01003)  
 **Authors**: Ao Gao, Luosong Guo, Tao Chen, Zhao Wang, Ying Tai, Jian Yang, Zhenyu Zhang  
@@ -67,7 +67,7 @@ EasySplat represents a significant integration point between DUSt3R's pointmap c
 - Future extensions planned for generalized sparse/dense view framework
 - Potential for further integration with other DUSt3R variants
 
-## Related Work
+## 🔗 Related Work
 
 - **DUSt3R**: Provides the pointmap foundation
 - **Traditional 3DGS**: Original Gaussian Splatting methodology
