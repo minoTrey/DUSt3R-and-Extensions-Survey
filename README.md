@@ -2,7 +2,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-and-Extensions-Survey?style=social)](https://github.com/minoTrey/DUSt3R-and-Extensions-Survey)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Papers](https://img.shields.io/badge/Papers-54-green.svg)](#papers-database)
+[![Papers](https://img.shields.io/badge/Papers-55-green.svg)](#papers-database)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-July%202025-orange.svg)](#)
 
 > **A systematic survey of DUSt3R and its extensions for feed-forward 3D reconstruction**
@@ -23,7 +23,7 @@ DUSt3R has catalyzed a paradigm shift in 3D reconstruction, moving from traditio
 2022 ██ 1 paper   (CroCo)
 2023 ██ 1 paper   (CroCo v2)  
 2024 ████████████████████ 17 papers
-2025 ████████████████████████████████████████████████████████████████ 35 papers
+2025 ████████████████████████████████████████████████████████████████ 39 papers
 ```
 
 ## 🏷️ Research Categories
@@ -39,15 +39,16 @@ The seminal works that established the feed-forward 3D reconstruction paradigm.
 | [MASt3R](docs/foundation/mast3r.md) | ECCV 2024 | 3D geometry-aware matching |
 | [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | arXiv 2024 | Integrated SfM pipeline |
 
-### 🏗️ [3D Reconstruction](docs/reconstruction/) (19 papers)
+### 🏗️ [3D Reconstruction](docs/reconstruction/) (21 papers)
 Core advances in static scene reconstruction, multi-view consistency, and large-scale scenarios.
 
 <details>
 <summary>View papers in this category</summary>
 
+- **State-of-the-Art**: π³ (Pi3), VGGT - Latest breakthrough methods
 - **Real-time Systems**: SLAM3R, Fast3R, MASt3R-SLAM, Spann3R
-- **Multi-view**: MUSt3R, MV-DUSt3R+, Light3R-SfM, VGGT
-- **Foundation Model Based**: MoGe, LoRA3D, Test3R, Pow3R
+- **Multi-view**: MUSt3R, MV-DUSt3R+, Light3R-SfM
+- **Foundation Model Based**: MoGe, LoRA3D, Test3R, Pow3R, Dens3R
 - **Large-scale**: REGIST3R, Spurfies, ReconX
 - **Specialized**: SPARS3R
 
@@ -141,13 +142,13 @@ model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
 ## 📋 Papers Database
 
 ### By Publication Year
-- **2025**: 35 papers (CVPR, ICCV, ICLR, 3DV, arXiv)
+- **2025**: 39 papers (CVPR, ICCV, ICLR, 3DV, arXiv)
 - **2024**: 17 papers (CVPR, ECCV, NeurIPS, RAL, arXiv)
 - **2023**: 1 paper (ICCV)
 - **2022**: 1 paper (NeurIPS)
 
 ### By Application Domain
-- **3D Reconstruction**: 19 papers
+- **3D Reconstruction**: 21 papers
 - **Dynamic Scenes**: 12 papers  
 - **Gaussian Splatting**: 11 papers
 - **Scene Understanding/Reasoning**: 6 papers
@@ -167,10 +168,10 @@ model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
 **POMATO** (ICCV 2025) - Marries pointmap matching with temporal motion, addressing DUSt3R's limitations in dynamic scenes through explicit matching relationships and temporal consistency.
 
 ### 🚀 Latest Breakthroughs
-- **VGGT** (CVPR 2025 Best Paper) - 45× faster unified 3D vision
+- **π³ (Pi3)** (arXiv 2025) - State-of-the-art permutation-equivariant reconstruction, surpasses VGGT
+- **Dens3R** (arXiv 2025) - Unified geometric dense prediction for high-quality 3D reconstruction
+- **VGGT** (CVPR 2025) - 45× faster unified 3D vision
 - **MV-DUSt3R+** (CVPR 2025) - 2-second reconstruction from sparse views
-- **Light3R-SfM** (CVPR 2025) - 49× speedup over traditional SfM
-- **PreF3R** (arXiv 2024) - Real-time feed-forward Gaussian Splatting
 
 ### 💡 Most Promising Directions
 - **Temporal Consistency** in dynamic scenes
@@ -181,7 +182,7 @@ model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
 
 ### Key Resources
 - [🔬 Foundation Papers](docs/foundation/) - Start with DUSt3R and MASt3R
-- [📊 Complete Papers List](docs/papers-complete.md) - All 54 documented papers
+- [📊 Complete Papers List](docs/papers-complete.md) - All 55 documented papers
 - [🏷️ Browse by Category](#research-categories) - Find papers by application
 - [🤖 Robotics Applications](docs/robotics/) - Real-world deployment examples
 

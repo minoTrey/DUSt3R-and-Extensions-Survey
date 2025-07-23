@@ -1,8 +1,8 @@
 # Complete Papers List
 
 ## Summary Statistics
-- **Total Papers**: 57
-- **2025 Papers**: 37
+- **Total Papers**: 59
+- **2025 Papers**: 39
 - **2024 Papers**: 17
 - **2023 Papers**: 1
 - **2022 Papers**: 1
@@ -16,22 +16,24 @@
 4. **MASt3R** - Grounding Image Matching in 3D with MASt3R (ECCV 2024)
 5. **MASt3R-SfM** - A Fully-Integrated Solution for Unconstrained Structure-from-Motion (arXiv 2024)
 
-### 3D Reconstruction (19)
+### 3D Reconstruction (21)
 1. **SLAM3R** - Real-Time Dense Scene Reconstruction from Monocular RGB Videos (CVPR 2025)
 2. **MASt3R-SLAM** - Real-Time Dense SLAM with 3D Reconstruction Priors (arXiv 2024)
 3. **Fast3R** - Towards 3D Reconstruction of 1000+ Images in One Forward Pass (CVPR 2025)
 4. **Light3R-SfM** - Towards Feed-forward Structure-from-Motion (CVPR 2025)
 5. **MUSt3R** - Multi-view Network for Stereo 3D Reconstruction (CVPR 2025)
 6. **VGGT** - Visual Geometry Grounded Transformer (CVPR 2025)
-7. **Pow3R** - Empowering Unconstrained 3D Reconstruction with Camera and Scene Priors (CVPR 2025)
-8. **Spurfies** - Sparse Surface Reconstruction using Local Geometry Priors (arXiv 2024)
-9. **Spann3R** - 3D Reconstruction with Spatial Memory (3DV 2025)
-10. **ReconX** - Reconstruct Any Scene from Sparse Views with Video Diffusion Model (arXiv 2024)
-11. **MoGe** - Unlocking Accurate Monocular Geometry Estimation for Open-Domain Images (CVPR 2025)
-12. **MV-DUSt3R+** - Single-Stage Scene Reconstruction from Sparse Views In 2 Seconds (CVPR 2025)
-13. **LoRA3D** - Low-Rank Self-Calibration of 3D Geometric Foundation Models (ICLR 2025)
-14. **Test3R** - Learning to Reconstruct 3D at Test Time (arXiv 2025)
-15. **SPARS3R** - Semantic Prior Alignment and Regularization for Sparse 3D Reconstruction (CVPR 2025)
+7. **π³ (Pi3)** - Scalable Permutation-Equivariant Visual Geometry Learning (arXiv 2025)
+8. **Pow3R** - Empowering Unconstrained 3D Reconstruction with Camera and Scene Priors (CVPR 2025)
+9. **Spurfies** - Sparse Surface Reconstruction using Local Geometry Priors (arXiv 2024)
+10. **Spann3R** - 3D Reconstruction with Spatial Memory (3DV 2025)
+11. **ReconX** - Reconstruct Any Scene from Sparse Views with Video Diffusion Model (arXiv 2024)
+12. **MoGe** - Unlocking Accurate Monocular Geometry Estimation for Open-Domain Images (CVPR 2025)
+13. **MV-DUSt3R+** - Single-Stage Scene Reconstruction from Sparse Views In 2 Seconds (CVPR 2025)
+14. **LoRA3D** - Low-Rank Self-Calibration of 3D Geometric Foundation Models (ICLR 2025)
+15. **Test3R** - Learning to Reconstruct 3D at Test Time (arXiv 2025)
+16. **SPARS3R** - Semantic Prior Alignment and Regularization for Sparse 3D Reconstruction (CVPR 2025)
+17. **Dens3R** - Unified Geometric Dense Prediction for 3D Reconstruction (arXiv 2025)
 
 ### Dynamic Scene Reconstruction (12)
 1. **CUT3R** - Continuous 3D Perception Model with Persistent State (CVPR 2025)
