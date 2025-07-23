@@ -206,7 +206,7 @@ If you find this survey useful for your research, please cite:
 ```bibtex
 @misc{dust3r_survey_2025,
   title={DUSt3R and Extensions: A Comprehensive Survey},
-  author={minoTrey},
+  author={Min-Ho Lee},
   year={2025},
   url={https://github.com/minoTrey/DUSt3R-and-Extensions-Survey}
 }
