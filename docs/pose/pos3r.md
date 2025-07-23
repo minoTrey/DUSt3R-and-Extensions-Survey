@@ -1,6 +1,6 @@
 # Pos3R: 6D Pose Estimation for Unseen Objects Made Easy (CVPR 2025)
 
-![Pos3R Overview](../../assets/papers/pos3r_overview.png)
+<!-- Pos3R: 6D Pose Estimation Teaser -->
 <!-- Project page and visual materials not yet publicly available (CVPR 2025) -->
 <!-- Method leverages 3D foundation models for zero-shot 6D pose estimation from single RGB images -->
 <!-- Key capabilities: Works on unseen objects without training, integrates with render-and-compare refinement, competitive BOP benchmark performance -->
