@@ -1,5 +1,15 @@
 # DAS3R: Dynamics-Aware Gaussian Splatting for Static Scene Reconstruction (arXiv 2024)
 
+![DAS3R Overview](https://kai422.github.io/DAS3R/assets/main.png)
+*DAS3R reconstructs clean static scenes from videos with moving objects by predicting dynamic masks and using staticness attributes*
+
+<div align="center">
+  <img src="https://kai422.github.io/DAS3R/assets/davis.gif" alt="DAVIS Dataset Results" width="45%" style="margin: 10px">
+  <img src="https://kai422.github.io/DAS3R/assets/sintel.gif" alt="Sintel Dataset Results" width="45%" style="margin: 10px">
+</div>
+
+*Left: DAVIS dataset results showing dynamic object removal. Right: Sintel dataset results demonstrating clean static reconstruction*
+
 ## 📋 Overview
 - **Authors**: Kai Xu, Tze Ho Elden Tse, Jizong Peng, Angela Yao
 - **Institutions**: National University of Singapore, dConstruct Robotics

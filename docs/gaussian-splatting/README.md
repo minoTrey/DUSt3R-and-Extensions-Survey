@@ -18,7 +18,6 @@ The Gaussian Splatting category represents the integration of DUSt3R's 3D recons
 
 ### 1. **Core Integration**
 - **Splatt3R**: Zero-shot 3DGS from uncalibrated pairs
-- **EasySplat**: View-adaptive learning without SfM
 - **InstantSplat**: Sparse-view reconstruction in 40 seconds
 - **PreF3R**: Pose-free feed-forward pipeline
 
@@ -46,7 +45,6 @@ The Gaussian Splatting category represents the integration of DUSt3R's 3D recons
 | Original 3DGS | ✅ Required | Minutes | High | Low (sparse) |
 | InstantSplat | ❌ DUSt3R | 40 sec | High | High |
 | Splatt3R | ❌ MASt3R | Instant | Good | Very High |
-| EasySplat | ❌ Adaptive | Fast | High | High |
 
 ### Novel View Synthesis Quality
 | Method | PSNR ↑ | SSIM ↑ | LPIPS ↓ | Views |
@@ -60,9 +58,8 @@ The Gaussian Splatting category represents the integration of DUSt3R's 3D recons
 
 ### Core Integration Methods
 1. [Splatt3R: Zero-shot Gaussian Splatting](splatt3r.md)
-2. [EasySplat: View-Adaptive Learning](easysplat.md)
-3. [InstantSplat: 40-Second Reconstruction](instantsplat.md)
-4. [PreF3R: Pose-Free Feed-Forward](pref3r.md)
+2. [InstantSplat: 40-Second Reconstruction](instantsplat.md)
+3. [PreF3R: Pose-Free Feed-Forward](pref3r.md)
 
 ### Quality Enhancement
 5. [FlowR: Sparse to Dense Flow](flowr.md)
@@ -103,7 +100,7 @@ The Gaussian Splatting category represents the integration of DUSt3R's 3D recons
 For different scenarios:
 - **Two views only**: Use Splatt3R (designed for pairs)
 - **Sparse views**: Use InstantSplat or SPARS3R
-- **No camera info**: Use pose-free methods (PreF3R, EasySplat)
+- **No camera info**: Use pose-free methods (PreF3R)
 - **Style transfer**: Use Styl3R for artistic rendering
 - **Best quality**: Use SPARS3R with semantic alignment
 

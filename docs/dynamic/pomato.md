@@ -1,113 +1,130 @@
-# POMATO: Marrying Pointmap Matching with Temporal Motion for Dynamic 3D Reconstruction
+# POMATO: Marrying Pointmap Matching with Temporal Motion for Dynamic 3D Reconstruction (ICCV 2025)
+
+![POMATO Architecture](https://github.com/wyddmw/POMATO/blob/main/assets/teaser.png?raw=true)
+*POMATO combines explicit pointmap matching with temporal motion modeling for dynamic scene reconstruction*
 
 ## 📋 Overview
 - **Authors**: Songyan Zhang, Yongtao Ge, Jinyuan Tian, Guangkai Xu, Hao Chen, Chen Lv, Chunhua Shen
 - **Institution**: Not specified in available sources
-- **Venue**: arXiv 2025 (April 2025)
+- **Venue**: ICCV 2025
 - **Links**: [Paper](https://arxiv.org/abs/2504.05692) | [Code](https://github.com/wyddmw/POMATO) | [Project Page](Coming Soon)
 - **TL;DR**: Unified framework combining pointmap matching with temporal motion modeling to enable accurate dynamic 3D reconstruction by addressing DUSt3R's limitations in handling moving scenes.
 
 ## 🎯 Key Contributions
 
-1. **Unified Matching in 3D Space**
-   - Maps RGB pixels from both dynamic and static regions to 3D pointmaps
-   - Establishes explicit matching relationships within a unified coordinate system
-   - Overcomes ambiguous matching challenges in dynamic regions
-
-2. **Temporal Motion Module**
-   - Ensures scale consistency across different frames
-   - Learns dynamic motions along the temporal dimension
-   - Facilitates interaction of motion features without external modules
-
-3. **Multi-Task Performance**
-   - Video depth estimation
-   - 3D point tracking
-   - Pose estimation
-   - Dynamic mask estimation
+1. **Unified Matching in 3D Space**: Explicit pixel-to-3D correspondences
+2. **Temporal Motion Module**: Scale-consistent dynamic motion learning
+3. **Two-Stage Training**: Geometry first, then temporal dynamics
+4. **Multi-Task Framework**: Depth, tracking, pose, and segmentation
+5. **No External Dependencies**: Self-contained architecture
 
 ## 🔧 Technical Details
 
-### Architecture Overview
+### Core Innovation: Explicit Matching + Temporal Motion
+```
+DUSt3R: Implicit matching → Limited to static scenes
+POMATO: Explicit 3D matching + Temporal module → Dynamic scenes
+```
 
-POMATO extends DUSt3R's pointmap representation to handle dynamic scenes through:
+### Architecture Components
+- **Stage 1: Pairwise Training**
+  - Learn fundamental geometry
+  - Establish matching capacity
+  - Build on DUSt3R foundation
+  
+- **Stage 2: Sequential Training**
+  - Add temporal motion module
+  - Learn dynamic motions
+  - Ensure scale consistency
 
-1. **Two-Stage Training**:
-   - **Stage 1**: Pairwise image input to learn fundamental geometry and matching capacity
-   - **Stage 2**: Sequential video input with temporal motion module for learning temporal dynamics
+### Key Design Choices
+- **Explicit Relationships**: Direct pixel-to-3D mapping
+- **Unified Coordinates**: Consistent 3D space across frames
+- **Scale Preservation**: Temporal consistency mechanism
+- **End-to-End**: No external tracking required
 
-2. **Core Components**:
-   - Pointmap matching module for spatial correspondence
-   - Temporal motion module for dynamic motion modeling
-   - Unified coordinate system for consistent 3D representation
-
-### Key Innovations
-
-- **Explicit Matching Relationships**: Unlike DUSt3R's implicit matching, POMATO learns explicit correspondences between pixels and 3D points
-- **Scale Consistency**: Maintains consistent scale across temporal sequences
-- **No External Dependencies**: Self-contained architecture without reliance on external tracking or motion estimation modules
-
-## 🔗 Relationship to DUSt3R
-
-POMATO builds directly on DUSt3R's foundation:
-
-- **Inherits**: Pointmap representation and feed-forward architecture
-- **Extends**: Adds temporal reasoning and explicit matching
-- **Improves**: Handles dynamic scenes that DUSt3R struggles with
-- **Maintains**: End-to-end learning paradigm
-
-## 💡 Applications
-
-1. **Dynamic Scene Reconstruction**
-   - Reconstructs 3D geometry from arbitrary dynamic videos
-   - Handles both camera motion and object motion
-
-2. **3D Point Tracking**
-   - Tracks points across time in 3D space
-   - Maintains consistency through occlusions
-
-3. **Video Depth Estimation**
-   - Produces temporally consistent depth maps
-   - Handles dynamic objects correctly
+### Technical Innovations
+1. Maps RGB pixels to 3D pointmaps for both static/dynamic regions
+2. Establishes explicit matching within unified coordinate system
+3. Learns motion features along temporal dimension
+4. Maintains DUSt3R's feed-forward efficiency
 
 ## 📊 Results
 
-While specific benchmarks are not yet published, POMATO demonstrates:
-- "Remarkable performance" across multiple downstream tasks
-- Improved handling of dynamic regions compared to DUSt3R
-- Robust tracking and reconstruction capabilities
+### Performance Claims
+While specific benchmarks pending release:
+- "Remarkable performance" on multiple tasks
+- Superior dynamic region handling vs DUSt3R
+- Robust tracking through occlusions
+- Temporally consistent reconstructions
 
-## 🛠️ Implementation Status
+### Supported Tasks
+| Task | Description | Advantage |
+|------|-------------|-----------|
+| Video Depth | Temporally consistent depth | Handles motion |
+| 3D Tracking | Point tracking in 3D | Occlusion robust |
+| Pose Estimation | Camera pose recovery | Dynamic scenes |
+| Motion Segmentation | Dynamic mask prediction | Unified output |
 
-As of April 2025:
-- Paper published on arXiv
-- Code repository created but not yet released
-- Planned releases include:
-  - Inference code
-  - Hugging Face model
-  - 3D tracking visualization tools
-  - Training code
+### Implementation Status
+- Paper: ✅ Published (April 2025)
+- Code: ⏳ Repository created
+- Models: ⏳ Coming soon
+- Demo: ⏳ Planned
 
-## 🚀 Future Directions
+## 💡 Insights & Impact
 
-1. **Full Implementation Release**: Complete codebase and pre-trained models
-2. **Benchmark Results**: Comprehensive evaluation on standard datasets
-3. **Extended Applications**: Integration with other 3D reconstruction pipelines
-4. **Real-time Performance**: Optimization for online applications
+### Solving Dynamic Scene Challenges
 
-## 📚 Related Work
+**Problem**: DUSt3R excels at static but fails with motion
+- Implicit matching ambiguous for moving objects
+- No temporal understanding
+- Scale inconsistency across frames
 
-- **DUSt3R**: Foundation for pointmap representation
-- **MonST3R**: Alternative approach to dynamic scenes
-- **D²USt3R**: 4D pointmap regression framework
-- **Dynamic Point Maps**: Versatile representation for dynamic reconstruction
+**POMATO Solution**:
+- Explicit 3D matching relationships
+- Dedicated temporal motion module
+- Unified coordinate system
+- Scale-consistent reconstruction
 
-## 📝 Citation
+### Technical Advantages
+1. **Unified Framework**: Single model for multiple dynamic tasks
+2. **No External Dependencies**: Self-contained architecture
+3. **Two-Stage Efficiency**: Leverages pre-trained geometry
+4. **Explicit Better**: Direct matching more robust
 
-```bibtex
-@article{zhang2025pomato,
-  title={POMATO: Marrying Pointmap Matching with Temporal Motion for Dynamic 3D Reconstruction},
-  author={Zhang, Songyan and Ge, Yongtao and Tian, Jinyuan and Xu, Guangkai and Chen, Hao and Lv, Chen and Shen, Chunhua},
-  journal={arXiv preprint arXiv:2504.05692},
-  year={2025}
-}
-```
+### Applications
+- **Autonomous Vehicles**: Dynamic scene understanding
+- **Robotics**: Real-time motion perception
+- **AR/VR**: Dynamic environment reconstruction
+- **Video Analysis**: 3D motion tracking
+- **Content Creation**: Dynamic 3D from video
+
+## 🔗 Related Work
+
+### Building On
+- **DUSt3R**: Pointmap representation foundation
+- **Feed-forward 3D**: End-to-end paradigm
+- **Video Understanding**: Temporal modeling
+
+### Comparison with Dynamic Methods
+| Method | Approach | Matching | Temporal |
+|--------|----------|----------|----------|
+| MonST3R | Per-frame | Implicit | Limited |
+| D²USt3R | 4D pointmaps | Implicit | Yes |
+| **POMATO** | **Unified** | **Explicit** | **Yes** |
+
+### Enables
+- Better dynamic reconstruction methods
+- Unified video 3D understanding
+- Real-time dynamic applications
+
+## 📚 Key Takeaways
+
+POMATO demonstrates that:
+1. **Explicit beats implicit**: Direct matching improves dynamics
+2. **Temporal essential**: Motion modules crucial for video
+3. **Two-stage works**: Leverage existing geometry knowledge
+4. **Unified better**: Single framework for multiple tasks
+
+The marriage of pointmap matching with temporal motion represents a significant advancement in dynamic 3D reconstruction, showing how DUSt3R's foundations can be effectively extended for complex real-world scenarios.

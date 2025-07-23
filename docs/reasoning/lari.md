@@ -1,5 +1,8 @@
 # LaRI: Layered Ray Intersections for Single-view 3D Geometric Reasoning (arXiv 2025)
 
+![LaRI Teaser](https://raw.githubusercontent.com/ruili3/lari/main/assets/teaser.jpg)
+*LaRI models multiple surface layers along camera rays, enabling reasoning about occluded geometry from single images*
+
 ## 📋 Overview
 - **Authors**: Rui Li, Biao Zhang, Zhenyu Li, Federico Tombari, Peter Wonka
 - **Institution**: KAUST and affiliates

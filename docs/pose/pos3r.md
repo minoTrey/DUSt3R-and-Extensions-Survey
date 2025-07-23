@@ -1,5 +1,11 @@
 # Pos3R: 6D Pose Estimation for Unseen Objects Made Easy (CVPR 2025)
 
+![Pos3R Overview](../../assets/papers/pos3r_overview.png)
+<!-- Project page and visual materials not yet publicly available (CVPR 2025) -->
+<!-- Method leverages 3D foundation models for zero-shot 6D pose estimation from single RGB images -->
+<!-- Key capabilities: Works on unseen objects without training, integrates with render-and-compare refinement, competitive BOP benchmark performance -->
+<!-- Expected visualizations: 6D pose estimation results, foundation model integration pipeline, comparison with existing methods on diverse object categories -->
+
 ## 📋 Overview
 - **Authors**: Weijian Deng, Dylan Campbell, Chunyi Sun, Jiahao Zhang, Shubham Kanitkar, Matthew E. Shaffer, Stephen Gould
 - **Institution**: Australian National University

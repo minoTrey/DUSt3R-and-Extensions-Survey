@@ -1,5 +1,8 @@
 # Fast3R: Towards 3D Reconstruction of 1000+ Images in One Forward Pass (CVPR 2025)
 
+![Fast3R Teaser](https://raw.githubusercontent.com/facebookresearch/fast3r/main/assets/teaser.png)
+*Fast3R processes 1000+ images in a single forward pass, achieving 300× speedup over DUSt3R*
+
 ## 📋 Overview
 - **Authors**: Jianing Yang, Alexander Sax, Kevin J. Liang, Mikael Henaff, Hao Tang, Ang Cao, Joyce Chai, Franziska Meier, Matt Feiszli
 - **Institution**: Facebook Research (Meta)

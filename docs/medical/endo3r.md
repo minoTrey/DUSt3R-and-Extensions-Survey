@@ -1,5 +1,8 @@
 # Endo3R: Unified Online Reconstruction from Dynamic Monocular Endoscopic Video (arXiv 2024)
 
+![Endo3R Pipeline](https://wrld.github.io/Endo3R/static/images/pipeline.jpg)
+*Endo3R achieves real-time 3D reconstruction from monocular endoscopy using dual memory architecture for surgical applications*
+
 ## 📋 Overview
 - **Authors**: Jiaxin Guo, Wenzhen Dong, Tianyu Huang, Hao Ding, Ziyi Wang, Haomin Kuang, Qi Dou, Yun-hui Liu
 - **Institutions**: CUHK, Hong Kong Center for Logistics Robotics, Johns Hopkins University, SJTU

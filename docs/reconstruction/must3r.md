@@ -1,5 +1,8 @@
 # MUSt3R: Multi-view Network for Stereo 3D Reconstruction (CVPR 2025)
 
+![MUSt3R Examples](https://raw.githubusercontent.com/naver/must3r/main/assets/examples.jpg)
+*MUSt3R scales DUSt3R to 1000+ images using memory mechanisms with O(N) complexity instead of O(N²)*
+
 ## 📋 Overview
 - **Authors**: Yohann Cabon, Lucas Stoffl, Leonid Antsfeld, Gabriela Csurka, Boris Chidlovskii, Jerome Revaud, Vincent Leroy
 - **Institution**: NAVER LABS Europe

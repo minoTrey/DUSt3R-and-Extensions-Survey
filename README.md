@@ -71,7 +71,7 @@ Integration with 3D Gaussian Splatting for neural rendering and novel view synth
 <details>
 <summary>View papers in this category</summary>
 
-- **Core Integration**: Splatt3R, EasySplat, PreF3R
+- **Core Integration**: Splatt3R, PreF3R
 - **Fast Reconstruction**: InstantSplat
 - **Dynamic Filtering**: DAS3R
 - **Avatars**: Avat3R
@@ -155,7 +155,7 @@ model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
 **DUSt3R** (CVPR 2024) - The paper that started it all, enabling end-to-end 3D reconstruction from uncalibrated images.
 
 ### 🎯 Dynamic Scene Breakthrough
-**POMATO** (arXiv 2025) - Marries pointmap matching with temporal motion, addressing DUSt3R's limitations in dynamic scenes through explicit matching relationships and temporal consistency.
+**POMATO** (ICCV 2025) - Marries pointmap matching with temporal motion, addressing DUSt3R's limitations in dynamic scenes through explicit matching relationships and temporal consistency.
 
 ### 🚀 Latest Breakthroughs
 - **VGGT** (CVPR 2025 Best Paper) - 45× faster unified 3D vision

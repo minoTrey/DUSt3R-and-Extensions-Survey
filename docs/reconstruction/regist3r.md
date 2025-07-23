@@ -1,5 +1,9 @@
 # REGIST3R: Incremental Registration with Stereo Foundation Model (arXiv 2024)
 
+![REGIST3R Overview](https://www.researchgate.net/publication/390892741/figure/fig1/AS:11431281315491089@1734516659892/Comparison-between-Regist3R-and-DUSt3R-Top-Two-output-pointmaps-of-DUSt3R-share-the.png)
+<!-- Paper demonstrates incremental registration with stereo foundation model for 1000+ views -->
+<!-- Key visualizations would include: 1) Incremental registration process, 2) MST ordering strategy, 3) Scalability comparison with traditional methods -->
+
 ## 📋 Overview
 - **Authors**: Sidun Liu, Wenyu Li, Peng Qiao, Yong Dou
 - **Institution**: National University of Defence Technology, China

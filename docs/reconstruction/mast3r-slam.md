@@ -1,5 +1,8 @@
 # MASt3R-SLAM: Real-Time Dense SLAM with 3D Reconstruction Priors (CVPR 2025)
 
+![MASt3R-SLAM Demo](https://raw.githubusercontent.com/rmurai0610/MASt3R-SLAM/main/media/teaser.gif)
+*MASt3R-SLAM integrates MASt3R's 3D reconstruction priors into real-time SLAM, achieving 15 FPS with dense geometry*
+
 ## 📋 Overview
 - **Authors**: Riku Murai, Eric Dexheimer, Andrew J. Davison
 - **Institution**: Imperial College London

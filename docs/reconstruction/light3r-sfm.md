@@ -1,5 +1,8 @@
 # Light3R-SfM: Towards Feed-forward Structure-from-Motion (CVPR 2025)
 
+![Light3R Pipeline](https://selflein.github.io/Light3R/static/images/pipeline_4.png)
+*Light3R achieves 49× speedup in SfM through learnable global alignment, reconstructing 200 images in 33 seconds*
+
 ## 📋 Overview
 - **Authors**: Sven Elflein, Qunjie Zhou, Laura Leal-Taixé
 - **Institutions**: NVIDIA, University of Toronto, Vector Institute

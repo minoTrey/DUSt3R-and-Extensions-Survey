@@ -1,5 +1,8 @@
 # SLAM3R: Real-Time Dense Scene Reconstruction from Monocular RGB Videos (CVPR 2025)
 
+![SLAM3R Demo](https://raw.githubusercontent.com/PKU-VCL-3DV/SLAM3R/main/media/replica.gif)
+*SLAM3R achieves real-time dense 3D reconstruction with two-hierarchy networks: I2P for local geometry and L2W for global alignment*
+
 ## 📋 Overview
 - **Authors**: Yuzheng Liu, Siyan Dong, Shuzhe Wang, Yingda Yin, Yanchao Yang, Qingnan Fan, Baoquan Chen
 - **Institutions**: Peking University, University of Hong Kong, Aalto University, VIVO

@@ -1,5 +1,8 @@
 # D²USt3R: Enhancing 3D Reconstruction with 4D Pointmaps for Dynamic Scenes (arXiv 2025)
 
+![D²USt3R Teaser](https://cvlab-kaist.github.io/DDUSt3R/assets/1_teaser.png)
+*D²USt3R extends DUSt3R to 4D pointmaps, accurately establishing dense correspondence in both static and dynamic regions*
+
 ## 📋 Overview
 - **Authors**: Jisang Han, Honggyu An, Jaewoo Jung, Takuya Narihira, Junyoung Seo, Kazumi Fukuda, Chaehyun Kim, Sunghwan Hong, Yuki Mitsufuji, Seungryong Kim
 - **Institutions**: KAIST AI, Sony AI, Korea University

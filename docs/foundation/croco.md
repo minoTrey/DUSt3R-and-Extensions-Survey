@@ -1,5 +1,8 @@
 # CroCo: Self-Supervised Pre-training for 3D Vision Tasks by Cross-View Completion (NeurIPS 2022)
 
+![CroCo Architecture](https://raw.githubusercontent.com/naver/croco/master/assets/arch.jpg)
+*CroCo architecture: Cross-view completion model with encoder-decoder design for 3D vision tasks*
+
 ## 📋 Overview
 - **Authors**: Philippe Weinzaepfel, Vincent Leroy, Thomas Lucas, Romain Brégier, Yohann Cabon, Vaibhav Arora, Leonid Antsfeld, Boris Chidlovskii, Gabriela Csurka, Jérôme Revaud
 - **Institution**: NAVER LABS Europe

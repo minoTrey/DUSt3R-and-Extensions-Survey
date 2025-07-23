@@ -1,5 +1,8 @@
 # MASt3R: Grounding Image Matching in 3D (ECCV 2024)
 
+![MASt3R Overview](https://github.com/naver/mast3r/raw/main/assets/mast3r_archi.jpg)
+*MASt3R grounds image matching in 3D space, unifying dense correspondence with geometric reconstruction*
+
 ## 📋 Overview
 - **Authors**: Vincent Leroy, Yohann Cabon, Jérôme Revaud
 - **Institution**: NAVER LABS Europe

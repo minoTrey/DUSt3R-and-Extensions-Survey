@@ -1,5 +1,8 @@
 # DUSt3R: Geometric 3D Vision Made Easy (CVPR 2024)
 
+![DUSt3R Architecture](https://github.com/naver/dust3r/raw/main/assets/dust3r_archi.jpg)
+*DUSt3R revolutionizes 3D reconstruction with end-to-end pointmap regression from uncalibrated image pairs*
+
 ## 📋 Overview
 - **Authors**: Shuzhe Wang, Vincent Leroy, Yohann Cabon, Boris Chidlovskii, Jérôme Revaud
 - **Institution**: NAVER LABS Europe

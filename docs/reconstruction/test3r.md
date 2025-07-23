@@ -1,5 +1,8 @@
 # Test3R: Learning to Reconstruct 3D at Test Time (arXiv 2025)
 
+![Test3R Pipeline](https://test3r-nop.github.io/static/images/pipeline.svg)
+*Test3R improves 3D reconstruction through test-time adaptation using cross-pair consistency on image triplets*
+
 ## 📋 Overview
 - **Authors**: Yuheng Yuan, Qiuhong Shen, Shizun Wang, Xingyi Yang, Xinchao Wang
 - **Institution**: xML Lab, National University of Singapore

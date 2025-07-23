@@ -1,5 +1,11 @@
 # MV-DUSt3R+: Single-Stage Scene Reconstruction from Sparse Views In 2 Seconds (CVPR 2025)
 
+![MV-DUSt3R+ Results](https://mv-dust3rp.github.io/static/images/vis_.png)
+*MV-DUSt3R+ achieves single-stage multi-view reconstruction in ~2 seconds using novel cross-reference view blocks*
+
+[![Demo Video](https://mv-dust3rp.github.io/static/images/tsr_.png)](https://www.youtube.com/watch?v=LBvnuKQ8Rso)
+*Click to watch the official demo video showing MV-DUSt3R+ reconstruction capabilities*
+
 ## 📋 Overview
 - **Authors**: Zhenggang Tang, Yuchen Fan, Dilin Wang, Hongyu Xu, Rakesh Ranjan, Alexander Schwing, Zhicheng Yan
 - **Institutions**: Meta Reality Labs, University of Illinois Urbana-Champaign
