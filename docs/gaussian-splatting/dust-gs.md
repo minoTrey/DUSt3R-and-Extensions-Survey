@@ -7,7 +7,7 @@
 - **Authors**: Shan Chen, Jiale Zhou, Lei Li
 - **Institution**: SenseTime Research, Chinese University of Hong Kong
 - **Venue**: arXiv preprint (2024)
-- **Links**: [Paper](https://arxiv.org/abs/2402.14574) | [Project Page](https://dust-gs.github.io/) | [Code](https://github.com/Dust3r/Dust-GS)
+- **Links**: [Paper](https://arxiv.org/abs/2409.08613) | Project Page (not available) | Code (not available)
 - **TL;DR**: Combines DUSt3R's dense point cloud generation with 3D Gaussian splatting to achieve superior scene reconstruction quality from sparse viewpoints.
 
 ## 🎯 Key Contributions

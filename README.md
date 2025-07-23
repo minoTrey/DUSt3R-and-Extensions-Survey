@@ -13,6 +13,7 @@ This repository provides a comprehensive overview of DUSt3R (Geometric 3D Vision
 
 - **New to DUSt3R?** → Start with [📚 Foundation Papers](docs/foundation/README.md)
 - **Looking for specific applications?** → Browse by [🏷️ Categories](#research-categories)
+- **Want full list?** → See [📄 Complete Papers List](docs/papers-list.md)
 
 ## 📈 Research Landscape
 
@@ -180,6 +181,7 @@ model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
 
 ### Key Resources
 - [🔬 Foundation Papers](docs/foundation/) - Start with DUSt3R and MASt3R
+- [📊 Complete Papers List](docs/papers-list.md) - All 59 documented papers
 - [🏷️ Browse by Category](#research-categories) - Find papers by application
 - [🤖 Robotics Applications](docs/robotics/) - Real-world deployment examples
 

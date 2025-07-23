@@ -8,7 +8,7 @@
 - **Authors**: Xudong Cai, Yongcai Wang, Zhaoxin Fan, Deying Li
 - **Institution**: Renmin University of China, Beijing Key Laboratory of Traffic Data Analysis and Mining
 - **Venue**: arXiv preprint (2024)
-- **Links**: [Paper](https://arxiv.org/abs/2409.19877) | [Project Page](https://dust-to-tower.github.io/) | [Code](https://github.com/kaoxudong/dust-to-tower)
+- **Links**: [Paper](https://arxiv.org/abs/2412.19518) | Project Page (not available) | Code (coming soon)
 - **TL;DR**: Coarse-to-fine reconstruction pipeline that transforms sparse uncalibrated images into photo-realistic 3D scenes using progressive refinement strategies.
 
 ## 🎯 Key Contributions

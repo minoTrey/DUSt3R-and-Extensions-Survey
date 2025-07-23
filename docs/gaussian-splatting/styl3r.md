@@ -1,13 +1,13 @@
 # Styl3R: Instant 3D Stylized Reconstruction for Arbitrary Scenes and Styles (arXiv 2025)
 
-<!-- Styl3R Teaser Image -->
-<!-- No project page available yet -->
+![Styl3R Teaser](https://nickisdope.github.io/Styl3R/static/images/pipeline_v4.png)
+*Styl3R achieves instant 3D stylized reconstruction from sparse unposed images and arbitrary style references in less than a second*
 
 ## 📋 Overview
-- **Authors**: TBD (Paper details not yet fully available)
-- **Institution**: TBD  
+- **Authors**: Peng Wang, Xiang Liu, Peidong Liu
+- **Institution**: Zhejiang University, Westlake University
 - **Venue**: arXiv preprint (2025)
-- **Links**: Paper (coming soon) | Project Page (TBD) | Code (TBD)
+- **Links**: [Paper](https://arxiv.org/abs/TBD) | [Project Page](https://nickisdope.github.io/Styl3R/) | [Code](https://github.com/WU-CVGL/Styl3R)
 - **TL;DR**: Real-time 3D stylized reconstruction system that applies artistic styles to 3D scenes during reconstruction, enabling instant stylized 3D content creation.
 
 ## 🎯 Key Contributions
