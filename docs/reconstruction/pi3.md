@@ -1,6 +1,6 @@
 # π³: Scalable Permutation-Equivariant Visual Geometry Learning (arXiv 2025)
 
-![Pi3 Teaser](https://yyfz.github.io/pi3/static/images/teaser.png)
+![Pi3 Teaser](https://yyfz.github.io/pi3/assets/images/main.png)
 *π³ eliminates the need for fixed reference views through permutation-equivariant architecture, achieving robust and scalable visual geometry reconstruction*
 
 ## 📋 Overview
