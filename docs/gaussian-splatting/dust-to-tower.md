@@ -5,7 +5,7 @@
 *Dust to Tower achieves photo-realistic scene reconstruction through a coarse-to-fine approach using sparse uncalibrated images*
 
 ## 📋 Overview
-- **Authors**: Xudong Cai, Yongcai Wang, Zhaoxin Fan, Deying Li
+- **Authors**: Xudong Cai, Yongcai Wang, Zhaoxin Fan, Deng Haoran, Shuo Wang, Wanting Li, Deying Li, Lun Luo, Minhang Wang, Jintao Xu
 - **Institution**: Renmin University of China, Beijing Key Laboratory of Traffic Data Analysis and Mining
 - **Venue**: arXiv preprint (2024)
 - **Links**: [Paper](https://arxiv.org/abs/2412.19518) | Project Page (not available) | Code (coming soon)

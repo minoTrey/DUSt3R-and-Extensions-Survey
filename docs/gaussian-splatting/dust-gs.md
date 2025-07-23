@@ -1,6 +1,7 @@
 # Dense Point Clouds Matter: Dust-GS for Scene Reconstruction from Sparse Viewpoints (arXiv 2024)
 
-![Dust-GS Pipeline](https://dust-gs.github.io/static/images/teaser.png)
+<!-- Dust-GS Teaser Image -->
+<!-- Project page not yet available -->
 *Dust-GS leverages dense point clouds from DUSt3R to achieve high-quality Gaussian splatting reconstruction from sparse viewpoints*
 
 ## 📋 Overview

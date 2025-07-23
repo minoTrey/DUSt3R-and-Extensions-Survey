@@ -98,5 +98,5 @@
 ## Notes on Availability
 Some papers have limited public resources:
 - **Papers with project pages only**: Some arXiv papers
-- **Papers pending code release**: Dense Point Clouds Matter, Dust to Tower, and others
+- **Papers pending code/project page**: Dense Point Clouds Matter (Dust-GS), Dust to Tower, Dynamic Point Maps, FlowR, Styl3R, and others
 - **Papers with full resources**: Most CVPR/ICCV/ECCV papers have code and demos available

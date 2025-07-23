@@ -7,7 +7,7 @@
 - **Authors**: Lorraine Petitjean, Mohamed El Amine Boudjoghra, Antti Tarvainen, Francois Fleuret, Vincent Lepetit
 - **Institution**: IDIAP Research Institute, EPFL, University of Geneva
 - **Venue**: ICLR 2025
-- **Links**: [Paper](https://arxiv.org/abs/2410.05430) | [Project Page](https://lorraine-petitjean.github.io/lora3d.github.io/) | [Code](https://github.com/ENSTA-U2IS-AI/LoRA3D)
+- **Links**: [Paper](https://arxiv.org/abs/2412.07746) | [Project Page](https://520xyxyzq.github.io/lora3d/) | [Code](https://github.com/520xyxyzq/LoRA3D)
 - **TL;DR**: Efficient fine-tuning method for 3D foundation models using low-rank adaptation to improve geometric accuracy while maintaining computational efficiency.
 
 ## 🎯 Key Contributions
