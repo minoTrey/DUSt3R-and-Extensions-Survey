@@ -59,9 +59,10 @@ Handling motion, temporal consistency, and dynamic objects.
 <details>
 <summary>View papers in this category</summary>
 
-- **Motion Modeling**: Easi3R, MonST3R, DynaMoSt3R
-- **Human Reconstruction**: ODHSR, DynCamRec, GauSt3R
-- **Temporal Consistency**: CUT3R, FlowSt3R, TempSt3R
+- **Motion Modeling**: Easi3R, MonST3R, POMATO, D²USt3R
+- **Human Reconstruction**: ODHSR, Endo3R
+- **Temporal Consistency**: CUT3R, Align3R, Dynamic Point Maps
+- **4D Reconstruction**: Geo4D, Stereo4D, Adapt3R
 
 </details>
 
@@ -152,8 +153,12 @@ See our [💻 Implementation Guide](docs/implementation/README.md) for detailed 
 ### 🏆 Most Influential
 **DUSt3R** (CVPR 2024) - The paper that started it all, enabling end-to-end 3D reconstruction from uncalibrated images.
 
+### 🎯 Dynamic Scene Breakthrough
+**POMATO** (arXiv 2025) - Marries pointmap matching with temporal motion, addressing DUSt3R's limitations in dynamic scenes through explicit matching relationships and temporal consistency.
+
 ### 🚀 Latest Breakthroughs
 - **Fast3R** (CVPR 2025) - 1000+ images in one forward pass
+- **POMATO** (arXiv 2025) - Unified pointmap matching with temporal motion
 - **EasySplat** (arXiv 2025) - View-adaptive 3D Gaussian Splatting
 - **SLAM3R** (CVPR 2025) - Real-time dense SLAM
 
@@ -206,8 +211,6 @@ If you find this survey useful for your research, please cite:
 ### Connect
 - 💬 **Discussions**: [GitHub Discussions](../../discussions)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
-- 📧 **Email**: [your.email@domain.com]
-- 🐦 **Twitter**: [@your_handle]
 
 ## 📄 License
 
