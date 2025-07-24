@@ -1,8 +1,7 @@
 # Dense Point Clouds Matter: Dust-GS for Scene Reconstruction from Sparse Viewpoints (arXiv 2024)
 
-<!-- Dust-GS Teaser Image -->
-<!-- Project page not yet available -->
-*Dust-GS leverages dense point clouds from DUSt3R to achieve high-quality Gaussian splatting reconstruction from sparse viewpoints*
+![Dust-GS Framework](https://arxiv.org/html/2409.08613v1/x2.png)
+*Dust-GS framework estimates camera poses and registers point clouds using DUSt3R, initializes 3D Gaussian primitives, and optimizes them with RGB, depth, GPP, and dynamic depth masks*
 
 ## 📋 Overview
 - **Authors**: Shan Chen, Jiale Zhou, Lei Li

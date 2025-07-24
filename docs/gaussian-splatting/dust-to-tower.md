@@ -1,8 +1,7 @@
 # Dust to Tower: Coarse-to-Fine Photo-Realistic Scene Reconstruction from Sparse Uncalibrated Images (arXiv 2024)
 
-<!-- Dust to Tower Teaser Image -->
-<!-- Paper: https://arxiv.org/abs/2412.19518 -->
-*Dust to Tower achieves photo-realistic scene reconstruction through a coarse-to-fine approach using sparse uncalibrated images*
+![Dust to Tower Pipeline](https://arxiv.org/html/2412.19518v1/x1.png)
+*Dust to Tower achieves photo-realistic scene reconstruction through a coarse-to-fine approach with CCM, CADA, and WIGI modules*
 
 ## 📋 Overview
 - **Authors**: Xudong Cai, Yongcai Wang, Zhaoxin Fan, Deng Haoran, Shuo Wang, Wanting Li, Deying Li, Lun Luo, Minhang Wang, Jintao Xu

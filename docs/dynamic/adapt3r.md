@@ -1,7 +1,7 @@
 # Adapt3R: Adaptive 3D Scene Representation for Domain Transfer in Imitation Learning (arXiv 2025)
 
-<!-- Adapt3R Teaser Image -->
-<!-- Project page: https://www.pair.toronto.edu/Adapt3R/ -->
+![Adapt3R Framework](https://www.pair.toronto.edu/Adapt3R/static/images/method.png)
+*Adapt3R synthesizes RGBD observations into robust 3D representations for domain transfer in imitation learning*
 
 ## 📋 Overview
 - **Authors**: Albert Wilcox, Yifeng Zhu, Yuke Zhu, Austin Wang, Jonathan Tremblay, Stan Birchfield

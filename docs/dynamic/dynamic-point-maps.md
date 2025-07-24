@@ -1,7 +1,7 @@
 # Dynamic Point Maps: A Versatile Representation for Dynamic 3D Reconstruction (arXiv 2025)
 
-<!-- Dynamic Point Maps Teaser Image -->
-<!-- Project page: https://www.robots.ox.ac.uk/~vgg/research/dynamic-point-maps/ -->
+![Dynamic Point Maps Overview](https://arxiv.org/html/2503.16318v1/x2.png)
+*Dynamic Point Maps extend standard point maps to support 4D tasks by predicting point maps at multiple timestamps*
 
 ## 📋 Overview
 - **Authors**: Edgar Sucar, Zihang Lai, Eldar Insafutdinov, Andrea Vedaldi

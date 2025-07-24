@@ -1,6 +1,7 @@
 # Stereo4D: Learning How Things Move in 3D from Internet Stereo Videos (CVPR 2025)
 
-![Stereo4D Pipeline](../../assets/papers/stereo4d_pipeline.png)
+![Stereo4D Pipeline](https://github.com/user-attachments/assets/45f1f704-7962-4411-981c-2dd012d73b4c)
+
 *Stereo4D mines 100,000+ real-world 4D scenes from internet stereo videos to train DynaDUSt3R for accurate 3D motion prediction*
 
 ## 📋 Overview

@@ -1,13 +1,13 @@
 # 3D Foundation Models Enable Simultaneous Geometry and Pose Estimation of Grasped Objects (arXiv 2024)
 
-<!-- 3D Foundation Grasping Teaser Image -->
-<!-- No project page available -->
+![Grasping Framework](https://arxiv.org/html/2407.10331v1/x1.png)
+*Framework enables robots to estimate geometry and pose of grasped objects using 3D foundation models without calibrated cameras*
 
 ## 📋 Overview
 - **Authors**: Weiming Zhi, Haozhan Tang, Tianyi Zhang, Matthew Johnson-Roberson
 - **Institution**: Carnegie Mellon University, University of Michigan  
 - **Venue**: arXiv preprint (2024)
-- **Links**: [Paper](https://arxiv.org/abs/2410.14199) | Project Page (TBD) | Code (TBD)
+- **Links**: [Paper](https://arxiv.org/abs/2407.10331) | Project Page (TBD) | Code (TBD)
 - **TL;DR**: Leverages 3D foundation models to simultaneously estimate geometry and pose of objects during grasping, enabling more robust and accurate robotic manipulation.
 
 ## 🎯 Key Contributions
