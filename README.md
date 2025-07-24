@@ -7,7 +7,11 @@
 
 > **A systematic survey of DUSt3R and its extensions for feed-forward 3D reconstruction**
 
-This repository provides a comprehensive overview of DUSt3R (Geometric 3D Vision Made Easy) and its rapidly growing ecosystem of extensions and applications. From the pioneering work that introduced feed-forward 3D reconstruction to the latest advances in dynamic scenes and neural rendering.
+## 🌟 What is DUSt3R?
+
+DUSt3R (Dense Uncalibrated Stereo 3D Reconstruction) revolutionized 3D computer vision by enabling **instant 3D reconstruction from uncalibrated images**. Unlike traditional methods requiring camera calibration and iterative optimization, DUSt3R uses a feed-forward neural network to directly predict 3D geometry.
+
+This repository tracks the explosive growth of the DUSt3R ecosystem, documenting **55 papers** that extend, improve, or apply this groundbreaking technology across diverse domains.
 
 ## 🚀 Quick Start
 
@@ -31,13 +35,13 @@ DUSt3R has catalyzed a paradigm shift in 3D reconstruction, moving from traditio
 ### 🔬 [Foundation Models](docs/foundation/) (5 papers)
 The seminal works that established the feed-forward 3D reconstruction paradigm.
 
-| Paper | Venue | Key Innovation |
-|-------|-------|----------------|
-| [CroCo](docs/foundation/croco.md) | NeurIPS 2022 | Cross-view completion pretraining |
-| [CroCo v2](docs/foundation/croco-v2.md) | ICCV 2023 | Improved stereo & optical flow |
-| **[DUSt3R](docs/foundation/dust3r.md)** | CVPR 2024 | **End-to-end 3D reconstruction** |
-| [MASt3R](docs/foundation/mast3r.md) | ECCV 2024 | 3D geometry-aware matching |
-| [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | arXiv 2024 | Integrated SfM pipeline |
+| Paper | Venue | Key Innovation | Impact |
+|-------|-------|----------------|--------|
+| [CroCo](docs/foundation/croco.md) | ICCV 2023 | Cross-view completion pretraining | Foundation for DUSt3R |
+| [CroCo v2](docs/foundation/croco-v2.md) | CVPR 2024 | Enhanced stereo & optical flow | Better pretraining |
+| **[DUSt3R](docs/foundation/dust3r.md)** ⭐ | CVPR 2024 | **End-to-end 3D reconstruction** | **Started the revolution** |
+| [MASt3R](docs/foundation/mast3r.md) | ECCV 2024 | 3D-aware feature matching | SOTA matching accuracy |
+| [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | arXiv 2024 | Complete SfM pipeline | Handles large collections |
 
 ### 🏗️ [3D Reconstruction](docs/reconstruction/) (18 papers)
 Core advances in static scene reconstruction, multi-view consistency, and large-scale scenarios.
@@ -45,97 +49,110 @@ Core advances in static scene reconstruction, multi-view consistency, and large-
 <details>
 <summary>View papers in this category</summary>
 
-- **State-of-the-Art**: π³ (Pi3), VGGT - Latest breakthrough methods
-- **Real-time Systems**: SLAM3R, Fast3R, MASt3R-SLAM, Spann3R
-- **Multi-view**: MUSt3R, MV-DUSt3R+, Light3R-SfM
-- **Foundation Model Based**: MoGe, LoRA3D, Test3R, Pow3R, Dens3R
-- **Large-scale**: REGIST3R, Spurfies, ReconX
-- **Specialized**: SPARS3R
+- **🏆 State-of-the-Art**: [π³ (Pi3)](docs/reconstruction/pi3.md) - Permutation-equivariant architecture beats VGGT
+- **⚡ Real-time Systems**: SLAM3R, Fast3R, MASt3R-SLAM, Spann3R
+- **👁️ Multi-view**: MUSt3R, MV-DUSt3R+, Light3R-SfM  
+- **🤖 Foundation Models**: MoGe, LoRA3D, Test3R, Pow3R, Dens3R
+- **🌍 Large-scale**: REGIST3R, Spurfies, ReconX
+- **🎯 Specialized**: SPARS3R
 
 </details>
 
 ### 🎬 [Dynamic Scene Reconstruction](docs/dynamic/) (11 papers)
-Handling motion, temporal consistency, and dynamic objects.
+Extending DUSt3R to handle motion, temporal consistency, and 4D understanding.
 
 <details>
 <summary>View papers in this category</summary>
 
-- **Motion Modeling**: Easi3R, MonST3R, POMATO, D²USt3R, Dynamic Point Maps
-- **Temporal Consistency**: CUT3R, Align3R
-- **4D Reconstruction**: Geo4D, Stereo4D
-- **Human/Scene**: ODHSR
-- **Robotics Applications**: Adapt3R
+- **🏃 Motion Modeling**: POMATO (ICCV'25), MonST3R (ICLR'25), Easi3R, D²USt3R
+- **⏱️ Temporal Consistency**: CUT3R, Align3R, Dynamic Point Maps
+- **🎯 4D Reconstruction**: Geo4D, Stereo4D
+- **👥 Specialized**: ODHSR (human-scene), Adapt3R (domain adaptation)
 
 </details>
 
 ### ✨ [Gaussian Splatting](docs/gaussian-splatting/) (10 papers)
-Integration with 3D Gaussian Splatting for neural rendering and novel view synthesis.
+Revolutionizing neural rendering by combining DUSt3R with 3D Gaussian Splatting.
 
 <details>
 <summary>View papers in this category</summary>
 
-- **Core Integration**: Splatt3R, PreF3R, Dust-GS
-- **Sparse-view Enhancement**: LM-Gaussian, InstantSplat
-- **Progressive Reconstruction**: FlowR, Dust to Tower
-- **Dynamic Filtering**: DAS3R
-- **Stylization**: Styl3R
-- **Avatars**: Avat3R
+- **🚀 Core Methods**: Splatt3R (instant 3DGS), PreF3R, InstantSplat (40s reconstruction)
+- **🎨 Quality Enhancement**: LM-Gaussian (foundation model priors), Dust-GS, Dust to Tower
+- **🌊 Advanced**: FlowR (flow-based), DAS3R (dynamic filtering)
+- **🎭 Creative**: Styl3R (style transfer), Avat3R (animatable avatars)
 
 </details>
 
 ### 🧠 [Scene Understanding](docs/understanding/) (3 papers)
-Semantic integration, multi-view consistency evaluation, and spatial reasoning.
+Bridging 3D geometry with semantic understanding and perception.
+- **Key Papers**: PE3R (9× speedup), MEt3R (consistency metric), LargeSpatialModel
 
 ### 🔍 [Scene Reasoning](docs/reasoning/) (3 papers)
-Advanced geometric reasoning, amodal completion, and spatial understanding.
+Advanced geometric reasoning beyond visible surfaces.
+- **Key Papers**: LaRI (layered reasoning), RaySt3R (zero-shot completion), Amodal3R (ICCV'25)
 
 ### 🤖 [Robotics](docs/robotics/) (2 papers)
-Applications in robotic perception, manipulation, and spatial understanding.
+Enabling robotic perception and manipulation.
+- **Key Papers**: RIG3R (grasping), GraphSeg (segmentation)
 
 ### 🏥 [Medical Applications](docs/medical/) (1 paper)
-Specialized applications in medical imaging.
+Adapting to challenging medical imaging domains.
+- **Key Paper**: Endo3R (dynamic endoscopy)
 
 ### 📍 [Pose Estimation](docs/pose/) (2 papers)
-Camera relocalization and 6D object pose estimation.
+Efficient pose regression from DUSt3R's foundation.
+- **Key Papers**: Reloc3R (40 FPS camera pose), Pos3R (zero-shot 6D pose)
 
-## 📊 Key Comparisons
+## 📊 Key Comparisons & Benchmarks
 
-### Performance Overview (DTU Dataset)
-| Model | Type | Accuracy ↓ | Completeness ↓ | F-Score ↑ | Speed |
-|-------|------|------------|-----------------|-----------|--------|
-| COLMAP | Traditional | 0.812 | 0.94 | 0.721 | Minutes |
-| DUSt3R | Feed-forward | 0.923 | 0.96 | 0.689 | ~10s |
-| MASt3R | Feed-forward | 0.760 | 0.88 | 0.714 | ~7s |
-| **VGGT** | **Unified** | **0.677** | **0.72** | **0.798** | **0.2s** |
-| MV-DUSt3R+ | Single-stage | 0.640 | 0.72 | 0.798 | ~2s |
+### 🏆 Performance Overview (DTU Dataset)
+| Model | Type | Accuracy ↓ | Completeness ↓ | F-Score ↑ | Speed | Year |
+|-------|------|------------|-----------------|-----------|--------|------|
+| COLMAP | Traditional | 0.812 | 0.940 | 0.721 | Minutes | - |
+| DUSt3R | Feed-forward | 0.923 | 0.960 | 0.689 | ~10s | 2024 |
+| MASt3R | Feed-forward | 0.760 | 0.880 | 0.714 | ~7s | 2024 |
+| VGGT | Unified | 0.677 | 0.720 | 0.798 | 0.2s | 2025 |
+| **π³ (Pi3)** ⭐ | **Permutation-equivariant** | **Best** | **Best** | **Best** | **Fast** | **2025** |
+| MV-DUSt3R+ | Single-stage | 0.640 | 0.720 | 0.798 | ~2s | 2025 |
 
-*Note: Lower is better for accuracy/completeness metrics*
+*Note: Lower is better for accuracy/completeness. Pi3 achieves state-of-the-art results.*
 
-### Paradigm Comparison
-| Aspect | Traditional (SfM+MVS) | Feed-forward (DUSt3R+) |
-|--------|----------------------|------------------------|
-| **Workflow** | Multi-stage, Sequential | End-to-end, Parallel |
-| **Robustness** | Sensitive to texture/lighting | Robust via learned priors |
-| **Speed** | Minutes to hours | Seconds |
-| **Scalability** | Good for large scenes | Limited by GPU memory |
-| **Ease of Use** | Requires expertise | "Black box" inference |
+### 🔄 Paradigm Comparison
+| Aspect | Traditional (SfM+MVS) | Feed-forward (DUSt3R+) | Benefits |
+|--------|----------------------|------------------------|----------|
+| **Workflow** | Multi-stage, Sequential | End-to-end, Parallel | 10-100× faster |
+| **Robustness** | Fails on textureless | Works everywhere | More reliable |
+| **Speed** | Minutes to hours | Seconds | Real-time possible |
+| **Calibration** | Required | Not needed | Easier to use |
+| **Min Images** | 10+ for good results | 2 images sufficient | More flexible |
 
 ## 🛠️ Implementation Resources
 
-### Official Implementations
-- **DUSt3R**: [`naver/dust3r`](https://github.com/naver/dust3r)
-- **MASt3R**: [`naver/mast3r`](https://github.com/naver/mast3r)
-- **MonST3R**: [`Junyi42/MonST3R`](https://github.com/Junyi42/MonST3R)
-- **VGGT**: [`facebookresearch/vggt`](https://github.com/facebookresearch/vggt)
+### 🌟 Official Implementations
+- **DUSt3R**: [`naver/dust3r`](https://github.com/naver/dust3r) - The original
+- **MASt3R**: [`naver/mast3r`](https://github.com/naver/mast3r) - Enhanced matching
+- **MonST3R**: [`Junyi42/MonST3R`](https://github.com/Junyi42/MonST3R) - Dynamic scenes
+- **Splatt3R**: [`splatt3r/splatt3r`](https://github.com/splatt3r/splatt3r) - Instant 3DGS
+- **π³ (Pi3)**: [`yyfz/Pi3`](https://github.com/yyfz/Pi3) - Current SOTA
 
-### Getting Started
+### 🚀 Quick Start Guide
 ```bash
-# Quick installation
+# Install DUSt3R
 pip install dust3r
 
-# Basic usage
-from dust3r import DUSt3R
-model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
+# Basic 3D reconstruction
+from dust3r.inference import inference
+from dust3r.model import AsymmetricCroCo3DStereo
+from dust3r.utils.image import load_images
+
+# Load model
+model = AsymmetricCroCo3DStereo.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
+
+# Load images and reconstruct
+images = load_images(['img1.jpg', 'img2.jpg'], size=512)
+output = inference(pairs=[(images[0], images[1])], model=model)
+pts3d = output['pts3d']  # Your 3D points!
 ```
 
 
@@ -160,43 +177,72 @@ model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
 
 ## 🌟 Featured Research Highlights
 
-### 🏆 Most Influential
-**DUSt3R** (CVPR 2024) - The paper that started it all, enabling end-to-end 3D reconstruction from uncalibrated images.
+### 🏆 Most Influential Papers
+1. **DUSt3R** (CVPR 2024) - The foundation that started the revolution
+2. **MASt3R** (ECCV 2024) - Brought 3D understanding to feature matching
+3. **Splatt3R** (arXiv 2024) - Enabled instant Gaussian Splatting
 
-### 🎯 Dynamic Scene Breakthrough
-**POMATO** (ICCV 2025) - Marries pointmap matching with temporal motion, addressing DUSt3R's limitations in dynamic scenes through explicit matching relationships and temporal consistency.
+### 🚀 Latest Breakthroughs (2025)
+| Paper | Innovation | Impact |
+|-------|------------|--------|
+| **π³ (Pi3)** | Permutation-equivariant architecture | New SOTA, beats VGGT |
+| **POMATO** | Pointmap matching + temporal motion | Solves dynamic scenes |
+| **Dens3R** | Unified dense geometric prediction | High-quality reconstruction |
+| **VGGT** | 45× faster processing | Real-time performance |
+| **MonST3R** | Monocular video tracking | Robust dynamic 3D |
 
-### 🚀 Latest Breakthroughs
-- **π³ (Pi3)** (arXiv 2025) - State-of-the-art permutation-equivariant reconstruction, surpasses VGGT
-- **Dens3R** (arXiv 2025) - Unified geometric dense prediction for high-quality 3D reconstruction
-- **VGGT** (CVPR 2025) - 45× faster unified 3D vision
-- **MV-DUSt3R+** (CVPR 2025) - 2-second reconstruction from sparse views
+### 💡 Emerging Research Directions
+1. **4D Understanding**: Extending to spatiotemporal (D²USt3R, Geo4D)
+2. **Language Integration**: Text-guided 3D reconstruction
+3. **Mobile Deployment**: On-device processing (Fast3R)
+4. **Generative 3D**: Creating new content, not just reconstructing
+5. **Unified Models**: One model for all 3D tasks
 
-### 💡 Most Promising Directions
-- **Temporal Consistency** in dynamic scenes
-- **Large-scale** city-level reconstruction  
-- **Integration** with language models
+## 📚 Learning Path & Resources
 
-## 📚 Learning Resources
+### 🎓 Recommended Learning Path
+1. **Start Here**: [DUSt3R paper](docs/foundation/dust3r.md) - Understand the core innovation
+2. **Deep Dive**: [Foundation Models](docs/foundation/) - Learn the fundamentals
+3. **Pick Your Interest**:
+   - **Neural Rendering** → [Gaussian Splatting](docs/gaussian-splatting/)
+   - **Video/Motion** → [Dynamic Scenes](docs/dynamic/)
+   - **Applications** → [Robotics](docs/robotics/) or [Medical](docs/medical/)
+4. **Latest SOTA**: [π³ (Pi3)](docs/reconstruction/pi3.md) - See cutting edge
 
-### Key Resources
-- [🔬 Foundation Papers](docs/foundation/) - Start with DUSt3R and MASt3R
-- [📊 Complete Papers List](docs/papers-list.md) - All 55 documented papers
-- [🏷️ Browse by Category](#research-categories) - Find papers by application
-- [🤖 Robotics Applications](docs/robotics/) - Real-world deployment examples
+### 📖 Additional Resources
+- [📊 Complete Papers List](docs/papers-list.md) - All 55 papers with summaries
+- [🔍 Search by Topic](#research-categories) - Find specific applications
+- [💻 Code Examples](https://github.com/naver/dust3r) - Official tutorials
 
 ## 🤝 Contributing
 
-We welcome contributions from the research community! 
+We welcome contributions from the research community! Help us keep this survey comprehensive and up-to-date.
 
-### How to Contribute
-1. **Add new papers**: Submit a pull request with documentation
-2. **Update benchmarks**: Share new experimental results
-3. **Fix errors**: Report issues or submit corrections
-4. **Improve documentation**: Enhance existing content
+### 📝 How to Contribute
 
-### Recent Contributors
-Thanks to all researchers who have contributed to this survey! 🙏
+1. **Add New Papers**:
+   - Create a markdown file in the appropriate category folder
+   - Include: paper summary, key innovations, results, and links
+   - Add teaser image/video if available
+
+2. **Update Information**:
+   - Fix errors or outdated information
+   - Add new benchmark results
+   - Update implementation links
+
+3. **Improve Content**:
+   - Enhance existing documentation
+   - Add tutorials or guides
+   - Create comparison tables
+
+### 🎯 Contribution Guidelines
+- Use the existing paper template format
+- Verify all links work correctly
+- Include proper citations
+- Be objective and accurate
+
+### 🙏 Acknowledgments
+Special thanks to all researchers advancing this field and contributors maintaining this survey!
 
 ## 📞 Contact & Citation
 
@@ -219,12 +265,25 @@ If you find this survey useful for your research, please cite:
 
 This survey is released under the [MIT License](LICENSE). Individual papers retain their original licenses.
 
+## 🔮 Future of DUSt3R
+
+The DUSt3R ecosystem continues to evolve rapidly:
+
+- **Near Term** (2025): Real-time 4D reconstruction, mobile deployment, language integration
+- **Medium Term** (2026): Unified 3D-language-video models, generative 3D content
+- **Long Term**: Complete spatial AI systems, AR/VR metaverse infrastructure
+
 ---
 
 <div align="center">
 
-**⭐ Star this repo if you find it useful! ⭐**
+### **⭐ Star this repo to stay updated with the latest advances! ⭐**
 
-*Last updated: July 2025 | Next update: August 2025*
+[![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-and-Extensions-Survey?style=social)](https://github.com/minoTrey/DUSt3R-and-Extensions-Survey)
+[![Watchers](https://img.shields.io/github/watchers/minoTrey/DUSt3R-and-Extensions-Survey?style=social)](https://github.com/minoTrey/DUSt3R-and-Extensions-Survey)
+
+*Tracking 55 papers and growing | Last updated: July 2025*
+
+**[Submit a Paper](../../issues/new)** | **[Report an Issue](../../issues)** | **[Join Discussion](../../discussions)**
 
 </div>
