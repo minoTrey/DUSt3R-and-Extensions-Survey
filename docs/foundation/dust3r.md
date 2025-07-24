@@ -81,17 +81,34 @@
 |--------|------|------------|----------------|-----------|
 | COLMAP | Traditional | 0.70 | 0.96 | 0.83 |
 | MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 |
-| **DUSt3R** | **Feed-forward** | **2.667** | **0.805** | **1.741** |
+| **DUSt3R** | **Feed-forward** | **2.677** | **0.805** | **1.741** |
 
 *Note: DUSt3R operates without calibration or GT depth, making direct comparison complex.*
 
+### Multi-view Pose Estimation (CO3Dv2)
+| Metric | DUSt3R (w/ GA) | Description |
+|--------|----------------|-------------|
+| RRA@15 ↑ | 96.2% | Relative Rotation Accuracy |
+| RTA@15 ↑ | 86.8% | Relative Translation Accuracy |
+| mAA(30) ↑ | 76.7% | Mean Average Accuracy |
+
 ### 7-Scenes (Indoor Localization)
-| Scene | DUSt3R RMSE | COLMAP | PoseNet |
-|-------|-------------|---------|---------|
-| Chess | 0.03m | 0.04m | 0.13m |
-| Fire | 0.03m | 0.03m | 0.27m |
-| Heads | 0.02m | 0.02m | 0.17m |
-| Office | 0.04m | 0.05m | 0.19m |
+| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
+|-------|-------------------|------------------|---------|
+| Chess | 2.74 | 1.16 | DUSt3R 512 |
+| Fire | 3.31 | 1.52 | DUSt3R 512 |
+| Heads | 3.27 | 1.84 | DUSt3R 512 |
+| Office | 4.08 | 1.37 | DUSt3R 512 |
+| Pumpkin | 3.53 | 1.00 | DUSt3R 512 |
+| Kitchen | 2.85 | 1.20 | DUSt3R 512 |
+| Stairs | 0.97 | 1.26 | DUSt3R 512 |
+
+### Monocular Depth Estimation
+| Dataset | AbsRel ↓ | δ1.25 ↑ | Type |
+|---------|----------|---------|------|
+| NYUv2 | 6.73 | 76.91 | Indoor |
+| KITTI | 9.11 | 73.48 | Outdoor |
+| ETH3D | 2.91 | 85.88 | Mixed |
 
 ### Paradigm Comparison
 | Aspect | Traditional (SfM+MVS) | DUSt3R |

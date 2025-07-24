@@ -111,7 +111,7 @@ Efficient pose regression from DUSt3R's foundation.
 #### DTU Dataset (Traditional Metrics)
 | Model | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ | Speed | Year |
 |-------|------|------------|-----------------|-----------|--------|------|
-| [DUSt3R](docs/foundation/dust3r.md) | Feed-forward | 2.667 | 0.805 | 1.741 | ~10s | 2024 |
+| [DUSt3R](docs/foundation/dust3r.md) | Feed-forward | 2.677 | 0.805 | 1.741 | ~10s | 2024 |
 | **[MASt3R](docs/foundation/mast3r.md)** | **Enhanced** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
 | [Fast3R](docs/reconstruction/fast3r.md) | Speed-optimized | - | - | 1.98 | 0.03s | 2025 |
 
