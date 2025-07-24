@@ -5,7 +5,7 @@
 
 ## 📋 Overview
 - **Authors**: Shuzhe Wang, Vincent Leroy, Yohann Cabon, Boris Chidlovskii, Jérôme Revaud
-- **Institution**: NAVER LABS Europe
+- **Institutions**: Aalto University, NAVER LABS Europe
 - **Venue**: CVPR 2024
 - **Links**: [Paper](https://arxiv.org/abs/2312.14132) | [Code](https://github.com/naver/dust3r) | [Project Page](https://dust3r.europe.naverlabs.com/)
 - **TL;DR**: End-to-end 3D reconstruction from uncalibrated images using a transformer that directly regresses 3D pointmaps with confidence scores.
@@ -37,11 +37,11 @@
 4. **Robustness**: Handles arbitrary camera configurations
 
 ### Training Strategy
-- **Pretext Task**: 3D pointmap regression with confidence weighting
-- **Loss Functions**: 
-  - 3D regression loss (L1) on confident predictions
-  - Confidence-aware filtering
-- **Self-Training Loop**: Iteratively refines predictions using high-confidence regions
+- **Dataset**: 8.5M image pairs from 8 diverse datasets
+- **Pretraining**: Uses CroCo pretraining
+- **Resolution**: 224×224 initially, then 512×512
+- **Loss Function**: 3D regression loss with confidence weighting
+- **Training Objective**: Direct 3D pointmap regression
 
 ## 📊 Results
 
@@ -101,9 +101,9 @@
 
 ### Revolutionary Aspects
 1. **Simplicity**: Removes need for feature matching, bundle adjustment, calibration
-2. **Speed**: Real-time capable (compared to minutes/hours for traditional methods)
+2. **Speed**: ~40ms per image pair on H100 GPU, seconds for global alignment
 3. **Robustness**: Works where traditional methods fail (low texture, wide baselines)
-4. **Accessibility**: Democratizes 3D reconstruction for non-experts
+4. **Accessibility**: Makes 3D vision tasks easier with unified approach
 
 ### Paradigm Comparison
 | Aspect | Traditional (SfM+MVS) | DUSt3R |
@@ -122,10 +122,10 @@
 
 ## 🔗 Impact on Research
 
-### Direct Extensions (59+ papers)
-- **Efficiency**: Fast3R, SLAM3R (real-time variants)
-- **Quality**: VGGT, Test3R (improved accuracy)
-- **Scale**: Pow3R, Align3R (large scenes)
+### Direct Extensions
+- **Efficiency**: Fast3R, SLAM3R (speed improvements)
+- **Quality**: MASt3R, VGGT (improved accuracy)
+- **Scale**: Various methods for larger scenes
 - **Applications**: Gaussian Splatting integration, robotics
 
 ### Research Directions Enabled
@@ -139,7 +139,7 @@
 DUSt3R fundamentally changed 3D reconstruction by:
 1. **Making it accessible**: No expertise in multi-view geometry required
 2. **Unifying tasks**: Single model for reconstruction, pose, matching
-3. **Enabling research**: 59+ follow-up papers in under 2 years
+3. **Enabling research**: Inspired numerous follow-up works
 4. **Proving feasibility**: Feed-forward 3D reconstruction is not only possible but practical
 
-The paper's title "Geometric 3D Vision Made Easy" perfectly captures its contribution - transforming a complex, brittle pipeline into a simple neural network inference, thereby democratizing 3D reconstruction for the broader community.
+The paper's title "Geometric 3D Vision Made Easy" perfectly captures its contribution - transforming a complex, brittle pipeline into a simple neural network inference for broader accessibility.
