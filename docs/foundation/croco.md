@@ -21,7 +21,7 @@
 1. **Cross-View Completion Pretext Task**: Novel self-supervised approach that masks one image and reconstructs it using both visible parts and a second view
 2. **3D Vision-Oriented Pre-training**: Unlike semantic-focused methods (MAE), specifically designed for geometric understanding
 3. **Unified Architecture**: Single model handles both monocular (encoder only) and binocular tasks (full encoder-decoder)
-4. **State-of-the-art 3D Performance**: Achieves 85.6% accuracy on NYUv2 depth estimation, surpassing all previous methods
+4. **State-of-the-art 3D Performance**: Achieves 85.6% δ₁ accuracy on NYUv2 depth estimation, surpassing all previous self-supervised methods
 5. **Synthetic Pre-training Success**: Demonstrates effectiveness of simulator-based training on 1.8M image pairs
 
 ## 🔧 Technical Details
@@ -30,9 +30,11 @@
 - **Input**: Two images of the same scene (different viewpoints)
 - **Output**: Reconstructed RGB patches for masked regions
 - **Components**:
-  - Encoder: ViT-Base/16 (12 blocks, 768 dims, 12 heads)
-  - Decoder: 8 transformer blocks (512 dims, 16 heads)
-  - Two decoder variants: CrossBlock (cross-attention) and CatBlock (concatenation)
+  - Encoder: ViT-Base/16 (12 blocks, 768 dims, 12 heads) - processes each image independently
+  - Decoder: 8 transformer blocks (512 dims, 16 heads) - reconstructs masked patches
+  - Two decoder variants tested:
+    - **CrossBlock**: Uses cross-attention between views (better performance)
+    - **CatBlock**: Simple concatenation of features
 
 ### Key Design Choices
 - **High masking ratio**: 90% (much higher than typical MIM)
@@ -41,29 +43,47 @@
 - **Optimal co-visibility**: ~50% overlap between views
 
 ### Training
-- **Dataset**: 1.8M synthetic indoor image pairs from Habitat
-- **Sources**: HM3D, ScanNet, Replica, ReplicaCAD
+- **Dataset**: 1.82M synthetic indoor image pairs from Habitat simulator
+- **Sources**: 
+  - HM3D: ~1M pairs
+  - Gibson: ~400K pairs  
+  - Replica: ~200K pairs
+  - Other datasets: ~200K pairs
 - **Epochs**: 400 with cosine LR schedule
+- **Hardware**: 8 V100 GPUs
 - **Batch size**: 256
 - **Augmentations**: Homography and color jittering
 
 ## 📊 Results
 
+**Model Details**: All results use CroCo pre-trained on synthetic data (400 epochs) then fine-tuned on target datasets.
+
 ### Quantitative Performance
 
-#### Monocular Tasks
-| Task | Metric | CroCo | MAE | MultiMAE |
-|------|--------|--------|-----|----------|
-| NYUv2 Depth | Acc@1.25 | **85.6%** | 79.6% | 83.0% |
-| Taskonomy | Avg Rank | **1.25** | 2.62 | 2.12 |
-| ADE20k Seg | mIoU | 40.6 | 41.8 | - |
-| ImageNet | Top-1 | 37.0% | 65.5% | - |
+#### Monocular Depth Estimation (NYUv2)
+| Method | δ₁ ↑ | δ₂ ↑ | δ₃ ↑ | REL ↓ | RMS ↓ | log₁₀ ↓ |
+|--------|-------|-------|-------|--------|--------|----------|
+| MAE | 0.796 | 0.954 | 0.989 | 0.129 | 0.497 | 0.055 |
+| MultiMAE | 0.830 | 0.964 | 0.991 | 0.116 | 0.455 | 0.050 |
+| **CroCo** | **0.856** | **0.972** | **0.994** | **0.106** | **0.424** | **0.046** |
+
+*Note: δᵢ represents accuracy at threshold 1.25ⁱ*
+
+#### Other Monocular Tasks  
+| Task | Dataset | Metric | CroCo | Baseline |
+|------|---------|--------|--------|-----------|
+| 3D Tasks | Taskonomy | Avg Rank | **1st** | - |
+| Segmentation | ADE20k | mIoU | 40.6 | 41.8 (MAE) |
+| Classification | ImageNet | Top-1 | 37.0% | 65.5% (MAE) |
 
 #### Binocular Tasks
-| Task | Dataset | Metric | CroCo |
-|------|---------|--------|--------|
-| Optical Flow | MPI-Sintel | EPE (clean/final) | 3.00/3.60 |
-| Relative Pose | Various | Success rate | Competitive |
+| Task | Dataset | Split | CroCo | Supervised |
+|------|---------|-------|--------|------------|
+| Optical Flow | MPI-Sintel | Clean | 3.00 EPE | ~1.4 EPE |
+| Optical Flow | MPI-Sintel | Final | 3.60 EPE | ~2.5 EPE |
+| Stereo Matching | Middlebury | - | 5.0 bad@1.0 | - |
+
+*Note: CroCo achieves competitive results without task-specific design*
 
 ### Qualitative Results
 - Sharp depth predictions with fine details
