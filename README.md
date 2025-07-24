@@ -117,15 +117,22 @@ Efficient pose regression from DUSt3R's foundation.
 
 *Note: Lower is better for all metrics. MASt3R shows 78% improvement over DUSt3R.*
 
-#### Modern Benchmarks (Multiple Datasets)
-| Model | Dataset | Key Metric | Value | Speed | Year |
-|-------|---------|------------|-------|--------|------|
-| VGGT | ETH3D | F-Score ↑ | 0.798 | 0.2s (45× faster) | 2025 |
-| **π³ (Pi3)** ⭐ | Multiple | **State-of-the-art** | **Best** | Fast | 2025 |
-| ReconX | DTU (3 views) | PSNR ↑ | 24.2 | - | 2025 |
-| Dust-GS | DTU (4 views) | PSNR ↑ | 23.1 | - | 2024 |
+#### Point Map Reconstruction (DTU & ETH3D)
+| Model | DTU Acc. ↓ | DTU Comp. ↓ | ETH3D Acc. ↓ | ETH3D Comp. ↓ | Year |
+|-------|------------|--------------|---------------|----------------|------|
+| Fast3R | 3.340 | 2.929 | 0.832 | 0.978 | 2025 |
+| VGGT | 1.338 | 1.896 | 0.280 | 0.305 | 2025 |
+| **π³ (Pi3)** ⭐ | **1.198** | **1.849** | **0.194** | **0.210** | **2025** |
 
-*Note: Pi3 surpasses VGGT across all metrics but specific values not published yet.*
+*Note: Lower is better. Pi3 achieves state-of-the-art on both DTU and ETH3D datasets.*
+
+#### Camera Pose Estimation (Zero-shot)
+| Model | Sintel ATE ↓ | TUM-dyn ATE ↓ | Co3Dv2 RRA@30 ↑ | Speed | Year |
+|-------|--------------|-----------------|-------------------|--------|------|
+| VGGT | 0.167 | 0.012 | 98.96 | 43.2 FPS | 2025 |
+| **π³ (Pi3)** ⭐ | **0.074** | **0.014** | **99.05** | **57.4 FPS** | **2025** |
+
+*Pi3: 55% better on Sintel, 33% faster than VGGT, with permutation-equivariant design.*
 
 ### 🔄 Paradigm Comparison
 | Aspect | Traditional (COLMAP) | DUSt3R Family | Latest (Pi3/VGGT) | Benefits |
@@ -144,7 +151,7 @@ Efficient pose regression from DUSt3R's foundation.
 - **MASt3R**: [`naver/mast3r`](https://github.com/naver/mast3r) - Enhanced matching
 - **MonST3R**: [`Junyi42/MonST3R`](https://github.com/Junyi42/MonST3R) - Dynamic scenes
 - **Splatt3R**: [`splatt3r/splatt3r`](https://github.com/splatt3r/splatt3r) - Instant 3DGS
-- **π³ (Pi3)**: [`yyfz/Pi3`](https://github.com/yyfz/Pi3) - Current SOTA
+- **π³ (Pi3)**: [`yyfz/Pi3`](https://github.com/yyfz/Pi3) - Current SOTA (57.4 FPS)
 
 ### 🚀 Quick Start Guide
 ```bash
@@ -195,7 +202,7 @@ pts3d = output['pts3d']  # Your 3D points!
 ### 🚀 Latest Breakthroughs (2025)
 | Paper | Innovation | Impact |
 |-------|------------|--------|
-| **π³ (Pi3)** | Permutation-equivariant architecture | New SOTA, beats VGGT |
+| **π³ (Pi3)** | Permutation-equivariant architecture | SOTA on DTU/ETH3D/Sintel |
 | **POMATO** | Pointmap matching + temporal motion | Solves dynamic scenes |
 | **Dens3R** | Unified dense geometric prediction | High-quality reconstruction |
 | **VGGT** | 45× faster processing | Real-time performance |

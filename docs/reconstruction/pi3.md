@@ -55,20 +55,37 @@ Output: {Affine-invariant poses, Scale-invariant point maps}
 
 ## 📊 Results
 
-### Performance Comparison (State-of-the-Art)
-| Task | VGGT | Previous SOTA | π³ | Improvement |
-|------|------|---------------|-----|-------------|
-| Camera Pose Est. | Good | Baseline | **SOTA** | Significant |
-| Dense Point Maps | Good | Baseline | **SOTA** | Significant |
-| Monocular Depth | Good | Baseline | **SOTA** | Significant |
-| Video Depth | Good | Baseline | **SOTA** | Significant |
+### Performance Comparison - Camera Pose Estimation
+
+#### Zero-shot Performance (Unseen Datasets)
+| Dataset | Metric | Fast3R | VGGT | π³ (Ours) | Improvement |
+|---------|--------|--------|------|------------|-------------|
+| Sintel | ATE ↓ | 0.371 | 0.167 | **0.074** | 55.7% better |
+| TUM-dynamics | ATE ↓ | 0.090 | 0.012 | **0.014** | Comparable |
+| RealEstate10K | RTA@30 ↑ | 81.86 | 93.13 | **95.62** | 2.7% better |
+
+### Performance Comparison - Point Map Reconstruction
+
+#### DTU Dataset (Multi-view Stereo)
+| Method | Accuracy ↓ | Completeness ↓ | Normal Consistency ↑ |
+|--------|------------|-----------------|---------------------|
+| Fast3R | 3.340 | 2.929 | 0.671 |
+| VGGT | 1.338 | 1.896 | 0.676 |
+| **π³** | **1.198** | **1.849** | **0.678** |
+
+#### ETH3D Dataset (High-res Multi-view)
+| Method | Accuracy ↓ | Completeness ↓ | Normal Consistency ↑ |
+|--------|------------|-----------------|---------------------|
+| Fast3R | 0.832 | 0.978 | 0.667 |
+| VGGT | 0.280 | 0.305 | 0.853 |
+| **π³** | **0.194** | **0.210** | **0.883** |
 
 ### Key Achievements
-- ✅ **Surpasses VGGT**: Superior performance across all metrics
+- ✅ **Surpasses VGGT**: 55.7% better on Sintel, 30.7% better on ETH3D accuracy
+- ✅ **Fastest inference**: 57.4 FPS on KITTI (vs VGGT 43.2 FPS, DUSt3R 1.2 FPS)
 - ✅ **Reference-free operation**: No dependence on fixed viewpoints
-- ✅ **Order robustness**: Consistent results with any input ordering
-- ✅ **Scalable processing**: Handles variable numbers of inputs
-- ✅ **State-of-the-art across tasks**: Multiple benchmark improvements
+- ✅ **Order robustness**: Near-zero variance with input permutations
+- ✅ **State-of-the-art across tasks**: Best results on DTU, ETH3D, Sintel, etc.
 
 ### Robustness Analysis
 | Property | Traditional Methods | π³ |
