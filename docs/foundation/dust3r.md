@@ -79,9 +79,10 @@
 ### DTU Dataset (3D Reconstruction)
 | Method | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ |
 |--------|------|------------|----------------|-----------|
-| COLMAP | Traditional | 0.70 | 0.96 | 0.83 |
+| Gipuma | Traditional+GT | 0.283 | 0.873 | 0.578 |
 | MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 |
-| **DUSt3R** | **Feed-forward** | **2.677** | **0.805** | **1.741** |
+| CVP-MVSNet | Learning+GT | 0.296 | 0.406 | 0.351 |
+| **DUSt3R** | **No GT cameras** | **2.677** | **0.805** | **1.741** |
 
 *Note: DUSt3R operates without calibration or GT depth, making direct comparison complex.*
 
@@ -92,23 +93,24 @@
 | RTA@15 ↑ | 86.8% | Relative Translation Accuracy |
 | mAA(30) ↑ | 76.7% | Mean Average Accuracy |
 
-### 7-Scenes (Indoor Localization)
+### 7-Scenes (Visual Localization)
 | Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
 |-------|-------------------|------------------|---------|
-| Chess | 2.74 | 1.16 | DUSt3R 512 |
-| Fire | 3.31 | 1.52 | DUSt3R 512 |
-| Heads | 3.27 | 1.84 | DUSt3R 512 |
-| Office | 4.08 | 1.37 | DUSt3R 512 |
-| Pumpkin | 3.53 | 1.00 | DUSt3R 512 |
-| Kitchen | 2.85 | 1.20 | DUSt3R 512 |
-| Stairs | 0.97 | 1.26 | DUSt3R 512 |
+| Chess | 3 | 0.97 | DUSt3R 512 |
+| Fire | 3 | 1.01 | DUSt3R 512 |
+| Heads | 2 | 1.37 | DUSt3R 512 |
+| Office | 4 | 1.14 | DUSt3R 512 |
+| Pumpkin | 4 | 1.34 | DUSt3R 512 |
+| Kitchen | 11 | 2.84 | DUSt3R 512 |
+| Stairs | 6 | 0.26 | DUSt3R 512 |
 
 ### Monocular Depth Estimation
 | Dataset | AbsRel ↓ | δ1.25 ↑ | Type |
 |---------|----------|---------|------|
-| NYUv2 | 6.73 | 76.91 | Indoor |
-| KITTI | 9.11 | 73.48 | Outdoor |
-| ETH3D | 2.91 | 85.88 | Mixed |
+| NYUv2 | 4.93 | 60.20 | Indoor |
+| KITTI | 9.11 | 39.49 | Outdoor |
+| TUM | 3.17 | 76.68 | Indoor |
+| BONN | 2.91 | 76.91 | Outdoor |
 
 ### Paradigm Comparison
 | Aspect | Traditional (SfM+MVS) | DUSt3R |

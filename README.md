@@ -108,11 +108,12 @@ Efficient pose regression from DUSt3R's foundation.
 
 ### 🏆 Performance Overview
 
-#### DTU Dataset (Traditional Metrics)
+#### DTU Dataset (3D Reconstruction) 
 | Model | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ | Speed | Year |
 |-------|------|------------|-----------------|-----------|--------|------|
-| [DUSt3R](docs/foundation/dust3r.md) | Feed-forward | 2.677 | 0.805 | 1.741 | ~10s | 2024 |
-| **[MASt3R](docs/foundation/mast3r.md)** | **Enhanced** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
+| MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 | - | 2018 |
+| [DUSt3R](docs/foundation/dust3r.md) | No GT cameras | 2.677 | 0.805 | 1.741 | ~10s | 2024 |
+| **[MASt3R](docs/foundation/mast3r.md)** | **No GT cameras** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
 | [Fast3R](docs/reconstruction/fast3r.md) | Speed-optimized | - | - | 1.98 | 0.03s | 2025 |
 
 *Note: Lower is better for all metrics. MASt3R shows 78% improvement over DUSt3R.*
