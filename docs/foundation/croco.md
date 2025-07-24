@@ -1,12 +1,15 @@
 # CroCo: Self-Supervised Pre-training for 3D Vision Tasks by Cross-View Completion (NeurIPS 2022)
 
 ![CroCo Overview](https://ar5iv.labs.arxiv.org/html/2210.10716/assets/x1.png)
+
 *Figure 1: CroCo cross-view completion task*
 
 ![CroCo Architecture](https://ar5iv.labs.arxiv.org/html/2210.10716/assets/x2.png)
+
 *Figure 2: CroCo reconstruction examples*
 
 ![CroCo Architecture](https://ar5iv.labs.arxiv.org/html/2210.10716/assets/x3.png)
+
 *Figure 3: CroCo architecture*
 
 ## 📋 Overview
@@ -22,7 +25,7 @@
 2. **3D Vision-Oriented Pre-training**: Unlike semantic-focused methods (MAE), specifically designed for geometric understanding
 3. **Unified Architecture**: Single model handles both monocular (encoder only) and binocular tasks (full encoder-decoder)
 4. **State-of-the-art 3D Performance**: Achieves 85.6% δ₁ accuracy on NYUv2 depth estimation, surpassing all previous self-supervised methods
-5. **Synthetic Pre-training Success**: Demonstrates effectiveness of simulator-based training on 1.8M image pairs
+5. **Synthetic Pre-training Success**: Demonstrates effectiveness of simulator-based training on 1.82M image pairs
 
 ## 🔧 Technical Details
 
