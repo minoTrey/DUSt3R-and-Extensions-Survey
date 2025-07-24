@@ -46,6 +46,12 @@
 ## 📊 Results
 
 ### DTU Dataset (3D Reconstruction)
+
+**Compared Methods**:
+- *Handcrafted (with GT cameras)*: Camp, Furu, Tola, Gipuma
+- *Learning-based (with GT cameras)*: MVSNet, CVP-MVSNet, UCS-Net, CER-MVS, CIDER, CasMVSNet, PatchmatchNet, GeoMVSNet
+- *DUSt3R*: No GT cameras required
+
 | Method | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ |
 |--------|------|------------|----------------|-----------|
 | Gipuma | Traditional+GT | 0.283 | 0.873 | 0.578 |
@@ -56,6 +62,9 @@
 *Note: DUSt3R operates without calibration or GT depth, making direct comparison complex.*
 
 ### Multi-view Pose Estimation (CO3Dv2)
+
+**Compared Methods**: RelPose, PoseReg, PoseDiffusion, PixSFM, COLMAP+SPSG
+
 | Metric | DUSt3R (w/ GA) | Description |
 |--------|----------------|-------------|
 | RRA@15 ↑ | 96.2% | Relative Rotation Accuracy |
@@ -63,6 +72,18 @@
 | mAA(30) ↑ | 76.7% | Mean Average Accuracy |
 
 ### Visual Localization (7-Scenes)
+
+**Compared Methods**: 
+- *Feature Matching (FM)*: Traditional feature-based methods
+- *Active Search (AS)*: Direct 2D-3D matching
+- *HLoc*: Hierarchical localization
+- *DSAC* / DSAC**: Neural scene coordinate regression
+- *HSCNet*: Hybrid scene coordinate network
+- *PixLoc*: Direct alignment via differentiable rendering
+- *SC-wLS*: Scene coordinate regression with weighted least squares
+- *NeuMaps*: Neural implicit scene representation
+- *DUSt3R*: Direct 3D regression without scene-specific training
+
 | Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
 |-------|-------------------|------------------|---------|
 | Chess | 3 | 0.97 | DUSt3R 512 |
@@ -74,6 +95,9 @@
 | Stairs | 11 | 2.84 | DUSt3R 512 |
 
 ### Visual Localization (Cambridge Landmarks)
+
+**Compared Methods**: Same as 7-Scenes above, evaluated on outdoor landmarks
+
 | Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
 |-------|-------------------|------------------|---------|
 | St. Facade | 6 | 0.26 | DUSt3R 512 |
@@ -83,6 +107,15 @@
 | Great Court | 38 | 0.16 | DUSt3R 512 |
 
 ### Multi-view Depth Estimation
+
+**Compared Methods**:
+- *Supervised methods*: DeMoN, BA-Net, DeepV2D - Require ground truth depth/poses
+- *Self-supervised methods*: 
+  - Robust-CVD: Cross-view depth consistency
+  - SC-DepthV1/V2: Scale-consistent depth learning
+  - IterMVS: Iterative multi-view stereo
+- *DUSt3R*: No ground truth depth or camera poses required
+
 | Dataset | Rel. Error ↓ | Inlier τ@1.25 ↑ | Type |
 |---------|-------------|-----------------|------|
 | KITTI | 9.11 | 39.49 | Outdoor |
