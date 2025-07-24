@@ -1,10 +1,13 @@
 # CroCo: Self-Supervised Pre-training for 3D Vision Tasks by Cross-View Completion (NeurIPS 2022)
 
 ![CroCo Overview](https://ar5iv.labs.arxiv.org/html/2210.10716/assets/x1.png)
-*Figure 1: CroCo cross-view completion - reconstructing masked content from one view using another view*
+*Figure 1: CroCo cross-view completion task*
+
+![CroCo Architecture](https://ar5iv.labs.arxiv.org/html/2210.10716/assets/x2.png)
+*Figure 2: CroCo reconstruction examples*
 
 ![CroCo Architecture](https://ar5iv.labs.arxiv.org/html/2210.10716/assets/x3.png)
-*Figure 3: CroCo architecture with encoder-decoder design for cross-view completion*
+*Figure 3: CroCo architecture*
 
 ## 📋 Overview
 - **Authors**: Philippe Weinzaepfel, Vincent Leroy, Thomas Lucas, Romain Brégier, Yohann Cabon, Vaibhav Arora, Leonid Antsfeld, Boris Chidlovskii, Gabriela Csurka, Jérôme Revaud

@@ -1,15 +1,13 @@
 # CroCo v2: Improved Cross-view Completion Pre-training for Stereo Matching and Optical Flow (2023)
 
-![CroCo v2 Improvements](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x2.png)
-*Figure 2: Overview of CroCo v2 improvements - (a) real-world image collection, (b) RoPE embeddings for relative positions, (c) scaled network architecture*
+![CroCo v2](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x1.png)
+*Figure 1: CroCo v2 overview*
 
-![CroCo v2 Data Collection](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x4.png)
-*Figure 4: Overview of pre-training cropped image pair collection method for real-world datasets*
+![CroCo v2](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x2.png)
+*Figure 2: CroCo v2 improvements*
 
-<!-- Additional visualizations from the paper:
-- Achieves SOTA on Middlebury stereo (1.82 bad@1.0) and Sintel optical flow (1.25 EPE clean)
-- First pure transformer to reach SOTA without correlation volumes or iterative refinement
-- Unified model for both stereo and flow tasks -->
+![CroCo v2](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x7.png)
+*Figure 7: CroCo v2 results*
 
 ## 📋 Overview
 - **Authors**: Philippe Weinzaepfel, Thomas Lucas, Vincent Leroy, Yohann Cabon, Vaibhav Arora, Romain Brégier, Gabriela Csurka, Leonid Antsfeld, Boris Chidlovskii, Jérôme Revaud
