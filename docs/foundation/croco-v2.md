@@ -12,7 +12,7 @@
 ## 📋 Overview
 - **Authors**: Philippe Weinzaepfel, Thomas Lucas, Vincent Leroy, Yohann Cabon, Vaibhav Arora, Romain Brégier, Gabriela Csurka, Leonid Antsfeld, Boris Chidlovskii, Jérôme Revaud
 - **Institution**: NAVER LABS Europe
-- **Venue**: arXiv preprint (arXiv:2211.10408v3)
+- **Venue**: ICCV 2023
 - **Links**: [Paper](https://arxiv.org/abs/2211.10408) | [Code](https://github.com/naver/croco) | [Project Page](https://croco.europe.naverlabs.com/)
 - **TL;DR**: Enhanced CroCo with real-world data, relative position embeddings, and larger models, achieving SOTA on stereo and optical flow without task-specific components.
 
@@ -122,7 +122,7 @@ First pure transformer method to achieve SOTA without:
 
 ### Evolution Path
 - **CroCo** (NeurIPS 2022): Original cross-view completion
-- **CroCo v2** (arXiv 2023): This work
+- **CroCo v2** (ICCV 2023): This work
 - **DUSt3R** (CVPR 2024): Extends to uncalibrated 3D reconstruction
 - **MASt3R** (ECCV 2024): Further unification of 3D tasks
 
