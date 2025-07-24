@@ -35,13 +35,13 @@ DUSt3R has catalyzed a paradigm shift in 3D reconstruction, moving from traditio
 ### 🔬 [Foundation Models](docs/foundation/) (5 papers)
 The seminal works that established the feed-forward 3D reconstruction paradigm.
 
-| Paper | Venue | Key Innovation | Impact |
-|-------|-------|----------------|--------|
-| [CroCo](docs/foundation/croco.md) | ICCV 2023 | Cross-view completion pretraining | Foundation for DUSt3R |
-| [CroCo v2](docs/foundation/croco-v2.md) | CVPR 2024 | Enhanced stereo & optical flow | Better pretraining |
-| **[DUSt3R](docs/foundation/dust3r.md)** ⭐ | CVPR 2024 | **End-to-end 3D reconstruction** | **Started the revolution** |
-| [MASt3R](docs/foundation/mast3r.md) | ECCV 2024 | 3D-aware feature matching | SOTA matching accuracy |
-| [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | arXiv 2024 | Complete SfM pipeline | Handles large collections |
+| Paper | Venue | Key Innovation | Best Performance |
+|-------|-------|----------------|-----------------|
+| [CroCo](docs/foundation/croco.md) | ICCV 2023 | Cross-view completion pretraining | 85.6% on NYUv2 depth |
+| [CroCo v2](docs/foundation/croco-v2.md) | CVPR 2024 | Enhanced stereo & optical flow | 1.25 EPE on Sintel (SOTA) |
+| **[DUSt3R](docs/foundation/dust3r.md)** ⭐ | CVPR 2024 | **End-to-end 3D reconstruction** | **No calibration needed** |
+| [MASt3R](docs/foundation/mast3r.md) | ECCV 2024 | 3D-aware feature matching | 91.4% MMA@10px (SOTA) |
+| [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | arXiv 2024 | Complete SfM pipeline | 100% registration T&T |
 
 ### 🏗️ [3D Reconstruction](docs/reconstruction/) (18 papers)
 Core advances in static scene reconstruction, multi-view consistency, and large-scale scenarios.
@@ -133,6 +133,16 @@ Efficient pose regression from DUSt3R's foundation.
 | **[π³ (Pi3)](docs/reconstruction/pi3.md)** ⭐ | **0.074** | **0.014** | **99.05** | **57.4 FPS** | **2025** |
 
 *Pi3: 55% better on Sintel, 33% faster than VGGT, with permutation-equivariant design.*
+
+#### Foundation Models Evolution
+| Model | Stereo (Middlebury) | Optical Flow (Sintel) | Feature Matching | 3D Recon (DTU) |
+|-------|---------------------|----------------------|------------------|----------------|
+| [CroCo](docs/foundation/croco.md) | 5.0 bad@1.0 | 3.00 EPE | - | - |
+| [CroCo v2](docs/foundation/croco-v2.md) | **1.82** bad@1.0 | **1.25** EPE | - | - |
+| [DUSt3R](docs/foundation/dust3r.md) | - | - | - | 1.741 overall |
+| [MASt3R](docs/foundation/mast3r.md) | - | - | **91.4%** MMA@10px | **0.374** overall |
+
+*Foundation models show dramatic improvements: CroCo v2 achieved SOTA on stereo/flow, MASt3R improved 3D reconstruction by 78%.*
 
 ### 🔄 Paradigm Comparison
 | Aspect | Traditional (COLMAP) | DUSt3R Family | Latest ([Pi3](docs/reconstruction/pi3.md)/[VGGT](docs/reconstruction/vggt.md)) | Benefits |

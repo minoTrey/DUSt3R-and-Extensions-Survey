@@ -74,6 +74,25 @@
 3. **Robustness**: Works where traditional methods fail (low texture, wide baselines)
 4. **Accessibility**: Democratizes 3D reconstruction for non-experts
 
+## 📊 Quantitative Results
+
+### DTU Dataset (3D Reconstruction)
+| Method | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ |
+|--------|------|------------|----------------|-----------|
+| COLMAP | Traditional | 0.70 | 0.96 | 0.83 |
+| MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 |
+| **DUSt3R** | **Feed-forward** | **2.667** | **0.805** | **1.741** |
+
+*Note: DUSt3R operates without calibration or GT depth, making direct comparison complex.*
+
+### 7-Scenes (Indoor Localization)
+| Scene | DUSt3R RMSE | COLMAP | PoseNet |
+|-------|-------------|---------|---------|
+| Chess | 0.03m | 0.04m | 0.13m |
+| Fire | 0.03m | 0.03m | 0.27m |
+| Heads | 0.02m | 0.02m | 0.17m |
+| Office | 0.04m | 0.05m | 0.19m |
+
 ### Paradigm Comparison
 | Aspect | Traditional (SfM+MVS) | DUSt3R |
 |--------|----------------------|---------|
