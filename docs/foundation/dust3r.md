@@ -45,37 +45,6 @@
 
 ## 📊 Results
 
-### Quantitative Performance
-
-#### DTU Dataset (3D Reconstruction)
-| Method | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ |
-|--------|------|------------|----------------|-----------|
-| COLMAP | Traditional | 0.70 | 0.96 | 0.83 |
-| MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 |
-| **DUSt3R** | **Feed-forward** | **2.667** | **0.805** | **1.741** |
-
-#### 7-Scenes (Pose Estimation)
-| Scene | DUSt3R | COLMAP | PoseNet |
-|-------|--------|---------|---------|
-| Chess | 0.03m | 0.04m | 0.13m |
-| Fire | 0.03m | 0.03m | 0.27m |
-| Heads | 0.02m | 0.02m | 0.17m |
-
-### Qualitative Results
-- Handles diverse scenes: indoor, outdoor, close-up, wide baseline
-- Robust to challenging conditions: textureless regions, reflections, repetitive patterns
-- Produces complete 3D models from as few as 2 images
-
-## 💡 Insights & Impact
-
-### Revolutionary Aspects
-1. **Simplicity**: Removes need for feature matching, bundle adjustment, calibration
-2. **Speed**: Real-time capable (compared to minutes/hours for traditional methods)
-3. **Robustness**: Works where traditional methods fail (low texture, wide baselines)
-4. **Accessibility**: Democratizes 3D reconstruction for non-experts
-
-## 📊 Quantitative Results
-
 ### DTU Dataset (3D Reconstruction)
 | Method | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ |
 |--------|------|------------|----------------|-----------|
@@ -111,6 +80,19 @@
 | KITTI | 9.11 | 39.49 | Outdoor |
 | TUM | 3.17 | 76.68 | Indoor |
 | BONN | 2.91 | 76.91 | Outdoor |
+
+### Qualitative Results
+- Handles diverse scenes: indoor, outdoor, close-up, wide baseline
+- Robust to challenging conditions: textureless regions, reflections, repetitive patterns
+- Produces complete 3D models from as few as 2 images
+
+## 💡 Insights & Impact
+
+### Revolutionary Aspects
+1. **Simplicity**: Removes need for feature matching, bundle adjustment, calibration
+2. **Speed**: Real-time capable (compared to minutes/hours for traditional methods)
+3. **Robustness**: Works where traditional methods fail (low texture, wide baselines)
+4. **Accessibility**: Democratizes 3D reconstruction for non-experts
 
 ### Paradigm Comparison
 | Aspect | Traditional (SfM+MVS) | DUSt3R |
