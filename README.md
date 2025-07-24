@@ -106,26 +106,36 @@ Efficient pose regression from DUSt3R's foundation.
 
 ## 📊 Key Comparisons & Benchmarks
 
-### 🏆 Performance Overview (DTU Dataset)
-| Model | Type | Accuracy ↓ | Completeness ↓ | F-Score ↑ | Speed | Year |
-|-------|------|------------|-----------------|-----------|--------|------|
-| COLMAP | Traditional | 0.812 | 0.940 | 0.721 | Minutes | - |
-| DUSt3R | Feed-forward | 0.923 | 0.960 | 0.689 | ~10s | 2024 |
-| MASt3R | Feed-forward | 0.760 | 0.880 | 0.714 | ~7s | 2024 |
-| VGGT | Unified | 0.677 | 0.720 | 0.798 | 0.2s | 2025 |
-| **π³ (Pi3)** ⭐ | **Permutation-equivariant** | **Best** | **Best** | **Best** | **Fast** | **2025** |
-| MV-DUSt3R+ | Single-stage | 0.640 | 0.720 | 0.798 | ~2s | 2025 |
+### 🏆 Performance Overview
 
-*Note: Lower is better for accuracy/completeness. Pi3 achieves state-of-the-art results.*
+#### DTU Dataset (Traditional Metrics)
+| Model | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ | Speed | Year |
+|-------|------|------------|-----------------|-----------|--------|------|
+| DUSt3R | Feed-forward | 2.667 | 0.805 | 1.741 | ~10s | 2024 |
+| **MASt3R** | **Enhanced** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
+| Fast3R | Speed-optimized | - | - | 1.98 | 0.03s | 2025 |
+
+*Note: Lower is better for all metrics. MASt3R shows 78% improvement over DUSt3R.*
+
+#### Modern Benchmarks (Multiple Datasets)
+| Model | Dataset | Key Metric | Value | Speed | Year |
+|-------|---------|------------|-------|--------|------|
+| VGGT | ETH3D | F-Score ↑ | 0.798 | 0.2s (45× faster) | 2025 |
+| **π³ (Pi3)** ⭐ | Multiple | **State-of-the-art** | **Best** | Fast | 2025 |
+| ReconX | DTU (3 views) | PSNR ↑ | 24.2 | - | 2025 |
+| Dust-GS | DTU (4 views) | PSNR ↑ | 23.1 | - | 2024 |
+
+*Note: Pi3 surpasses VGGT across all metrics but specific values not published yet.*
 
 ### 🔄 Paradigm Comparison
-| Aspect | Traditional (SfM+MVS) | Feed-forward (DUSt3R+) | Benefits |
-|--------|----------------------|------------------------|----------|
-| **Workflow** | Multi-stage, Sequential | End-to-end, Parallel | 10-100× faster |
-| **Robustness** | Fails on textureless | Works everywhere | More reliable |
-| **Speed** | Minutes to hours | Seconds | Real-time possible |
-| **Calibration** | Required | Not needed | Easier to use |
-| **Min Images** | 10+ for good results | 2 images sufficient | More flexible |
+| Aspect | Traditional (COLMAP) | DUSt3R Family | Latest (Pi3/VGGT) | Benefits |
+|--------|---------------------|---------------|-------------------|----------|
+| **Workflow** | Multi-stage pipeline | End-to-end | Single forward pass | 100-300× faster |
+| **Robustness** | Fails on textureless | Learned priors | Universal | Works everywhere |
+| **Speed** | Minutes-hours | 5-10 seconds | 0.03-0.2 seconds | Real-time ready |
+| **Calibration** | Required | Not needed | Not needed | Zero setup |
+| **Min Images** | 10+ optimal | 2+ sufficient | 2+ sufficient | Flexible input |
+| **Accuracy** | High (given texture) | Good | State-of-the-art | Best quality |
 
 ## 🛠️ Implementation Resources
 
