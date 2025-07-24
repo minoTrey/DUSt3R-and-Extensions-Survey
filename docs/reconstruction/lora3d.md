@@ -1,6 +1,6 @@
 # LoRA3D: Low-Rank Self-Calibration of 3D Geometric Foundation Models (ICLR 2025)
 
-![LoRA3D Pipeline](https://520xyxyzq.github.io/lora3d/static/images/replica.png)
+![LoRA3D Pipeline](https://arxiv.org/html/2412.07746v1/extracted/6056771/Figures/fig1.png)
 *LoRA3D enables efficient self-calibration of 3D foundation models using low-rank adaptation for improved geometric accuracy*
 
 ## 📋 Overview

@@ -2,7 +2,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-and-Extensions-Survey?style=social)](https://github.com/minoTrey/DUSt3R-and-Extensions-Survey)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Papers](https://img.shields.io/badge/Papers-55-green.svg)](#papers-database)
+[![Papers](https://img.shields.io/badge/Papers-58-green.svg)](#papers-database)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-July%202025-orange.svg)](#)
 
 > **A systematic survey of DUSt3R and its extensions for feed-forward 3D reconstruction**
@@ -23,7 +23,7 @@ DUSt3R has catalyzed a paradigm shift in 3D reconstruction, moving from traditio
 2022 ██ 1 paper   (CroCo)
 2023 ██ 1 paper   (CroCo v2)  
 2024 ████████████████████ 17 papers
-2025 ████████████████████████████████████████████████████████████████ 39 papers
+2025 ████████████████████████████████████████████████████████████████ 38 papers
 ```
 
 ## 🏷️ Research Categories
@@ -89,7 +89,7 @@ Semantic integration, multi-view consistency evaluation, and spatial reasoning.
 ### 🔍 [Scene Reasoning](docs/reasoning/) (3 papers)
 Advanced geometric reasoning, amodal completion, and spatial understanding.
 
-### 🤖 [Robotics](docs/robotics/) (2 papers)
+### 🤖 [Robotics](docs/robotics/) (1 paper)
 Applications in robotic perception, manipulation, and spatial understanding.
 
 ### 🏥 [Medical Applications](docs/medical/) (1 paper)

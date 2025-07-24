@@ -1,6 +1,6 @@
 # Unifying Scene Representation and Hand-Eye Calibration with 3D Foundation Models (RAL 2024)
 
-![Unified Framework Overview](https://arxiv.org/html/2404.11683v1/x1.png)
+![Unified Framework Overview](https://arxiv.org/html/2404.11683v1/extracted/2404.11683v1/fig1.png)
 *Unified framework for joint scene representation and hand-eye calibration using 3D foundation models without external markers*
 
 ## 📋 Overview

@@ -1,6 +1,6 @@
 # MASt3R-SfM: A Fully-Integrated Solution for Unconstrained Structure-from-Motion (3DV 2025)
 
-![MASt3R-SfM Architecture](https://raw.githubusercontent.com/naver/mast3r/main/assets/mast3r_archi.jpg)
+![MASt3R-SfM Architecture](	https://arxiv.org/html/2409.19152v1/x2.png)
 *MASt3R-SfM replaces the entire traditional SfM pipeline with an end-to-end foundation model approach*
 
 ## 📋 Overview

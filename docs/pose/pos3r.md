@@ -7,7 +7,7 @@
 - **Authors**: Weijian Deng, Dylan Campbell, Chunyi Sun, Jiahao Zhang, Shubham Kanitkar, Matthew E. Shaffer, Stephen Gould
 - **Institution**: Australian National University
 - **Venue**: CVPR 2025
-- **Links**: [Paper](https://openaccess.thecvf.com/content/CVPR2025/papers/Deng_Pos3R_6D_Pose_Estimation_for_Unseen_Objects_Made_Easy_CVPR_2025_paper.pdf) | [Video](https://www.youtube.com/watch?v=_a9q_O8yN4E) | [CVPR Page](https://cvpr.thecvf.com/virtual/2025/poster/35115)
+- **Links**: [Paper](https://openaccess.thecvf.com/content/CVPR2025/html/Deng_Pos3R_6D_Pose_Estimation_for_Unseen_Objects_Made_Easy_CVPR_2025_paper.html) | [Video](https://www.youtube.com/watch?v=_a9q_O8yN4E)
 - **TL;DR**: Zero-shot 6D pose estimation using 3D foundation models, achieving competitive BOP benchmark results without any additional training on target objects.
 
 ## 🎯 Key Contributions

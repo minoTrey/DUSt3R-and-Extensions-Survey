@@ -1,8 +1,8 @@
 # Complete Papers List
 
 ## Summary Statistics
-- **Total Papers**: 59
-- **2025 Papers**: 39
+- **Total Papers**: 58
+- **2025 Papers**: 38
 - **2024 Papers**: 17
 - **2023 Papers**: 1
 - **2022 Papers**: 1
@@ -72,9 +72,8 @@
 2. **RaySt3R** - Predicting Novel Depth Maps for Zero-Shot Object Completion (arXiv 2025)
 3. **Amodal3R** - Amodal 3D Reconstruction from Occluded 2D Images (ICCV 2025)
 
-### Robotics (2)
+### Robotics (1)
 1. **Unifying Scene Representation and Hand-Eye Calibration with 3D Foundation Models** (RAL 2024)
-2. **3D Foundation Models Enable Simultaneous Geometry and Pose Estimation of Grasped Objects** (arXiv 2024)
 
 ### Medical Applications (1)
 1. **Endo3R** - Unified Online Reconstruction from Dynamic Monocular Endoscopic Video (arXiv 2025)
