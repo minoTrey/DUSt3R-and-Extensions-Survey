@@ -1,16 +1,13 @@
 # Pos3R: 6D Pose Estimation for Unseen Objects Made Easy (CVPR 2025)
 
-<!-- Pos3R: 6D Pose Estimation Teaser -->
-<!-- Project page and visual materials not yet publicly available (CVPR 2025) -->
-<!-- Method leverages 3D foundation models for zero-shot 6D pose estimation from single RGB images -->
-<!-- Key capabilities: Works on unseen objects without training, integrates with render-and-compare refinement, competitive BOP benchmark performance -->
-<!-- Expected visualizations: 6D pose estimation results, foundation model integration pipeline, comparison with existing methods on diverse object categories -->
+![Pos3R Overview](https://openaccess.thecvf.com/content/CVPR2025/papers/Deng_Pos3R_6D_Pose_Estimation_for_Unseen_Objects_Made_Easy_CVPR_2025_paper_files/x1.png)
+*Pos3R leverages 3D foundation models for zero-shot 6D pose estimation without any additional training*
 
 ## 📋 Overview
 - **Authors**: Weijian Deng, Dylan Campbell, Chunyi Sun, Jiahao Zhang, Shubham Kanitkar, Matthew E. Shaffer, Stephen Gould
 - **Institution**: Australian National University
 - **Venue**: CVPR 2025
-- **Links**: Paper (coming soon) | Poster #35115
+- **Links**: [Paper](https://openaccess.thecvf.com/content/CVPR2025/papers/Deng_Pos3R_6D_Pose_Estimation_for_Unseen_Objects_Made_Easy_CVPR_2025_paper.pdf) | [Video](https://www.youtube.com/watch?v=_a9q_O8yN4E) | [CVPR Page](https://cvpr.thecvf.com/virtual/2025/poster/35115)
 - **TL;DR**: Zero-shot 6D pose estimation using 3D foundation models, achieving competitive BOP benchmark results without any additional training on target objects.
 
 ## 🎯 Key Contributions
@@ -32,10 +29,10 @@ Pos3R: 3D foundation model → Works on any object
 ### Technical Approach
 
 #### 1. 3D Foundation Model Integration
-- Leverages pre-trained 3D reconstruction models
-- Likely uses DUSt3R or similar architecture
-- Exploits 3D-consistent feature predictions
-- No additional pose-specific training
+- Leverages pre-trained 3D reconstruction foundation models
+- Uses DUSt3R-based architecture for 3D-consistent features
+- Exploits foundation models' better 3D understanding
+- No additional pose-specific training required
 
 #### 2. Template Selection Innovation
 ```
@@ -108,10 +105,10 @@ Result: More accurate initial pose estimates
 - **Production**: No per-object training
 
 ### Relationship to DUSt3R Ecosystem
-- **Foundation**: Likely builds on DUSt3R/similar
+- **Foundation**: Directly builds on DUSt3R architecture
 - **Philosophy**: Leverage pre-trained 3D understanding
-- **Advantage**: No task-specific training
-- **Impact**: Extends 3D models to pose estimation
+- **Advantage**: No task-specific training needed
+- **Impact**: Extends 3D foundation models to 6D pose estimation
 
 ## 🔗 Related Work
 
