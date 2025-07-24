@@ -12,17 +12,17 @@
 ## 📋 Overview
 - **Authors**: Philippe Weinzaepfel, Thomas Lucas, Vincent Leroy, Yohann Cabon, Vaibhav Arora, Romain Brégier, Gabriela Csurka, Leonid Antsfeld, Boris Chidlovskii, Jérôme Revaud
 - **Institution**: NAVER LABS Europe
-- **Venue**: ICCV 2023 (arXiv:2211.10408v3)
+- **Venue**: arXiv preprint (arXiv:2211.10408v3)
 - **Links**: [Paper](https://arxiv.org/abs/2211.10408) | [Code](https://github.com/naver/croco) | [Project Page](https://croco.europe.naverlabs.com/)
 - **TL;DR**: Enhanced CroCo with real-world data, relative position embeddings, and larger models, achieving SOTA on stereo and optical flow without task-specific components.
 
 ## 🎯 Key Contributions
 
-1. **Real-world Data Collection**: Introduces methodology to collect 5.3M real image pairs from ARKitScenes, MegaDepth, 3DStreetView, and IndoorVL
-2. **Relative Position Embeddings**: Replaces absolute cosine embeddings with RoPE for better resolution flexibility
-3. **Model Scaling**: Upgrades to ViT-Large encoder and Base decoder for improved capacity
-4. **SOTA Performance**: First transformer-based method to achieve state-of-the-art on stereo and flow without correlation volumes
-5. **Unified Architecture**: Single model excels at both stereo matching and optical flow
+1. **Real-world Data Collection**: Automated methodology to collect 5.3M real image pairs with geometric consistency
+2. **Relative Position Embeddings**: Replaces absolute embeddings with RoPE, enabling better generalization
+3. **Model Scaling**: Scales encoder to ViT-Large and decoder to Base size  
+4. **Task-agnostic Design**: Achieves strong results without correlation volumes, iterative refinement, or warping
+5. **Universal Architecture**: Same model architecture for both stereo matching and optical flow
 
 ## 🔧 Technical Details
 
@@ -47,30 +47,50 @@
 **Total**: 7.1M pairs (5.3M real + 1.82M synthetic)
 
 ### Training Strategy
-- **Pre-training**: 100 epochs on 7.1M pairs
+- **Pre-training**: Cross-view completion on 7.1M pairs
 - **Masking**: 90% of first image patches
-- **Batch size**: 512 (64 per GPU × 8 GPUs)
-- **Learning rate**: 3×10⁻⁴ with cosine decay
-- **Augmentations**: Random crops, color jittering
+- **Batch size**: 512
+- **Optimizer**: AdamW
+- **Augmentations**: Basic augmentations (crops, color)
 
 ## 📊 Results
 
 ### Stereo Matching Performance
 
-| Dataset | Metric | CroCo v1 | CroCo v2 | Previous SOTA |
-|---------|--------|----------|----------|---------------|
-| Middlebury | bad@1.0 ↓ | 5.0 | **1.82** | 2.31 (RAFT) |
-| ETH3D | bad@1.0 ↓ | - | **0.38** | 0.47 (CRAFT) |
-| KITTI 2012 | bad@3.0 ↓ | - | **1.38** | 1.27 (CRAFT) |
-| SceneFlow | EPE ↓ | - | **5.3** | 6.3 (GMFlow) |
+#### Ablation Study (Middlebury)
+| Configuration | bad@2.0 ↓ |
+|--------------|----------|
+| CroCo (cosine) | 26.3 |
+| + RoPE | 25.3 |
+| + real-world pairs | 20.7 |
+| + larger decoder | 17.1 |
+| + larger encoder (CroCo v2) | **15.5** |
+
+#### Benchmark Results
+| Dataset | Metric | CroCo-Stereo |
+|---------|--------|-------------|
+| KITTI 2015 | D1-all ↓ | **1.59** |
+| ETH3D | bad@1.0 noc ↓ | **0.99** |
+| Spring | 1px error ↓ | **7.13** |
 
 ### Optical Flow Performance
 
-| Dataset | Split | CroCo v2 | Previous SOTA |
-|---------|-------|----------|---------------|
-| Sintel | Clean | **1.25** | 1.43 (FlowFormer) |
-| Sintel | Final | **2.26** | 2.51 (GMFlow) |
-| KITTI 2015 | Fl-all | **5.8%** | 6.4% (CRAFT) |
+#### Ablation Study (MPI-Sintel Clean)
+| Configuration | EPE ↓ |
+|--------------|-------|
+| CroCo (cosine) | 2.07 |
+| + RoPE | 2.13 |
+| + real-world pairs | 1.76 |
+| + larger decoder | 1.51 |
+| + larger encoder (CroCo v2) | **1.43** |
+
+#### Benchmark Results
+| Dataset | Split/Metric | CroCo-Flow |
+|---------|-------------|------------|
+| MPI-Sintel | Clean EPE ↓ | **1.09** |
+| MPI-Sintel | Final EPE ↓ | **2.44** |
+| KITTI | F1-all ↓ | **3.64** |
+| Spring | EPE ↓ | **0.498** |
 
 ### Key Achievement
 First pure transformer method to achieve SOTA without:
@@ -102,7 +122,7 @@ First pure transformer method to achieve SOTA without:
 
 ### Evolution Path
 - **CroCo** (NeurIPS 2022): Original cross-view completion
-- **CroCo v2** (ICCV 2023): This work
+- **CroCo v2** (arXiv 2023): This work
 - **DUSt3R** (CVPR 2024): Extends to uncalibrated 3D reconstruction
 - **MASt3R** (ECCV 2024): Further unification of 3D tasks
 
