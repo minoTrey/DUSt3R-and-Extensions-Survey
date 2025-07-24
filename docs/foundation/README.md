@@ -7,26 +7,26 @@ The Foundation Models category represents the seminal works that established the
 ## 📈 Research Timeline
 
 ```
-2022: CroCo     - Cross-view completion pretraining
+2022: [CroCo](croco.md)     - Cross-view completion pretraining (NeurIPS 2022)
       ↓
-2023: CroCo v2  - Enhanced stereo and optical flow
+2023: [CroCo v2](croco-v2.md)  - Enhanced stereo and optical flow (ICCV 2023)
       ↓
-2024: DUSt3R    - End-to-end 3D reconstruction ⭐ BREAKTHROUGH
+2024: [DUSt3R](dust3r.md)    - End-to-end 3D reconstruction (CVPR 2024) ⭐ BREAKTHROUGH
       ↓
-2024: MASt3R    - 3D-aware feature matching
+2024: [MASt3R](mast3r.md)    - 3D-aware feature matching (ECCV 2024)
       ↓
-2024: MASt3R-SfM - Complete SfM pipeline
+2025: [MASt3R-SfM](mast3r-sfm.md) - Complete SfM pipeline (3DV 2025)
 ```
 
 ## 🎯 Key Innovations & Breakthroughs
 
-### 1. **Self-supervised Pretraining** (CroCo, CroCo v2)
+### 1. **Self-supervised Pretraining** ([CroCo](croco.md), [CroCo v2](croco-v2.md))
 - **Innovation**: Cross-view completion as pretext task
 - **Impact**: No need for 3D ground truth annotations
 - **Result**: Effective representation learning for downstream tasks
 - **Key Insight**: Masking and predicting across views learns 3D structure
 
-### 2. **Feed-forward 3D Reconstruction** (DUSt3R) ⭐
+### 2. **Feed-forward 3D Reconstruction** ([DUSt3R](dust3r.md)) ⭐
 - **Innovation**: Direct regression of 3D pointmaps from image pairs
 - **Impact**: Eliminates need for calibration, SfM, or MVS
 - **Result**: 100x faster than traditional pipelines
@@ -35,51 +35,62 @@ The Foundation Models category represents the seminal works that established the
   - Global alignment optimization
   - Works with any number of uncalibrated images
 
-### 3. **3D-aware Feature Matching** (MASt3R)
-- **Innovation**: Combines DUSt3R's 3D understanding with feature matching
-- **Impact**: Superior accuracy over traditional feature matchers
-- **Result**: Robust multi-view reconstruction
+### 3. **3D-aware Feature Matching** ([MASt3R](mast3r.md))
+- **Innovation**: Treats matching as inherently 3D problem
+- **Impact**: 69% reduction in rotation error, 93.3% VCRE AUC
+- **Result**: State-of-the-art on HPatches, Map-free localization
 - **Advantages**:
-  - Geometrically consistent matches
-  - Handles wide baselines
-  - Works in low-texture areas
+  - Sub-millimeter reconstruction accuracy
+  - Handles arbitrary viewpoints
+  - Fast reciprocal matching scheme
 
-### 4. **Complete SfM Pipeline** (MASt3R-SfM)
-- **Innovation**: End-to-end trainable structure from motion
-- **Impact**: Handles unordered image collections automatically
-- **Result**: Competitive with COLMAP while being differentiable
+### 4. **Complete SfM Pipeline** ([MASt3R-SfM](mast3r-sfm.md))
+- **Innovation**: Replaces entire traditional SfM with foundation model
+- **Impact**: Linear O(N) complexity vs quadratic O(N²)
+- **Result**: 100% registration on Tanks & Temples, 96% on CO3Dv2
 - **Features**:
-  - Graph-based image connectivity
-  - Global optimization
-  - Scalable to large collections
+  - Works with as few as 3 images
+  - Handles pure rotation scenarios
+  - No RANSAC or minimal solvers needed
 
 ## 📊 Performance Comparison & Benchmarks
 
 ### DTU Dataset (3D Reconstruction Quality)
-| Model | Accuracy ↓ | Completeness ↓ | Overall ↓ | Speed |
-|-------|------------|----------------|-----------|--------|
-| COLMAP | 0.70 | 0.96 | 0.83 | ⭐⭐ |
-| DUSt3R | 2.67 | 0.81 | 1.74 | ⭐⭐⭐⭐⭐ |
-| MASt3R | 0.40 | 0.34 | 0.37 | ⭐⭐⭐⭐ |
+| Model | Accuracy ↓ | Completeness ↓ | Overall ↓ | Type |
+|-------|------------|----------------|-----------|------|
+| COLMAP | 0.835 | 0.554 | 0.695 | Traditional |
+| [DUSt3R](dust3r.md) | 2.677 | 0.805 | 1.741 | Zero-shot |
+| [MASt3R](mast3r.md) | **0.403** | **0.344** | **0.374** | Zero-shot |
 
-### HPatches (Feature Matching)
-| Model | MMA@3px | MMA@5px | MMA@10px |
-|-------|---------|---------|----------|
-| SuperPoint + SuperGlue | 52.4 | 68.1 | 82.7 |
-| MASt3R | 68.2 | 81.3 | 91.4 |
+### Map-free Localization
+| Model | VCRE AUC ↑ | Rotation Error ↓ |
+|-------|------------|------------------|
+| [DUSt3R](dust3r.md) | 69.7% | 7.1° |
+| [MASt3R](mast3r.md) (DPT) | 72.6% | 2.2° |
+| [MASt3R](mast3r.md) (auto) | **93.3%** | **2.2°** |
+
+### Multi-view Pose Estimation
+| Dataset | Method | Accuracy |
+|---------|--------|----------|
+| CO3Dv2 (10 views) | [DUSt3R](dust3r.md) | 77.2% |
+| | [MASt3R](mast3r.md) | 81.8% |
+| | [MASt3R-SfM](mast3r-sfm.md) | **96.0%** |
+| RealEstate10K | [DUSt3R](dust3r.md) | 61.2% |
+| | [MASt3R](mast3r.md) | 76.4% |
+| | [MASt3R-SfM](mast3r-sfm.md) | **93.1%** |
 
 ## 📚 Paper List (5 papers)
 
 ### 🌟 Pretraining Foundation
 1. [**CroCo**: Self-Supervised Pre-training for 3D Vision Tasks by Cross-View Completion](croco.md)
-   - **Venue**: ICCV 2023
+   - **Venue**: NeurIPS 2022
    - **Key**: Cross-view masked autoencoder
    - **Impact**: Foundation for DUSt3R training
 
 2. [**CroCo v2**: Improved Cross-view Completion Pre-training for Stereo Matching and Optical Flow](croco-v2.md)
-   - **Venue**: CVPR 2024
+   - **Venue**: ICCV 2023
    - **Key**: Enhanced architecture and training
-   - **Impact**: Better stereo and flow performance
+   - **Impact**: State-of-the-art on Spring benchmark
 
 ### 🏆 Core Innovation
 3. [**DUSt3R**: Geometric 3D Vision Made Easy](dust3r.md) ⭐ **SEMINAL WORK**
@@ -93,10 +104,10 @@ The Foundation Models category represents the seminal works that established the
    - **Key**: 3D-aware feature matching
    - **Impact**: State-of-the-art matching accuracy
 
-5. [**MASt3R-SfM**: A Fully-Integrated Solution for Uncalibrated Multi-View 3D Reconstruction](mast3r-sfm.md)
-   - **Venue**: arXiv 2024
-   - **Key**: Complete differentiable SfM
-   - **Impact**: Handles large unordered collections
+5. [**MASt3R-SfM**: A Fully-Integrated Solution for Unconstrained Structure-from-Motion](mast3r-sfm.md)
+   - **Venue**: 3DV 2025
+   - **Key**: Linear complexity SfM
+   - **Impact**: 100% registration on challenging datasets
 
 ## 💡 Impact & Paradigm Shift
 
@@ -125,14 +136,14 @@ These foundation models have fundamentally transformed 3D computer vision:
    - Industry adoption
 
 ### Technical Impact
-- **Speed**: 100x faster than traditional methods
-- **Robustness**: Works on challenging scenes
-- **Generalization**: Zero-shot to new domains
-- **Simplicity**: Single forward pass
+- **Speed**: 300x faster than COLMAP ([DUSt3R](dust3r.md))
+- **Accuracy**: 78.5% reduction in DTU error ([MASt3R](mast3r.md))
+- **Robustness**: Works with 3-200+ images
+- **Complexity**: O(N) vs O(N²) scaling ([MASt3R-SfM](mast3r-sfm.md))
 
 ## 🚀 Getting Started
 
-### Quick Start with DUSt3R
+### Quick Start with [DUSt3R](dust3r.md)
 ```python
 # Install
 pip install dust3r
@@ -157,9 +168,9 @@ confidence = output['confidence']
 ```
 
 ### Choose Your Model
-- **DUSt3R**: General 3D reconstruction
-- **MASt3R**: When you need accurate matches
-- **MASt3R-SfM**: For large image collections
+- **[DUSt3R](dust3r.md)**: General 3D reconstruction
+- **[MASt3R](mast3r.md)**: When you need accurate matches
+- **[MASt3R-SfM](mast3r-sfm.md)**: For large image collections
 
 ## 🔮 Future Directions
 
@@ -172,12 +183,12 @@ confidence = output['confidence']
 ## 🔗 Relationship to Extensions
 
 The foundation models enable all other categories:
-- **Reconstruction**: Built directly on DUSt3R
-- **Gaussian Splatting**: Uses DUSt3R for initialization
+- **Reconstruction**: Built directly on [DUSt3R](dust3r.md)
+- **Gaussian Splatting**: Uses [DUSt3R](dust3r.md) for initialization
 - **Dynamic**: Extends to moving scenes
 - **Medical**: Adapts to specialized domains
 - **Robotics**: Provides geometric understanding
 
 ---
 
-*These foundation models represent a paradigm shift in 3D computer vision, making what was once complex and fragile now simple and robust. They are the bedrock upon which the entire DUSt3R ecosystem is built.*
+*These foundation models represent a paradigm shift in 3D computer vision, making what was once complex and fragile now simple and robust. They are the bedrock upon which the entire [DUSt3R](dust3r.md) ecosystem is built.*

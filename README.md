@@ -2,16 +2,16 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-Paper-Collection?style=social)](https://github.com/minoTrey/DUSt3R-Paper-Collection)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Papers](https://img.shields.io/badge/Papers-55-green.svg)](#papers-database)
+[![Papers](https://img.shields.io/badge/Papers-54-green.svg)](#papers-database)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-July%202025-orange.svg)](#)
 
-> **A curated collection of 55+ research papers on DUSt3R and feed-forward 3D reconstruction**
+> **A curated collection of 54+ research papers on DUSt3R and feed-forward 3D reconstruction**
 
 ## 🌟 What is DUSt3R?
 
 [DUSt3R](docs/foundation/dust3r.md) (Dense Uncalibrated Stereo 3D Reconstruction) revolutionized 3D computer vision by enabling **instant 3D reconstruction from uncalibrated images**. Unlike traditional methods requiring camera calibration and iterative optimization, DUSt3R uses a feed-forward neural network to directly predict 3D geometry.
 
-This paper collection tracks the explosive growth of the DUSt3R ecosystem, documenting **55 papers** with in-depth analysis that extend, improve, or apply this groundbreaking technology across diverse domains.
+This paper collection tracks the explosive growth of the DUSt3R ecosystem, documenting **54 papers** with in-depth analysis that extend, improve, or apply this groundbreaking technology across diverse domains.
 
 ## 🚀 Quick Start
 
@@ -24,10 +24,10 @@ This paper collection tracks the explosive growth of the DUSt3R ecosystem, docum
 DUSt3R has catalyzed a paradigm shift in 3D reconstruction, moving from traditional iterative pipelines to **end-to-end feed-forward models**. This survey tracks the explosive growth of this field:
 
 ```
-2022 ██ 1 paper   (CroCo)
-2023 ██ 1 paper   (CroCo v2)  
-2024 ████████████████████ 17 papers
-2025 ████████████████████████████████████████████████████████████████ 35 papers
+2022 ██ 1 paper   (CroCo - NeurIPS)
+2023 ██ 1 paper   (CroCo v2 - ICCV)  
+2024 ████████████████████ 16 papers
+2025 ████████████████████████████████████████████████████████████████ 36 papers
 ```
 
 ## 🏷️ Research Categories
@@ -37,11 +37,11 @@ The seminal works that established the feed-forward 3D reconstruction paradigm.
 
 | Paper | Venue | Key Innovation | Best Performance |
 |-------|-------|----------------|-----------------|
-| [CroCo](docs/foundation/croco.md) | ICCV 2023 | Cross-view completion pretraining | 85.6% on NYUv2 depth |
-| [CroCo v2](docs/foundation/croco-v2.md) | CVPR 2024 | Enhanced stereo & optical flow | 1.25 EPE on Sintel (SOTA) |
+| [CroCo](docs/foundation/croco.md) | NeurIPS 2022 | Cross-view completion pretraining | Foundation for DUSt3R |
+| [CroCo v2](docs/foundation/croco-v2.md) | ICCV 2023 | Enhanced stereo & optical flow | 1.25 EPE on Sintel (SOTA) |
 | **[DUSt3R](docs/foundation/dust3r.md)** ⭐ | CVPR 2024 | **End-to-end 3D reconstruction** | **No calibration needed** |
-| [MASt3R](docs/foundation/mast3r.md) | ECCV 2024 | 3D-aware feature matching | 91.4% MMA@10px (SOTA) |
-| [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | arXiv 2024 | Complete SfM pipeline | 100% registration T&T |
+| [MASt3R](docs/foundation/mast3r.md) | ECCV 2024 | 3D-aware feature matching | 93.3% VCRE AUC (SOTA) |
+| [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | 3DV 2025 | Complete SfM pipeline | 100% registration T&T |
 
 ### 🏗️ [3D Reconstruction](docs/reconstruction/) (18 papers)
 Core advances in static scene reconstruction, multi-view consistency, and large-scale scenarios.
@@ -111,12 +111,12 @@ Efficient pose regression from DUSt3R's foundation.
 #### DTU Dataset (3D Reconstruction) 
 | Model | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ | Speed | Year |
 |-------|------|------------|-----------------|-----------|--------|------|
+| COLMAP | Traditional | 0.835 | 0.554 | 0.695 | - | - |
 | MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 | - | 2018 |
-| [DUSt3R](docs/foundation/dust3r.md) | No GT cameras | 2.677 | 0.805 | 1.741 | ~10s | 2024 |
-| **[MASt3R](docs/foundation/mast3r.md)** | **No GT cameras** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
-| [Fast3R](docs/reconstruction/fast3r.md) | Speed-optimized | - | - | 1.98 | 0.03s | 2025 |
+| [DUSt3R](docs/foundation/dust3r.md) | Zero-shot | 2.677 | 0.805 | 1.741 | ~10s | 2024 |
+| **[MASt3R](docs/foundation/mast3r.md)** | **Zero-shot** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
 
-*Note: Lower is better for all metrics. MASt3R shows 78% improvement over DUSt3R.*
+*Note: Lower is better for all metrics. MASt3R shows 78.5% improvement over DUSt3R in overall score.*
 
 #### Point Map Reconstruction (DTU & ETH3D)
 | Model | DTU Acc. ↓ | DTU Comp. ↓ | ETH3D Acc. ↓ | ETH3D Comp. ↓ | Year |
@@ -136,14 +136,15 @@ Efficient pose regression from DUSt3R's foundation.
 *Pi3: 55% better on Sintel, 33% faster than VGGT, with permutation-equivariant design.*
 
 #### Foundation Models Evolution
-| Model | Stereo (Middlebury) | Optical Flow (Sintel) | Feature Matching | 3D Recon (DTU) |
-|-------|---------------------|----------------------|------------------|----------------|
-| [CroCo](docs/foundation/croco.md) | 5.0 bad@1.0 | 3.00 EPE | - | - |
-| [CroCo v2](docs/foundation/croco-v2.md) | **1.82** bad@1.0 | **1.25** EPE | - | - |
-| [DUSt3R](docs/foundation/dust3r.md) | - | - | - | 1.741 overall |
-| [MASt3R](docs/foundation/mast3r.md) | - | - | **91.4%** MMA@10px | **0.374** overall |
+| Model | Year | Venue | Key Innovation | Best Performance |
+|-------|------|-------|----------------|------------------|
+| [CroCo](docs/foundation/croco.md) | 2022 | NeurIPS | Cross-view MAE | Pre-training foundation |
+| [CroCo v2](docs/foundation/croco-v2.md) | 2023 | ICCV | Enhanced architecture | 1.25 EPE on Spring (SOTA) |
+| [DUSt3R](docs/foundation/dust3r.md) | 2024 | CVPR | Direct 3D prediction | 300× faster than COLMAP |
+| [MASt3R](docs/foundation/mast3r.md) | 2024 | ECCV | 3D-aware matching | 93.3% VCRE AUC |
+| [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | 2025 | 3DV | Linear complexity | 100% registration |
 
-*Foundation models show dramatic improvements: CroCo v2 achieved SOTA on stereo/flow, MASt3R improved 3D reconstruction by 78%.*
+*Evolution from pre-training (CroCo) → 3D reconstruction (DUSt3R) → matching (MASt3R) → complete SfM (MASt3R-SfM).*
 
 ### 🔄 Paradigm Comparison
 | Aspect | Traditional (COLMAP) | DUSt3R Family | Latest ([Pi3](docs/reconstruction/pi3.md)/[VGGT](docs/reconstruction/vggt.md)) | Benefits |
@@ -187,8 +188,8 @@ pts3d = output['pts3d']  # Your 3D points!
 ## 📋 Papers Database
 
 ### By Publication Year
-- **2025**: 35 papers (CVPR, ICCV, ICLR, 3DV, arXiv)
-- **2024**: 17 papers (CVPR, ECCV, NeurIPS, RAL, arXiv)
+- **2025**: 36 papers (CVPR, ICCV, ICLR, 3DV, arXiv)
+- **2024**: 16 papers (CVPR, ECCV, NeurIPS, RAL, arXiv)
 - **2023**: 1 paper (ICCV)
 - **2022**: 1 paper (NeurIPS)
 
@@ -238,7 +239,7 @@ pts3d = output['pts3d']  # Your 3D points!
 4. **Latest SOTA**: [π³ (Pi3)](docs/reconstruction/pi3.md) - See cutting edge
 
 ### 📖 Additional Resources
-- [📊 Complete Papers List](docs/papers-list.md) - All 55 papers with summaries
+- [📊 Complete Papers List](docs/papers-list.md) - All 54 papers with summaries
 - [🔍 Search by Topic](#research-categories) - Find specific applications
 - [💻 Code Examples](https://github.com/naver/dust3r) - Official tutorials
 
@@ -310,7 +311,7 @@ The DUSt3R ecosystem continues to evolve rapidly:
 [![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-Paper-Collection?style=social)](https://github.com/minoTrey/DUSt3R-Paper-Collection)
 [![Watchers](https://img.shields.io/github/watchers/minoTrey/DUSt3R-Paper-Collection?style=social)](https://github.com/minoTrey/DUSt3R-Paper-Collection)
 
-*Tracking 55 papers and growing | Last updated: July 2025*
+*Tracking 54 papers and growing | Last updated: July 2025*
 
 **[Submit a Paper](../../issues/new)** | **[Report an Issue](../../issues)** | **[Join Discussion](../../discussions)**
 
