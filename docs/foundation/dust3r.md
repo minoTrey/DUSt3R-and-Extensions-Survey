@@ -65,13 +65,22 @@
 ### Visual Localization (7-Scenes)
 | Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
 |-------|-------------------|------------------|---------|
-| Chess | 2 | 1.37 | DUSt3R 512 |
-| Fire | 3 | 1.01 | DUSt3R 512 |
-| Heads | 4 | 1.14 | DUSt3R 512 |
-| Office | 4 | 1.34 | DUSt3R 512 |
-| Pumpkin | 8 | 3.10 | DUSt3R 512 |
-| Kitchen | 7 | 3.37 | DUSt3R 512 |
+| Chess | 3 | 0.97 | DUSt3R 512 |
+| Fire | 3 | 0.95 | DUSt3R 512 |
+| Heads | 2 | 1.37 | DUSt3R 512 |
+| Office | 3 | 1.01 | DUSt3R 512 |
+| Pumpkin | 4 | 1.14 | DUSt3R 512 |
+| Kitchen | 4 | 1.34 | DUSt3R 512 |
 | Stairs | 11 | 2.84 | DUSt3R 512 |
+
+### Visual Localization (Cambridge Landmarks)
+| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
+|-------|-------------------|------------------|---------|
+| St. Facade | 6 | 0.26 | DUSt3R 512 |
+| Old Hospital | 17 | 0.33 | DUSt3R 512 |
+| King's College | 11 | 0.20 | DUSt3R 512 |
+| St. Mary's | 7 | 0.24 | DUSt3R 512 |
+| Great Court | 38 | 0.16 | DUSt3R 512 |
 
 ### Multi-view Depth Estimation
 | Dataset | Rel. Error ↓ | Inlier τ@1.25 ↑ | Type |
