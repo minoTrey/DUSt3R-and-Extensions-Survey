@@ -1,7 +1,10 @@
 # CroCo v2: Improved Cross-view Completion Pre-training for Stereo Matching and Optical Flow (2023)
 
-![CroCo v2 Improvements](https://arxiv.org/html/2211.10408v1/extracted/5173593/improvements.jpg)
-*CroCo v2: Overview of improvements including real-world data, RoPE embeddings, and scaled architecture*
+![CroCo v2 Improvements](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x2.png)
+*Figure 2: Overview of CroCo v2 improvements - (a) real-world image collection, (b) RoPE embeddings for relative positions, (c) scaled network architecture*
+
+![CroCo v2 Training Data](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x3.jpg)
+*Figure 3: Pre-training image pairs - Top: Habitat synthetic data (CroCo v1), Bottom: Real-world datasets (ARKitScenes, MegaDepth, 3DStreetView, IndoorVL)*
 
 <!-- Additional visualizations from the paper:
 - Achieves SOTA on Middlebury stereo (1.82 bad@1.0) and Sintel optical flow (1.25 EPE clean)

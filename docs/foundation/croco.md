@@ -1,6 +1,6 @@
 # CroCo: Self-Supervised Pre-training for 3D Vision Tasks by Cross-View Completion (NeurIPS 2022)
 
-![CroCo Overview](https://arxiv.org/html/2210.10716v1/extracted/5171218/cross_view_completion.jpg)
+![CroCo Overview](https://ar5iv.labs.arxiv.org/html/2210.10716/assets/x1.jpg)
 *CroCo: Self-supervised pre-training by reconstructing masked content from one view using another view of the same scene*
 
 ## 📋 Overview
