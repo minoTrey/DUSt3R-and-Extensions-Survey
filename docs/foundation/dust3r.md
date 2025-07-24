@@ -62,16 +62,16 @@
 | RTA@15 ↑ | 86.8% | Relative Translation Accuracy |
 | mAA(30) ↑ | 76.7% | Mean Average Accuracy |
 
-### Visual Localization (7-Scenes & Cambridge)
-| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Dataset |
+### Visual Localization (7-Scenes)
+| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
 |-------|-------------------|------------------|---------|
-| Chess | 2 | 1.37 | 7-Scenes |
-| Fire | 3 | 1.01 | 7-Scenes |
-| Heads | 4 | 1.14 | 7-Scenes |
-| Office | 4 | 1.34 | 7-Scenes |
-| Pumpkin | 11 | 2.84 | 7-Scenes |
-| Kitchen | 6 | 0.26 | 7-Scenes |
-| Stairs | 17 | 0.33 | 7-Scenes |
+| Chess | 2 | 1.37 | DUSt3R 512 |
+| Fire | 3 | 1.01 | DUSt3R 512 |
+| Heads | 4 | 1.14 | DUSt3R 512 |
+| Office | 4 | 1.34 | DUSt3R 512 |
+| Pumpkin | 8 | 3.10 | DUSt3R 512 |
+| Kitchen | 7 | 3.37 | DUSt3R 512 |
+| Stairs | 11 | 2.84 | DUSt3R 512 |
 
 ### Multi-view Depth Estimation
 | Dataset | Rel. Error ↓ | Inlier τ@1.25 ↑ | Type |
