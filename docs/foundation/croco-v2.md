@@ -1,7 +1,7 @@
 # CroCo v2: Improved Cross-view Completion Pre-training for Stereo Matching and Optical Flow (2023)
 
-![CroCo v2 Architecture](https://raw.githubusercontent.com/naver/croco/master/assets/arch.jpg)
-*CroCo v2: Enhanced architecture with RoPE embeddings and scaled transformer for stereo matching and optical flow*
+![CroCo v2 Results](https://raw.githubusercontent.com/naver/croco/master/assets/stereo_flow.jpg)
+*CroCo v2: State-of-the-art results on stereo matching and optical flow without task-specific designs*
 
 <!-- Additional visualizations from the paper:
 - Achieves SOTA on Middlebury stereo (1.82 bad@1.0) and Sintel optical flow (1.25 EPE clean)
