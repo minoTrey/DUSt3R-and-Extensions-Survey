@@ -2,7 +2,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-and-Extensions-Survey?style=social)](https://github.com/minoTrey/DUSt3R-and-Extensions-Survey)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Papers](https://img.shields.io/badge/Papers-59-green.svg)](#papers-database)
+[![Papers](https://img.shields.io/badge/Papers-55-green.svg)](#papers-database)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-July%202025-orange.svg)](#)
 
 > **A systematic survey of DUSt3R and its extensions for feed-forward 3D reconstruction**
@@ -23,7 +23,7 @@ DUSt3R has catalyzed a paradigm shift in 3D reconstruction, moving from traditio
 2022 ██ 1 paper   (CroCo)
 2023 ██ 1 paper   (CroCo v2)  
 2024 ████████████████████ 17 papers
-2025 ████████████████████████████████████████████████████████████████ 39 papers
+2025 ████████████████████████████████████████████████████████████████ 35 papers
 ```
 
 ## 🏷️ Research Categories
@@ -39,7 +39,7 @@ The seminal works that established the feed-forward 3D reconstruction paradigm.
 | [MASt3R](docs/foundation/mast3r.md) | ECCV 2024 | 3D geometry-aware matching |
 | [MASt3R-SfM](docs/foundation/mast3r-sfm.md) | arXiv 2024 | Integrated SfM pipeline |
 
-### 🏗️ [3D Reconstruction](docs/reconstruction/) (21 papers)
+### 🏗️ [3D Reconstruction](docs/reconstruction/) (18 papers)
 Core advances in static scene reconstruction, multi-view consistency, and large-scale scenarios.
 
 <details>
@@ -54,7 +54,7 @@ Core advances in static scene reconstruction, multi-view consistency, and large-
 
 </details>
 
-### 🎬 [Dynamic Scene Reconstruction](docs/dynamic/) (12 papers)
+### 🎬 [Dynamic Scene Reconstruction](docs/dynamic/) (11 papers)
 Handling motion, temporal consistency, and dynamic objects.
 
 <details>
@@ -64,11 +64,11 @@ Handling motion, temporal consistency, and dynamic objects.
 - **Temporal Consistency**: CUT3R, Align3R
 - **4D Reconstruction**: Geo4D, Stereo4D
 - **Human/Scene**: ODHSR
-- **Robotics Applications**: Adapt3R, Endo3R
+- **Robotics Applications**: Adapt3R
 
 </details>
 
-### ✨ [Gaussian Splatting](docs/gaussian-splatting/) (11 papers)
+### ✨ [Gaussian Splatting](docs/gaussian-splatting/) (10 papers)
 Integration with 3D Gaussian Splatting for neural rendering and novel view synthesis.
 
 <details>
@@ -142,15 +142,15 @@ model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
 ## 📋 Papers Database
 
 ### By Publication Year
-- **2025**: 39 papers (CVPR, ICCV, ICLR, 3DV, arXiv)
+- **2025**: 35 papers (CVPR, ICCV, ICLR, 3DV, arXiv)
 - **2024**: 17 papers (CVPR, ECCV, NeurIPS, RAL, arXiv)
 - **2023**: 1 paper (ICCV)
 - **2022**: 1 paper (NeurIPS)
 
 ### By Application Domain
-- **3D Reconstruction**: 21 papers
-- **Dynamic Scenes**: 12 papers  
-- **Gaussian Splatting**: 11 papers
+- **3D Reconstruction**: 18 papers
+- **Dynamic Scenes**: 11 papers  
+- **Gaussian Splatting**: 10 papers
 - **Scene Understanding/Reasoning**: 6 papers
 - **Foundation Models**: 5 papers
 - **Pose Estimation**: 2 papers
@@ -181,7 +181,7 @@ model = DUSt3R.from_pretrained("naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt")
 
 ### Key Resources
 - [🔬 Foundation Papers](docs/foundation/) - Start with DUSt3R and MASt3R
-- [📊 Complete Papers List](docs/papers-list.md) - All 59 documented papers
+- [📊 Complete Papers List](docs/papers-list.md) - All 55 documented papers
 - [🏷️ Browse by Category](#research-categories) - Find papers by application
 - [🤖 Robotics Applications](docs/robotics/) - Real-world deployment examples
 

@@ -1,7 +1,8 @@
 # GraphSeg: Segmented 3D Representations via Graph Edge Addition and Contraction (arXiv 2025)
 
-![GraphSeg Overview](https://arxiv.org/html/2504.03129v1/x1.png)
+![GraphSeg Overview](https://arxiv.org/html/2504.03129v1/extracted/6335082/imgs/gs_abs.png)
 *GraphSeg generates consistent 3D object segmentations from sparse 2D images via graph edge addition and contraction*
+![GraphSeg_Method](https://arxiv.org/html/2504.03129v1/extracted/6335082/imgs/gseg_method_updated.jpg)
 
 ## 📋 Overview
 - **Authors**: Haozhan Tang, Tianyi Zhang, Oliver Kroemer, Matthew Johnson-Roberson, Weiming Zhi
