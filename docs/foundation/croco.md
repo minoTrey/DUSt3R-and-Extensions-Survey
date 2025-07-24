@@ -64,29 +64,37 @@
 ### Quantitative Performance
 
 #### Monocular Depth Estimation (NYUv2)
-| Method | δ₁ ↑ | δ₂ ↑ | δ₃ ↑ | REL ↓ | RMS ↓ | log₁₀ ↓ |
-|--------|-------|-------|-------|--------|--------|----------|
-| MAE | 0.796 | 0.954 | 0.989 | 0.129 | 0.497 | 0.055 |
-| MultiMAE | 0.830 | 0.964 | 0.991 | 0.116 | 0.455 | 0.050 |
-| **CroCo** | **0.856** | **0.972** | **0.994** | **0.106** | **0.424** | **0.046** |
+| Method | Pretrain Data | δ₁ ↑ | δ₂ ↑ | δ₃ ↑ | REL ↓ | RMS ↓ | log₁₀ ↓ |
+|--------|---------------|-------|-------|-------|--------|--------|----------|
+| DINO | IN1K | 0.668 | - | - | - | - | - |
+| MAE | IN1K | 0.796 | 0.954 | 0.989 | 0.129 | 0.497 | 0.055 |
+| MultiMAE | IN1K | 0.830 | 0.964 | 0.991 | 0.116 | 0.455 | 0.050 |
+| MAE | Habitat | 0.790 | - | - | - | - | - |
+| **CroCo** | **Habitat** | **0.856** | **0.972** | **0.994** | **0.106** | **0.424** | **0.046** |
 
 *Note: δᵢ represents accuracy at threshold 1.25ⁱ*
 
 #### Other Monocular Tasks  
-| Task | Dataset | Metric | CroCo | Baseline |
-|------|---------|--------|--------|-----------|
-| 3D Tasks | Taskonomy | Avg Rank | **1st** | - |
-| Segmentation | ADE20k | mIoU | 40.6 | 41.8 (MAE) |
-| Classification | ImageNet | Top-1 | 37.0% | 65.5% (MAE) |
+| Task | Dataset | Metric | CroCo | MAE (Habitat) | MAE (IN1K) |
+|------|---------|--------|--------|---------------|-------------|
+| 3D Tasks | Taskonomy | L1 Loss ↓ | **33.00** | 35.65 | 36.09 |
+| 3D Tasks | Taskonomy | Avg Rank ↓ | **1.25** | 2.88 | 2.13 |
+| Segmentation | ADE20k | mIoU ↑ | 40.6 | 40.3 | 46.1 |
+| Classification | ImageNet | Top-1 ↑ | 37.0% | 32.5% | 68.0% |
 
 #### Binocular Tasks
-| Task | Dataset | Split | CroCo | Supervised |
-|------|---------|-------|--------|------------|
-| Optical Flow | MPI-Sintel | Clean | 3.00 EPE | ~1.4 EPE |
-| Optical Flow | MPI-Sintel | Final | 3.60 EPE | ~2.5 EPE |
-| Stereo Matching | Middlebury | - | 5.0 bad@1.0 | - |
+| Task | Dataset | Split | CroCo | MAE (Habitat) | Random Init |
+|------|---------|-------|--------|---------------|-------------|
+| Optical Flow | MPI-Sintel | Clean | **3.00** | 4.63 | 18.81 |
+| Optical Flow | MPI-Sintel | Final | **3.60** | 5.24 | 18.97 |
 
-*Note: CroCo achieves competitive results without task-specific design*
+#### Relative Pose Estimation (7-Scenes)
+| Method | Chess | Fire | Heads | Office | Pumpkin | Kitchen | Stairs | Average |
+|--------|-------|------|-------|--------|---------|---------|--------|----------|
+| MAE (Habitat) | 13.2cm, 9.44° | 32.0cm, 15.10° | 16.0cm, 16.75° | 24.8cm, 11.54° | 25.4cm, 10.62° | 29.4cm, 13.32° | 32.8cm, 14.88° | 24.8cm, 13.09° |
+| **CroCo** | **2.4cm, 2.81°** | **4.0cm, 3.86°** | **3.1cm, 4.00°** | **3.4cm, 2.53°** | **4.9cm, 2.79°** | **5.5cm, 3.72°** | **11.7cm, 4.53°** | **5.0cm, 3.46°** |
+
+*Note: CroCo achieves competitive results without task-specific design or temporal fusion*
 
 ### Qualitative Results
 - Sharp depth predictions with fine details
