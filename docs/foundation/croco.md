@@ -106,21 +106,21 @@
 
 ### Strengths
 1. **Geometric Understanding**: Forces model to reason about 3D structure through cross-view constraint
-2. **Versatility**: Single pre-trained model for diverse 3D tasks
-3. **Efficiency**: Fast convergence on downstream tasks (200 vs 1500 epochs)
-4. **Simplicity**: No task-specific components needed
+2. **Versatility**: Single pre-trained model for diverse 3D tasks (depth, flow, pose)
+3. **Efficiency**: Faster fine-tuning convergence compared to semantic pre-training
+4. **No Camera Calibration**: Works with uncalibrated image pairs
 
 ### Limitations
-1. **Semantic Performance**: Lower on high-level tasks (ImageNet)
-2. **Indoor Bias**: Pre-training limited to indoor scenes
-3. **Reconstruction Quality**: MSE loss leads to blurry outputs
-4. **Computational Cost**: Decoder adds overhead for single-view tasks
+1. **Semantic Performance**: Lower on high-level tasks (ImageNet 37.0% vs MAE 68.0%)
+2. **Indoor Scene Bias**: Pre-training only on synthetic indoor environments
+3. **RGB Reconstruction**: Not designed for photorealistic reconstruction
+4. **Two-View Constraint**: Requires image pairs during pre-training
 
 ### Impact on the Field
 - **Foundation for DUSt3R**: Cross-view understanding → uncalibrated 3D reconstruction
-- **Inspired Follow-ups**: CroCo v2, CroCo-Man, and numerous 3D vision models
+- **Inspired Follow-ups**: CroCo v2 and subsequent 3D vision models
 - **Paradigm Shift**: From semantic to geometric pre-training objectives
-- **Synthetic Data Validation**: Proved viability of simulator-based training
+- **Synthetic Data Validation**: Demonstrated effectiveness of Habitat simulator pre-training
 
 ## 🔗 Related Work
 
@@ -132,14 +132,14 @@
 ### Contemporary Approaches
 - **MAE**: Masked autoencoding for semantic understanding
 - **MultiMAE**: Multi-modal masked autoencoding
-- **PixelPlayer**: Cross-modal completion
+- **DINO**: Self-supervised vision transformer
 
 ## 📚 Key Takeaways
 
-CroCo established the foundation for modern feed-forward 3D reconstruction by:
-1. Demonstrating that cross-view constraints induce strong 3D representations
-2. Creating a unified architecture for diverse 3D vision tasks
-3. Proving synthetic pre-training can transfer to real-world applications
-4. Inspiring the entire DUSt3R family of models
+CroCo demonstrated that:
+1. **Cross-view completion** is an effective self-supervised task for learning 3D-aware representations
+2. **Synthetic data pre-training** (Habitat) can outperform ImageNet pre-training on 3D tasks
+3. **Single architecture** can handle both monocular and binocular vision tasks effectively
+4. **Geometric pre-training** offers advantages over semantic pre-training for 3D understanding
 
-The progression from CroCo's feature learning to DUSt3R's direct 3D prediction represents a natural evolution in geometric deep learning.
+The model achieves state-of-the-art results on depth estimation (85.6% on NYUv2) and competitive performance on optical flow and relative pose estimation, establishing a new paradigm for 3D vision pre-training.
