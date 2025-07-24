@@ -156,16 +156,16 @@
 ## 🔗 Impact on Research
 
 ### Direct Extensions
-- **Efficiency**: Fast3R, SLAM3R (speed improvements)
-- **Quality**: MASt3R, VGGT (improved accuracy)
-- **Scale**: Various methods for larger scenes
-- **Applications**: Gaussian Splatting integration, robotics
+- **Efficiency**: Fast3R, SLAM3R, Spann3R (speed improvements)
+- **Quality**: MASt3R, VGGT, π³ (Pi3) (improved accuracy)
+- **Scale**: REGIST3R, ReconX, Light3R-SfM (larger scenes)
+- **Applications**: Splatt3R, Dust-GS (Gaussian Splatting), RIG3R (robotics)
 
 ### Research Directions Enabled
-1. **Dynamic Reconstruction**: MonST3R, DynaMoSt3R
-2. **Neural Rendering**: Integration with 3DGS
-3. **Scene Understanding**: Semantic 3D reconstruction
-4. **Robotics**: Direct integration into SLAM systems
+1. **Dynamic Reconstruction**: MonST3R, POMATO, D²USt3R, Stereo4D
+2. **Neural Rendering**: Splatt3R, PreF3R, InstantSplat
+3. **Scene Understanding**: PE3R, MEt3R, LargeSpatialModel
+4. **Robotics**: RIG3R, GraphSeg, SLAM3R
 
 ## 📚 Key Takeaways
 
