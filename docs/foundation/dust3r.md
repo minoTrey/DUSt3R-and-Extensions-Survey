@@ -62,24 +62,26 @@
 | RTA@15 ↑ | 86.8% | Relative Translation Accuracy |
 | mAA(30) ↑ | 76.7% | Mean Average Accuracy |
 
-### 7-Scenes (Visual Localization)
-| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
+### Visual Localization (7-Scenes & Cambridge)
+| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Dataset |
 |-------|-------------------|------------------|---------|
-| Chess | 3 | 0.97 | DUSt3R 512 |
-| Fire | 3 | 1.01 | DUSt3R 512 |
-| Heads | 2 | 1.37 | DUSt3R 512 |
-| Office | 4 | 1.14 | DUSt3R 512 |
-| Pumpkin | 4 | 1.34 | DUSt3R 512 |
-| Kitchen | 11 | 2.84 | DUSt3R 512 |
-| Stairs | 6 | 0.26 | DUSt3R 512 |
+| Chess | 2 | 1.37 | 7-Scenes |
+| Fire | 3 | 1.01 | 7-Scenes |
+| Heads | 4 | 1.14 | 7-Scenes |
+| Office | 4 | 1.34 | 7-Scenes |
+| Pumpkin | 11 | 2.84 | 7-Scenes |
+| Kitchen | 6 | 0.26 | 7-Scenes |
+| Stairs | 17 | 0.33 | 7-Scenes |
 
-### Monocular Depth Estimation
-| Dataset | AbsRel ↓ | δ1.25 ↑ | Type |
-|---------|----------|---------|------|
-| NYUv2 | 4.93 | 60.20 | Indoor |
+### Multi-view Depth Estimation
+| Dataset | Rel. Error ↓ | Inlier τ@1.25 ↑ | Type |
+|---------|-------------|-----------------|------|
 | KITTI | 9.11 | 39.49 | Outdoor |
-| TUM | 3.17 | 76.68 | Indoor |
-| BONN | 2.91 | 76.91 | Outdoor |
+| ScanNet | 4.93 | 60.20 | Indoor |
+| ETH3D | 2.91 | 76.91 | Mixed |
+| DTU | 3.52 | 69.33 | Objects |
+| Tanks & Temples | 3.17 | 76.68 | Outdoor |
+| **Average** | **4.73** | **64.52** | - |
 
 ### Qualitative Results
 - Handles diverse scenes: indoor, outdoor, close-up, wide baseline
