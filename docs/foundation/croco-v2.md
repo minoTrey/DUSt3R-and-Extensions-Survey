@@ -3,8 +3,8 @@
 ![CroCo v2 Improvements](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x2.png)
 *Figure 2: Overview of CroCo v2 improvements - (a) real-world image collection, (b) RoPE embeddings for relative positions, (c) scaled network architecture*
 
-![CroCo v2 Training Data](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x3.jpg)
-*Figure 3: Pre-training image pairs - Top: Habitat synthetic data (CroCo v1), Bottom: Real-world datasets (ARKitScenes, MegaDepth, 3DStreetView, IndoorVL)*
+![CroCo v2 Data Collection](https://ar5iv.labs.arxiv.org/html/2211.10408/assets/x4.png)
+*Figure 4: Overview of pre-training cropped image pair collection method for real-world datasets*
 
 <!-- Additional visualizations from the paper:
 - Achieves SOTA on Middlebury stereo (1.82 bad@1.0) and Sintel optical flow (1.25 EPE clean)
