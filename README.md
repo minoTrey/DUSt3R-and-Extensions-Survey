@@ -1,17 +1,17 @@
-# DUSt3R and Extensions: A Comprehensive Survey
+# DUSt3R Paper Collection: Curated Research with In-Depth Analysis
 
-[![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-and-Extensions-Survey?style=social)](https://github.com/minoTrey/DUSt3R-and-Extensions-Survey)
+[![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-Paper-Collection?style=social)](https://github.com/minoTrey/DUSt3R-Paper-Collection)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Papers](https://img.shields.io/badge/Papers-55-green.svg)](#papers-database)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-July%202025-orange.svg)](#)
 
-> **A systematic survey of DUSt3R and its extensions for feed-forward 3D reconstruction**
+> **A curated collection of 55+ research papers on DUSt3R and feed-forward 3D reconstruction**
 
 ## 🌟 What is DUSt3R?
 
 DUSt3R (Dense Uncalibrated Stereo 3D Reconstruction) revolutionized 3D computer vision by enabling **instant 3D reconstruction from uncalibrated images**. Unlike traditional methods requiring camera calibration and iterative optimization, DUSt3R uses a feed-forward neural network to directly predict 3D geometry.
 
-This repository tracks the explosive growth of the DUSt3R ecosystem, documenting **55 papers** that extend, improve, or apply this groundbreaking technology across diverse domains.
+This paper collection tracks the explosive growth of the DUSt3R ecosystem, documenting **55 papers** with in-depth analysis that extend, improve, or apply this groundbreaking technology across diverse domains.
 
 ## 🚀 Quick Start
 
@@ -242,18 +242,18 @@ We welcome contributions from the research community! Help us keep this survey c
 - Be objective and accurate
 
 ### 🙏 Acknowledgments
-Special thanks to all researchers advancing this field and contributors maintaining this survey!
+Special thanks to all researchers advancing this field and contributors maintaining this collection!
 
 ## 📞 Contact & Citation
 
 ### Citation
 If you find this survey useful for your research, please cite:
 ```bibtex
-@misc{dust3r_survey_2025,
-  title={DUSt3R and Extensions: A Comprehensive Survey},
+@misc{dust3r_papers_2025,
+  title={DUSt3R Paper Collection: Curated Research with In-Depth Analysis},
   author={Min-Ho Lee},
   year={2025},
-  url={https://github.com/minoTrey/DUSt3R-and-Extensions-Survey}
+  url={https://github.com/minoTrey/DUSt3R-Paper-Collection}
 }
 ```
 
@@ -279,8 +279,8 @@ The DUSt3R ecosystem continues to evolve rapidly:
 
 ### **⭐ Star this repo to stay updated with the latest advances! ⭐**
 
-[![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-and-Extensions-Survey?style=social)](https://github.com/minoTrey/DUSt3R-and-Extensions-Survey)
-[![Watchers](https://img.shields.io/github/watchers/minoTrey/DUSt3R-and-Extensions-Survey?style=social)](https://github.com/minoTrey/DUSt3R-and-Extensions-Survey)
+[![GitHub Stars](https://img.shields.io/github/stars/minoTrey/DUSt3R-Paper-Collection?style=social)](https://github.com/minoTrey/DUSt3R-Paper-Collection)
+[![Watchers](https://img.shields.io/github/watchers/minoTrey/DUSt3R-Paper-Collection?style=social)](https://github.com/minoTrey/DUSt3R-Paper-Collection)
 
 *Tracking 55 papers and growing | Last updated: July 2025*
 
