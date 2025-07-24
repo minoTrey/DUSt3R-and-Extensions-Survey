@@ -9,7 +9,7 @@
 
 ## 🌟 What is DUSt3R?
 
-DUSt3R (Dense Uncalibrated Stereo 3D Reconstruction) revolutionized 3D computer vision by enabling **instant 3D reconstruction from uncalibrated images**. Unlike traditional methods requiring camera calibration and iterative optimization, DUSt3R uses a feed-forward neural network to directly predict 3D geometry.
+[DUSt3R](docs/foundation/dust3r.md) (Dense Uncalibrated Stereo 3D Reconstruction) revolutionized 3D computer vision by enabling **instant 3D reconstruction from uncalibrated images**. Unlike traditional methods requiring camera calibration and iterative optimization, DUSt3R uses a feed-forward neural network to directly predict 3D geometry.
 
 This paper collection tracks the explosive growth of the DUSt3R ecosystem, documenting **55 papers** with in-depth analysis that extend, improve, or apply this groundbreaking technology across diverse domains.
 
@@ -50,11 +50,11 @@ Core advances in static scene reconstruction, multi-view consistency, and large-
 <summary>View papers in this category</summary>
 
 - **🏆 State-of-the-Art**: [π³ (Pi3)](docs/reconstruction/pi3.md) - Permutation-equivariant architecture beats VGGT
-- **⚡ Real-time Systems**: SLAM3R, Fast3R, MASt3R-SLAM, Spann3R
-- **👁️ Multi-view**: MUSt3R, MV-DUSt3R+, Light3R-SfM  
-- **🤖 Foundation Models**: MoGe, LoRA3D, Test3R, Pow3R, Dens3R
-- **🌍 Large-scale**: REGIST3R, Spurfies, ReconX
-- **🎯 Specialized**: SPARS3R
+- **⚡ Real-time Systems**: [SLAM3R](docs/reconstruction/slam3r.md), [Fast3R](docs/reconstruction/fast3r.md), [MASt3R-SLAM](docs/reconstruction/mast3r-slam.md), [Spann3R](docs/reconstruction/spann3r.md)
+- **👁️ Multi-view**: [MUSt3R](docs/reconstruction/must3r.md), [MV-DUSt3R+](docs/reconstruction/mv-dust3r-plus.md), [Light3R-SfM](docs/reconstruction/light3r-sfm.md)  
+- **🤖 Foundation Models**: [MoGe](docs/reconstruction/moge.md), [LoRA3D](docs/reconstruction/lora3d.md), [Test3R](docs/reconstruction/test3r.md), [Pow3R](docs/reconstruction/pow3r.md), [Dens3R](docs/reconstruction/dens3r.md)
+- **🌍 Large-scale**: [REGIST3R](docs/reconstruction/regist3r.md), [Spurfies](docs/reconstruction/spurfies.md), [ReconX](docs/reconstruction/reconx.md)
+- **🎯 Specialized**: [SPARS3R](docs/reconstruction/spars3r.md)
 
 </details>
 
@@ -64,10 +64,10 @@ Extending DUSt3R to handle motion, temporal consistency, and 4D understanding.
 <details>
 <summary>View papers in this category</summary>
 
-- **🏃 Motion Modeling**: POMATO (ICCV'25), MonST3R (ICLR'25), Easi3R, D²USt3R
-- **⏱️ Temporal Consistency**: CUT3R, Align3R, Dynamic Point Maps
-- **🎯 4D Reconstruction**: Geo4D, Stereo4D
-- **👥 Specialized**: ODHSR (human-scene), Adapt3R (domain adaptation)
+- **🏃 Motion Modeling**: [POMATO](docs/dynamic/pomato.md) (ICCV'25), [MonST3R](docs/dynamic/monst3r.md) (ICLR'25), [Easi3R](docs/dynamic/easi3r.md), [D²USt3R](docs/dynamic/d2ust3r.md)
+- **⏱️ Temporal Consistency**: [CUT3R](docs/dynamic/cut3r.md), [Align3R](docs/dynamic/align3r.md), [Dynamic Point Maps](docs/dynamic/dynamic-point-maps.md)
+- **🎯 4D Reconstruction**: [Geo4D](docs/dynamic/geo4d.md), [Stereo4D](docs/dynamic/stereo4d.md)
+- **👥 Specialized**: [ODHSR](docs/dynamic/odhsr.md) (human-scene), [Adapt3R](docs/dynamic/adapt3r.md) (domain adaptation)
 
 </details>
 
@@ -77,32 +77,32 @@ Revolutionizing neural rendering by combining DUSt3R with 3D Gaussian Splatting.
 <details>
 <summary>View papers in this category</summary>
 
-- **🚀 Core Methods**: Splatt3R (instant 3DGS), PreF3R, InstantSplat (40s reconstruction)
-- **🎨 Quality Enhancement**: LM-Gaussian (foundation model priors), Dust-GS, Dust to Tower
-- **🌊 Advanced**: FlowR (flow-based), DAS3R (dynamic filtering)
-- **🎭 Creative**: Styl3R (style transfer), Avat3R (animatable avatars)
+- **🚀 Core Methods**: [Splatt3R](docs/gaussian-splatting/splatt3r.md) (instant 3DGS), [PreF3R](docs/gaussian-splatting/pref3r.md), [InstantSplat](docs/gaussian-splatting/instantsplat.md) (40s reconstruction)
+- **🎨 Quality Enhancement**: [LM-Gaussian](docs/gaussian-splatting/lm-gaussian.md) (foundation model priors), [Dust-GS](docs/gaussian-splatting/dust-gs.md), [Dust to Tower](docs/gaussian-splatting/dust-to-tower.md)
+- **🌊 Advanced**: [FlowR](docs/gaussian-splatting/flowr.md) (flow-based), [DAS3R](docs/gaussian-splatting/das3r.md) (dynamic filtering)
+- **🎭 Creative**: [Styl3R](docs/gaussian-splatting/styl3r.md) (style transfer), [Avat3R](docs/gaussian-splatting/avat3r.md) (animatable avatars)
 
 </details>
 
 ### 🧠 [Scene Understanding](docs/understanding/) (3 papers)
 Bridging 3D geometry with semantic understanding and perception.
-- **Key Papers**: PE3R (9× speedup), MEt3R (consistency metric), LargeSpatialModel
+- **Key Papers**: [PE3R](docs/understanding/pe3r.md) (9× speedup), [MEt3R](docs/understanding/met3r.md) (consistency metric), [LargeSpatialModel](docs/understanding/largespatialmodel.md)
 
 ### 🔍 [Scene Reasoning](docs/reasoning/) (3 papers)
 Advanced geometric reasoning beyond visible surfaces.
-- **Key Papers**: LaRI (layered reasoning), RaySt3R (zero-shot completion), Amodal3R (ICCV'25)
+- **Key Papers**: [LaRI](docs/reasoning/lari.md) (layered reasoning), [RaySt3R](docs/reasoning/rayst3r.md) (zero-shot completion), [Amodal3R](docs/reasoning/amodal3r.md) (ICCV'25)
 
 ### 🤖 [Robotics](docs/robotics/) (2 papers)
 Enabling robotic perception and manipulation.
-- **Key Papers**: RIG3R (grasping), GraphSeg (segmentation)
+- **Key Papers**: [RIG3R](docs/robotics/rig3r.md) (grasping), [GraphSeg](docs/robotics/graphseg.md) (segmentation)
 
 ### 🏥 [Medical Applications](docs/medical/) (1 paper)
 Adapting to challenging medical imaging domains.
-- **Key Paper**: Endo3R (dynamic endoscopy)
+- **Key Paper**: [Endo3R](docs/medical/endo3r.md) (dynamic endoscopy)
 
 ### 📍 [Pose Estimation](docs/pose/) (2 papers)
 Efficient pose regression from DUSt3R's foundation.
-- **Key Papers**: Reloc3R (40 FPS camera pose), Pos3R (zero-shot 6D pose)
+- **Key Papers**: [Reloc3R](docs/pose/reloc3r.md) (40 FPS camera pose), [Pos3R](docs/pose/pos3r.md) (zero-shot 6D pose)
 
 ## 📊 Key Comparisons & Benchmarks
 
@@ -111,31 +111,31 @@ Efficient pose regression from DUSt3R's foundation.
 #### DTU Dataset (Traditional Metrics)
 | Model | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ | Speed | Year |
 |-------|------|------------|-----------------|-----------|--------|------|
-| DUSt3R | Feed-forward | 2.667 | 0.805 | 1.741 | ~10s | 2024 |
-| **MASt3R** | **Enhanced** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
-| Fast3R | Speed-optimized | - | - | 1.98 | 0.03s | 2025 |
+| [DUSt3R](docs/foundation/dust3r.md) | Feed-forward | 2.667 | 0.805 | 1.741 | ~10s | 2024 |
+| **[MASt3R](docs/foundation/mast3r.md)** | **Enhanced** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
+| [Fast3R](docs/reconstruction/fast3r.md) | Speed-optimized | - | - | 1.98 | 0.03s | 2025 |
 
 *Note: Lower is better for all metrics. MASt3R shows 78% improvement over DUSt3R.*
 
 #### Point Map Reconstruction (DTU & ETH3D)
 | Model | DTU Acc. ↓ | DTU Comp. ↓ | ETH3D Acc. ↓ | ETH3D Comp. ↓ | Year |
 |-------|------------|--------------|---------------|----------------|------|
-| Fast3R | 3.340 | 2.929 | 0.832 | 0.978 | 2025 |
-| VGGT | 1.338 | 1.896 | 0.280 | 0.305 | 2025 |
-| **π³ (Pi3)** ⭐ | **1.198** | **1.849** | **0.194** | **0.210** | **2025** |
+| [Fast3R](docs/reconstruction/fast3r.md) | 3.340 | 2.929 | 0.832 | 0.978 | 2025 |
+| [VGGT](docs/reconstruction/vggt.md) | 1.338 | 1.896 | 0.280 | 0.305 | 2025 |
+| **[π³ (Pi3)](docs/reconstruction/pi3.md)** ⭐ | **1.198** | **1.849** | **0.194** | **0.210** | **2025** |
 
 *Note: Lower is better. Pi3 achieves state-of-the-art on both DTU and ETH3D datasets.*
 
 #### Camera Pose Estimation (Zero-shot)
 | Model | Sintel ATE ↓ | TUM-dyn ATE ↓ | Co3Dv2 RRA@30 ↑ | Speed | Year |
 |-------|--------------|-----------------|-------------------|--------|------|
-| VGGT | 0.167 | 0.012 | 98.96 | 43.2 FPS | 2025 |
-| **π³ (Pi3)** ⭐ | **0.074** | **0.014** | **99.05** | **57.4 FPS** | **2025** |
+| [VGGT](docs/reconstruction/vggt.md) | 0.167 | 0.012 | 98.96 | 43.2 FPS | 2025 |
+| **[π³ (Pi3)](docs/reconstruction/pi3.md)** ⭐ | **0.074** | **0.014** | **99.05** | **57.4 FPS** | **2025** |
 
 *Pi3: 55% better on Sintel, 33% faster than VGGT, with permutation-equivariant design.*
 
 ### 🔄 Paradigm Comparison
-| Aspect | Traditional (COLMAP) | DUSt3R Family | Latest (Pi3/VGGT) | Benefits |
+| Aspect | Traditional (COLMAP) | DUSt3R Family | Latest ([Pi3](docs/reconstruction/pi3.md)/[VGGT](docs/reconstruction/vggt.md)) | Benefits |
 |--------|---------------------|---------------|-------------------|----------|
 | **Workflow** | Multi-stage pipeline | End-to-end | Single forward pass | 100-300× faster |
 | **Robustness** | Fails on textureless | Learned priors | Universal | Works everywhere |
@@ -147,11 +147,11 @@ Efficient pose regression from DUSt3R's foundation.
 ## 🛠️ Implementation Resources
 
 ### 🌟 Official Implementations
-- **DUSt3R**: [`naver/dust3r`](https://github.com/naver/dust3r) - The original
-- **MASt3R**: [`naver/mast3r`](https://github.com/naver/mast3r) - Enhanced matching
-- **MonST3R**: [`Junyi42/MonST3R`](https://github.com/Junyi42/MonST3R) - Dynamic scenes
-- **Splatt3R**: [`splatt3r/splatt3r`](https://github.com/splatt3r/splatt3r) - Instant 3DGS
-- **π³ (Pi3)**: [`yyfz/Pi3`](https://github.com/yyfz/Pi3) - Current SOTA (57.4 FPS)
+- **[DUSt3R](docs/foundation/dust3r.md)**: [`naver/dust3r`](https://github.com/naver/dust3r) - The original
+- **[MASt3R](docs/foundation/mast3r.md)**: [`naver/mast3r`](https://github.com/naver/mast3r) - Enhanced matching
+- **[MonST3R](docs/dynamic/monst3r.md)**: [`Junyi42/MonST3R`](https://github.com/Junyi42/MonST3R) - Dynamic scenes
+- **[Splatt3R](docs/gaussian-splatting/splatt3r.md)**: [`splatt3r/splatt3r`](https://github.com/splatt3r/splatt3r) - Instant 3DGS
+- **[π³ (Pi3)](docs/reconstruction/pi3.md)**: [`yyfz/Pi3`](https://github.com/yyfz/Pi3) - Current SOTA (57.4 FPS)
 
 ### 🚀 Quick Start Guide
 ```bash
@@ -195,23 +195,23 @@ pts3d = output['pts3d']  # Your 3D points!
 ## 🌟 Featured Research Highlights
 
 ### 🏆 Most Influential Papers
-1. **DUSt3R** (CVPR 2024) - The foundation that started the revolution
-2. **MASt3R** (ECCV 2024) - Brought 3D understanding to feature matching
-3. **Splatt3R** (arXiv 2024) - Enabled instant Gaussian Splatting
+1. **[DUSt3R](docs/foundation/dust3r.md)** (CVPR 2024) - The foundation that started the revolution
+2. **[MASt3R](docs/foundation/mast3r.md)** (ECCV 2024) - Brought 3D understanding to feature matching
+3. **[Splatt3R](docs/gaussian-splatting/splatt3r.md)** (arXiv 2024) - Enabled instant Gaussian Splatting
 
 ### 🚀 Latest Breakthroughs (2025)
 | Paper | Innovation | Impact |
 |-------|------------|--------|
-| **π³ (Pi3)** | Permutation-equivariant architecture | SOTA on DTU/ETH3D/Sintel |
-| **POMATO** | Pointmap matching + temporal motion | Solves dynamic scenes |
-| **Dens3R** | Unified dense geometric prediction | High-quality reconstruction |
-| **VGGT** | 45× faster processing | Real-time performance |
-| **MonST3R** | Monocular video tracking | Robust dynamic 3D |
+| **[π³ (Pi3)](docs/reconstruction/pi3.md)** | Permutation-equivariant architecture | SOTA on DTU/ETH3D/Sintel |
+| **[POMATO](docs/dynamic/pomato.md)** | Pointmap matching + temporal motion | Solves dynamic scenes |
+| **[Dens3R](docs/reconstruction/dens3r.md)** | Unified dense geometric prediction | High-quality reconstruction |
+| **[VGGT](docs/reconstruction/vggt.md)** | 45× faster processing | Real-time performance |
+| **[MonST3R](docs/dynamic/monst3r.md)** | Monocular video tracking | Robust dynamic 3D |
 
 ### 💡 Emerging Research Directions
-1. **4D Understanding**: Extending to spatiotemporal (D²USt3R, Geo4D)
+1. **4D Understanding**: Extending to spatiotemporal ([D²USt3R](docs/dynamic/d2ust3r.md), [Geo4D](docs/dynamic/geo4d.md))
 2. **Language Integration**: Text-guided 3D reconstruction
-3. **Mobile Deployment**: On-device processing (Fast3R)
+3. **Mobile Deployment**: On-device processing ([Fast3R](docs/reconstruction/fast3r.md))
 4. **Generative 3D**: Creating new content, not just reconstructing
 5. **Unified Models**: One model for all 3D tasks
 
