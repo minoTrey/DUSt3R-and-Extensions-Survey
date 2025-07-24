@@ -45,85 +45,59 @@
 
 ## 📊 Results
 
-### DTU Dataset (3D Reconstruction)
+**Model Details**: All results use DUSt3R-512 (ViT-Large encoder, Base decoder, 512×512 resolution) with global alignment (GA) where noted.
 
-**Compared Methods**:
-- *Handcrafted (with GT cameras)*: Camp, Furu, Tola, Gipuma
-- *Learning-based (with GT cameras)*: MVSNet, CVP-MVSNet, UCS-Net, CER-MVS, CIDER, CasMVSNet, PatchmatchNet, GeoMVSNet
-- *DUSt3R*: No GT cameras required
+### DTU Dataset (3D Reconstruction)
 
 | Method | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ |
 |--------|------|------------|----------------|-----------|
 | Gipuma | Traditional+GT | 0.283 | 0.873 | 0.578 |
 | MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 |
 | CVP-MVSNet | Learning+GT | 0.296 | 0.406 | 0.351 |
-| **DUSt3R** | **No GT cameras** | **2.677** | **0.805** | **1.741** |
+| **DUSt3R-512** | **No GT cameras** | **2.677** | **0.805** | **1.741** |
 
 *Note: DUSt3R operates without calibration or GT depth, making direct comparison complex.*
 
 ### Multi-view Pose Estimation (CO3Dv2)
 
-**Compared Methods**: RelPose, PoseReg, PoseDiffusion, PixSFM, COLMAP+SPSG
-
-| Metric | DUSt3R (w/ GA) | Description |
-|--------|----------------|-------------|
+| Metric | DUSt3R-512 (w/ GA) | Description |
+|--------|-------------------|-------------|
 | RRA@15 ↑ | 96.2% | Relative Rotation Accuracy |
 | RTA@15 ↑ | 86.8% | Relative Translation Accuracy |
 | mAA(30) ↑ | 76.7% | Mean Average Accuracy |
 
 ### Visual Localization (7-Scenes)
 
-**Compared Methods**: 
-- *Feature Matching (FM)*: Traditional feature-based methods
-- *Active Search (AS)*: Direct 2D-3D matching
-- *HLoc*: Hierarchical localization
-- *DSAC* / DSAC**: Neural scene coordinate regression
-- *HSCNet*: Hybrid scene coordinate network
-- *PixLoc*: Direct alignment via differentiable rendering
-- *SC-wLS*: Scene coordinate regression with weighted least squares
-- *NeuMaps*: Neural implicit scene representation
-- *DUSt3R*: Direct 3D regression without scene-specific training
-
-| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
-|-------|-------------------|------------------|---------|
-| Chess | 3 | 0.97 | DUSt3R 512 |
-| Fire | 3 | 0.95 | DUSt3R 512 |
-| Heads | 2 | 1.37 | DUSt3R 512 |
-| Office | 3 | 1.01 | DUSt3R 512 |
-| Pumpkin | 4 | 1.14 | DUSt3R 512 |
-| Kitchen | 4 | 1.34 | DUSt3R 512 |
-| Stairs | 11 | 2.84 | DUSt3R 512 |
+| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Model |
+|-------|-------------------|------------------|--------|
+| Chess | 3 | 0.97 | DUSt3R-512 |
+| Fire | 3 | 0.95 | DUSt3R-512 |
+| Heads | 2 | 1.37 | DUSt3R-512 |
+| Office | 3 | 1.01 | DUSt3R-512 |
+| Pumpkin | 4 | 1.14 | DUSt3R-512 |
+| Kitchen | 4 | 1.34 | DUSt3R-512 |
+| Stairs | 11 | 2.84 | DUSt3R-512 |
 
 ### Visual Localization (Cambridge Landmarks)
 
-**Compared Methods**: Same as 7-Scenes above, evaluated on outdoor landmarks
-
-| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Method |
-|-------|-------------------|------------------|---------|
-| St. Facade | 6 | 0.26 | DUSt3R 512 |
-| Old Hospital | 17 | 0.33 | DUSt3R 512 |
-| King's College | 11 | 0.20 | DUSt3R 512 |
-| St. Mary's | 7 | 0.24 | DUSt3R 512 |
-| Great Court | 38 | 0.16 | DUSt3R 512 |
+| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Model |
+|-------|-------------------|------------------|--------|
+| St. Facade | 6 | 0.26 | DUSt3R-512 |
+| Old Hospital | 17 | 0.33 | DUSt3R-512 |
+| King's College | 11 | 0.20 | DUSt3R-512 |
+| St. Mary's | 7 | 0.24 | DUSt3R-512 |
+| Great Court | 38 | 0.16 | DUSt3R-512 |
 
 ### Multi-view Depth Estimation
 
-**Compared Methods**:
-- *Supervised methods*: DeMoN, BA-Net, DeepV2D - Require ground truth depth/poses
-- *Self-supervised methods*: 
-  - Robust-CVD: Cross-view depth consistency
-  - SC-DepthV1/V2: Scale-consistent depth learning
-  - IterMVS: Iterative multi-view stereo
-- *DUSt3R*: No ground truth depth or camera poses required
-
-| Dataset | Rel. Error ↓ | Inlier τ@1.25 ↑ | Type |
-|---------|-------------|-----------------|------|
-| KITTI | 9.11 | 39.49 | Outdoor |
-| ScanNet | 4.93 | 60.20 | Indoor |
-| ETH3D | 2.91 | 76.91 | Mixed |
-| DTU | 3.52 | 69.33 | Objects |
-| Tanks & Temples | 3.17 | 76.68 | Outdoor |
-| **Average** | **4.73** | **64.52** | - |
+| Dataset | Rel. Error ↓ | Inlier τ@1.25 ↑ | Model |
+|---------|-------------|-----------------|--------|
+| KITTI | 9.11 | 39.49 | DUSt3R-512 |
+| ScanNet | 4.93 | 60.20 | DUSt3R-512 |
+| ETH3D | 2.91 | 76.91 | DUSt3R-512 |
+| DTU | 3.52 | 69.33 | DUSt3R-512 |
+| Tanks & Temples | 3.17 | 76.68 | DUSt3R-512 |
+| **Average** | **4.73** | **64.52** | **DUSt3R-512** |
 
 ### Qualitative Results
 - Handles diverse scenes: indoor, outdoor, close-up, wide baseline
