@@ -47,19 +47,19 @@
 
 ### Training
 - **Dataset**: 1.82M synthetic indoor image pairs from Habitat simulator
-- **Sources**: 
-  - HM3D: ~1M pairs
-  - Gibson: ~400K pairs  
-  - Replica: ~200K pairs
-  - Other datasets: ~200K pairs
+- **Sources**: Habitat simulator datasets
+  - Multiple indoor scene datasets
+  - Total: 1.82M synthetic image pairs
 - **Epochs**: 400 with cosine LR schedule
-- **Hardware**: 8 V100 GPUs
-- **Batch size**: 256
+- **Hardware**: 4 GPUs (A100 or V100)
+- **Batch size**: 256 (64 per GPU × 4 GPUs)
+- **Training time**: ~10 days (A100) or ~15 days (V100)
+- **Learning rate**: Following MAE's scaling rule
 - **Augmentations**: Homography and color jittering
 
 ## 📊 Results
 
-**Model Details**: All results use CroCo pre-trained on synthetic data (400 epochs) then fine-tuned on target datasets.
+**Model Details**: All results use CroCo (ViT-Base encoder) pre-trained on synthetic data (400 epochs) then fine-tuned on target datasets.
 
 ### Quantitative Performance
 
