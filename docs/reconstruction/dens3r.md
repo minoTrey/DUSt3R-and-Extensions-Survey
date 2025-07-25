@@ -203,7 +203,7 @@ Output: {Depth, Normals, Point maps} with structural coupling
 - ✅ **Best normal prediction** across all benchmarks (16.1° mean error on NYUv2, 72.2% δ<11.25° on iBims-1)
 - ✅ **State-of-the-art image matching**: 64.5% mean AUC@5° on ZEB dataset (outperforms MASt3R)
 - ✅ **Superior pose estimation**: 30.4px reprojection error on Map-free (76% better than DUSt3R)
-- ✅ **Strong depth prediction**: 0.387 REL on DIODE-outdoor (2nd best, competitive with VGGT)
+- ✅ **Best outdoor depth**: 0.387 REL on DIODE-outdoor (best), 93.7% δ₁ on DIODE-indoor (best)
 - ✅ **Efficient architecture**: 11% less memory (4.1GB vs 4.6GB) with shared encoder-decoder
 - ✅ **Unified framework**: Single model for depth, normals, matching, and pose estimation
 
