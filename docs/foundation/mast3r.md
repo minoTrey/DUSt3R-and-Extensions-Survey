@@ -54,11 +54,35 @@
 
 ### Quantitative Performance
 
-#### Aachen Day-Night Localization
-| Method | Matching | Top1 ↑ | Top20 ↑ |
-|--------|----------|--------|---------|
-| MASt3R | Standard | - | - |
-| **MASt3R** | **Coarse-to-fine** | **79.6%** | **83.4%** |
+#### 3D Reconstruction (DTU)
+| Method | Accuracy ↓ | Completeness ↓ | Overall ↓ |
+|--------|------------|----------------|-----------|
+| DUSt3R | 2.677 | 0.805 | 1.741 |
+| **MASt3R** | **0.403** | **0.344** | **0.374** |
+
+#### Map-free Localization (Test Set)
+| Method | VCRE AUC ↑ | Rotation Error ↓ |
+|--------|------------|------------------|
+| Previous SOTA | ~40% | 11.0° |
+| DUSt3R | 69.7% | 7.1° |
+| **MASt3R (DPT)** | **72.6%** | **2.2°** |
+| **MASt3R (auto)** | **93.3%** | **2.2°** |
+
+#### Multi-view Pose Regression
+| Dataset | Method | RRA@15 | RTA@15 | mAA(30) |
+|---------|--------|---------|---------|---------|
+| CO3Dv2 | DUSt3R | 94.3 | 88.4 | 77.2 |
+| | **MASt3R** | **94.6** | **91.9** | **81.8** |
+| RealEstate10K | DUSt3R | - | - | 61.2 |
+| | **MASt3R** | - | - | **76.4** |
+
+#### Visual Localization (Aachen Day-Night & InLoc)
+| Dataset | Setting | MASt3R Performance |
+|---------|---------|-------------------|
+| Aachen Day | top20 | 83.4/95.3/99.4 |
+| Aachen Night | top20 | 76.4/91.6/100 |
+| InLoc DUC1 | top40 | 56.1/79.3/90.9 |
+| InLoc DUC2 | top40 | 71.0/87.0/91.6 |
 
 #### Key Features
 - **Fast Reciprocal Matching (FRM)**: Provides more uniform spatial coverage
@@ -66,7 +90,13 @@
 - **Multi-resolution support**: Handles various input sizes
 - **Real-time capability**: Efficient matching algorithm
 
-*Note: Full benchmark results available in the paper*
+### Key Achievements
+- **69% reduction** in median rotation error (from 7.1° to 2.2° compared to DUSt3R)
+- **53.3% absolute improvement** in VCRE AUC (from 40% to 93.3% with auto mode)
+- **78.5% reduction** in DTU overall error (from 1.741 to 0.374 compared to DUSt3R)
+- **25% improvement** in RealEstate10K mAA(30) (from 61.2 to 76.4)
+- **Orders of magnitude** faster matching with reciprocal scheme
+- State-of-the-art on multiple benchmarks: Map-free, DTU, CO3Dv2, RealEstate10K, Aachen, InLoc
 
 ## 💡 Insights & Impact
 
