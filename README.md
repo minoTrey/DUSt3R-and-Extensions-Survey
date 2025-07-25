@@ -50,7 +50,7 @@ Core advances in static scene reconstruction, multi-view consistency, and large-
 <summary>View papers in this category</summary>
 
 - **🏆 State-of-the-Art**: [π³ (Pi3)](docs/reconstruction/pi3.md) - Permutation-equivariant architecture beats VGGT
-- **⚡ Real-time Systems**: [SLAM3R](docs/reconstruction/slam3r.md), [Fast3R](docs/reconstruction/fast3r.md), [MASt3R-SLAM](docs/reconstruction/mast3r-slam.md), [Spann3R](docs/reconstruction/spann3r.md)
+- **⚡ Real-time Systems**: [SLAM3R](docs/reconstruction/slam3r.md), [Fast3R](docs/reconstruction/fast3r.md) (CVPR'25), [MASt3R-SLAM](docs/reconstruction/mast3r-slam.md), [Spann3R](docs/reconstruction/spann3r.md)
 - **👁️ Multi-view**: [MUSt3R](docs/reconstruction/must3r.md), [MV-DUSt3R+](docs/reconstruction/mv-dust3r-plus.md), [Light3R-SfM](docs/reconstruction/light3r-sfm.md)  
 - **🤖 Foundation Models**: [MoGe](docs/reconstruction/moge.md), [LoRA3D](docs/reconstruction/lora3d.md), [Test3R](docs/reconstruction/test3r.md), [Pow3R](docs/reconstruction/pow3r.md), [Dens3R](docs/reconstruction/dens3r.md)
 - **🌍 Large-scale**: [REGIST3R](docs/reconstruction/regist3r.md), [Spurfies](docs/reconstruction/spurfies.md), [ReconX](docs/reconstruction/reconx.md)
@@ -121,7 +121,7 @@ Efficient pose regression from DUSt3R's foundation.
 #### Point Map Reconstruction (DTU & ETH3D)
 | Model | DTU Acc. ↓ | DTU Comp. ↓ | ETH3D Acc. ↓ | ETH3D Comp. ↓ | Year |
 |-------|------------|--------------|---------------|----------------|------|
-| [Fast3R](docs/reconstruction/fast3r.md) | 3.340 | 2.929 | 0.832 | 0.978 | 2025 |
+| [Fast3R](docs/reconstruction/fast3r.md) (CVPR) | 3.340 | 2.929 | 0.832 | 0.978 | 2025 |
 | [VGGT](docs/reconstruction/vggt.md) | 1.338 | 1.896 | 0.280 | 0.305 | 2025 |
 | **[π³ (Pi3)](docs/reconstruction/pi3.md)** ⭐ | **1.198** | **1.849** | **0.194** | **0.210** | **2025** |
 
@@ -223,7 +223,7 @@ pts3d = output['pts3d']  # Your 3D points!
 ### 💡 Emerging Research Directions
 1. **4D Understanding**: Extending to spatiotemporal ([D²USt3R](docs/dynamic/d2ust3r.md), [Geo4D](docs/dynamic/geo4d.md))
 2. **Language Integration**: Text-guided 3D reconstruction
-3. **Mobile Deployment**: On-device processing ([Fast3R](docs/reconstruction/fast3r.md))
+3. **Mobile Deployment**: On-device processing ([Fast3R](docs/reconstruction/fast3r.md) - CVPR'25)
 4. **Generative 3D**: Creating new content, not just reconstructing
 5. **Unified Models**: One model for all 3D tasks
 

@@ -1,6 +1,6 @@
 # Dens3R: A Foundation Model for 3D Geometry Prediction (arXiv 2025)
 
-![Dens3R Teaser](https://g-1nonly.github.io/Dens3R/static/images/Teaser.png)
+![Dens3R Teaser](https://github.com/G-1nOnly/Dens3R/raw/main/assets/Teaser.jpg)
 *Dens3R provides unified geometric dense prediction for high-quality 3D reconstruction from unposed images through joint modeling of multiple geometric quantities*
 
 ## 📋 Overview
