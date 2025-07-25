@@ -56,13 +56,38 @@ Output: {Depth, Normals, Point maps} with structural coupling
 
 ## 📊 Results
 
-### Qualitative Results
-- **Depth Maps**: High-quality dense depth predictions
-- **Normal Maps**: Accurate surface normal estimation
-- **Point Maps**: Robust 3D point cloud generation
-- **Multi-view**: Consistent predictions across different viewpoints
+### Surface Normal Prediction Results
 
-*Note: Quantitative benchmarks and comparisons available in the paper*
+#### Quantitative Comparison (Angular Error)
+| Dataset | Method | Mean ↓ | Median ↓ | δ<11.25° ↑ |
+|---------|--------|--------|----------|------------|
+| **NYUv2** | DSINE | 18.6 | 9.9 | 56.1% |
+| | Lotus-G | 17.5 | 8.6 | 58.7% |
+| | GeoWizard | 20.4 | 11.9 | 47.0% |
+| | StableNormal | 19.7 | 10.5 | 53.0% |
+| | **Ours** | **16.1** | **7.4** | **62.5%** |
+| **ScanNet** | DSINE | 18.6 | 9.9 | 56.1% |
+| | Lotus-G | 18.1 | 8.8 | 58.2% |
+| | GeoWizard | 21.4 | 13.9 | 37.1% |
+| | StableNormal | 18.1 | 10.1 | 56.0% |
+| | **Ours** | **16.9** | **7.1** | **64.0%** |
+| **iBims-1** | DSINE | 18.8 | 8.3 | 64.1% |
+| | Lotus-G | 19.2 | 5.6 | 66.2% |
+| | GeoWizard | 19.7 | 9.7 | 58.4% |
+| | StableNormal | 17.2 | 8.1 | 66.7% |
+| | **Ours** | **16.0** | **4.3** | **72.2%** |
+| **Sintel** | DSINE | 34.9 | 28.1 | 21.5% |
+| | Lotus-G | 35.7 | 28.0 | 20.5% |
+| | GeoWizard | 41.6 | 34.3 | 11.8% |
+| | StableNormal | 35.0 | 27.0 | 19.5% |
+| | **Ours** | **30.7** | **21.4** | **28.9%** |
+| **DIODE-outdoor** | DSINE | 22.0 | 14.5 | 39.6% |
+| | Lotus-G | 24.7 | 15.9 | 32.9% |
+| | GeoWizard | 27.0 | 19.8 | 24.0% |
+| | StableNormal | 26.9 | 16.1 | 36.1% |
+| | **Ours** | **20.8** | **12.8** | **43.0%** |
+
+*Note: Lower is better for Mean/Median errors, higher is better for δ<11.25°*
 
 ### Resolution Support
 | Resolution | Processing | Quality | Speed |
@@ -72,11 +97,11 @@ Output: {Depth, Normals, Point maps} with structural coupling
 | **2048×2048** | **High-quality** | **Excellent** | **Practical** |
 
 ### Key Achievements
-- ✅ Unified prediction of multiple geometric quantities
-- ✅ Superior consistency across single and multi-view inputs
-- ✅ High-resolution processing capability (2K)
-- ✅ Robust performance across diverse scenarios
-- ✅ Efficient lightweight architecture
+- ✅ **Best normal prediction** across all benchmarks (16.1° mean error on NYUv2)
+- ✅ **72.2% accuracy** on iBims-1 (δ<11.25°), outperforming all baselines
+- ✅ **Consistent improvement** across indoor (NYUv2, ScanNet) and outdoor (DIODE) datasets
+- ✅ **High-resolution support** up to 2K resolution
+- ✅ **Unified framework** for multiple geometric quantities
 
 ## 💡 Insights & Impact
 
