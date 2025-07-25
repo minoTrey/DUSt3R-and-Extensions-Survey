@@ -7,15 +7,15 @@ The Foundation Models category represents the seminal works that established the
 ## 📈 Research Timeline
 
 ```
-2022: [CroCo](croco.md)     - Cross-view completion pretraining (NeurIPS 2022)
+2022: [CroCo]      - Cross-view completion pretraining (NeurIPS 2022)
       ↓
-2023: [CroCo v2](croco-v2.md)  - Enhanced stereo and optical flow (ICCV 2023)
+2023: [CroCo v2]   - Enhanced stereo and optical flow (ICCV 2023)
       ↓
-2024: [DUSt3R](dust3r.md)    - End-to-end 3D reconstruction (CVPR 2024) ⭐ BREAKTHROUGH
+2024: [DUSt3R]     - End-to-end 3D reconstruction (CVPR 2024) ⭐ BREAKTHROUGH
       ↓
-2024: [MASt3R](mast3r.md)    - 3D-aware feature matching (ECCV 2024)
+2024: [MASt3R]     - 3D-aware feature matching (ECCV 2024)
       ↓
-2025: [MASt3R-SfM](mast3r-sfm.md) - Complete SfM pipeline (3DV 2025)
+2025: [MASt3R-SfM] - Complete SfM pipeline (3DV 2025)
 ```
 
 ## 🎯 Key Innovations & Breakthroughs
@@ -183,11 +183,46 @@ confidence = output['confidence']
 ## 🔗 Relationship to Extensions
 
 The foundation models enable all other categories:
-- **Reconstruction**: Built directly on [DUSt3R](dust3r.md)
-- **Gaussian Splatting**: Uses [DUSt3R](dust3r.md) for initialization
-- **Dynamic**: Extends to moving scenes
-- **Medical**: Adapts to specialized domains
-- **Robotics**: Provides geometric understanding
+
+### 1. **Reconstruction** (17 papers)
+- Direct extensions of [DUSt3R](dust3r.md)'s architecture
+- Examples: VGGT, π³ (Pi3), Spann3R, REGIST3R
+- Focus: Improved accuracy, efficiency, and scale
+
+### 2. **Gaussian Splatting** (9 papers)
+- Uses [DUSt3R](dust3r.md)/[MASt3R](mast3r.md) for initialization
+- Examples: Splatt3R, InstantSplat, MVSplat
+- Benefit: Robust initial geometry for neural rendering
+
+### 3. **Dynamic Scene** (10 papers)
+- Extends static reconstruction to temporal dimension
+- Examples: MonST3R, POMATO, Stereo4D
+- Built on: [DUSt3R](dust3r.md)'s per-frame reconstruction
+
+### 4. **Medical** (3 papers)
+- Adapts foundation models to medical imaging
+- Examples: Endo3R (endoscopy), PlantSt3R (plant phenotyping)
+- Key: Domain-specific fine-tuning
+
+### 5. **Robotics** (4 papers)
+- Leverages real-time 3D understanding
+- Examples: RIG3R, GraphSeg, SLAM3R
+- Applications: Navigation, manipulation, SLAM
+
+### 6. **Pose Estimation** (3 papers)
+- Uses 3D reconstruction for object pose
+- Examples: Pos3R, RepoGen3D
+- Advantage: No CAD models needed
+
+### 7. **Understanding** (3 papers)
+- Adds semantic understanding to geometry
+- Examples: PE3R, MEt3R, LargeSpatialModel
+- Direction: Unified 3D perception
+
+### 8. **Reasoning** (2 papers)
+- Higher-level scene understanding
+- Examples: CUT3R, SHAPE
+- Goal: 3D scene reasoning and manipulation
 
 ---
 
