@@ -14,7 +14,7 @@
 
 1. **Unified Framework**: Joint geometric dense prediction for multiple quantities
 2. **Structural Coupling**: Explicitly models relationships between geometric properties
-3. **Intrinsic Invariance**: Achieves invariance in pointmap representation
+3. **Intrinsic-Invariant Pointmap**: Two-stage training to build intrinsic-invariant representation
 4. **High-Resolution Support**: Handles 2K inputs with quality geometric predictions
 5. **Versatile Foundation Model**: Adaptable to various downstream 3D reconstruction tasks
 
@@ -29,13 +29,17 @@ Dens3R: Joint geometric prediction → Consistent, coupled geometric understandi
 ### Technical Approach
 
 #### 1. Two-Stage Training Framework
-- **Stage 1**: Foundation geometric understanding
-- **Stage 2**: Multi-view consistency and refinement
+- **Stage 1**: Scale-Invariant Pointmap Training - learns scale-invariant point maps capturing consistent spatial geometric structures
+- **Stage 2**: Intrinsic-Invariant Pointmap Training - extends pointmap to intrinsically invariant form for improved normal prediction
+  - Changes from "one-to-many" to "one-to-one" supervision mapping for more stable normal prediction
+  - Includes coarse-to-fine training: first 512 resolution, then 1024 resolution for improved accuracy
 - **Training Data**: 30+ datasets (~50M image pairs)
   - Type A: High-quality synthetic (Hypersim, UnrealStereo4K, etc.)
   - Type B: Medium-quality (ScanNet++, Habitat, etc.)
   - Type C: Real-world (MegaDepth, Waymo, Co3Dv2, etc.)
-- **Loss Functions**: Lpts_loc, Lpts_glb, Ln, Lmatch, Lpts_n
+- **Loss Functions**: 
+  - Stage 1: Lpts_loc (local 3D regression), Lpts_glb (global 3D regression), Lpts_n (pointmap normal), Lmatch (pixel matching)
+  - Stage 2: Above losses + Ln (predicted normal loss)
 
 #### 2. Unified Architecture
 ```
@@ -47,7 +51,7 @@ Output: {Depth, Normals, Point maps} with structural coupling
 
 #### 3. Key Components
 - **Shared Encoder-Decoder**: Lightweight backbone architecture
-- **Position-Interpolated RoPE**: Rotary positional encoding for spatial awareness
+- **Position-Interpolated RoPE**: Enhanced rotary positional encoding to maintain accuracy at higher resolutions
 - **Multi-Head Prediction**: Joint geometric quantity regression
 - **Image-Pair Matching**: Integrates matching features for improved geometry
 
