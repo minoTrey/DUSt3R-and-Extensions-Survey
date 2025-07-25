@@ -89,6 +89,43 @@ Output: {Depth, Normals, Point maps} with structural coupling
 
 *Note: Lower is better for Mean/Median errors, higher is better for δ<11.25°*
 
+### Camera Pose Estimation Results
+
+#### Map-free Dataset
+| Method | Reproj. Error ↓ | Precision ↑ | AUC ↑ | Median Error (m) ↓ | Median Error (°) ↓ | Pose Precision ↑ | Pose AUC ↑ |
+|--------|----------------|-------------|--------|-------------------|-------------------|------------------|------------|
+| DUSt3R | 125.8 px | 45.2% | 0.704 | 1.10 m | 9.4° | 17.0% | 0.344 |
+| MASt3R | 57.2 px | 75.9% | 0.934 | 0.46 m | 3.0° | 51.7% | 0.746 |
+| VGGT | 48.8 px | 78.9% | 0.789 | 0.36 m | 3.6° | 57.7% | 0.577 |
+| **Ours** | **30.4 px** | **82.1%** | **0.944** | **0.24 m** | **3.4°** | **65.5%** | **0.852** |
+
+### Two-view Matching Results
+
+#### ScanNet-1500 Dataset
+| Method | AUC@5° ↑ | AUC@10° ↑ | AUC@20° ↑ |
+|--------|----------|-----------|-----------|
+| ROMA | 31.8 | 53.4 | 70.9 |
+| VGGT | 33.9 | 55.2 | 73.4 |
+| MASt3R | 62.4 | 77.4 | 86.9 |
+| **Ours** | **65.6** | **80.3** | **89.2** |
+
+#### MegaDepth-1500 Dataset
+| Method | AUC@5° ↑ | AUC@10° ↑ | AUC@20° ↑ |
+|--------|----------|-----------|-----------|
+| SP+SG | 42.2 | 61.2 | 76.0 |
+| SP+LG | 49.9 | 67.0 | 80.1 |
+| LoFTR | 52.8 | 69.2 | 81.2 |
+| MASt3R | 73.3 | 84.1 | 90.9 |
+| **Ours** | **73.9** | **84.4** | **91.2** |
+
+### Model Efficiency
+| Setting | Compute Cost | Memory Cost | Network Params |
+|---------|--------------|-------------|----------------|
+| w/o Shared | 1.362 TFlops | 4.6 GB | 737.591 M |
+| **w/ Shared** | **1.362 TFlops** | **4.1 GB** | **624.152 M** |
+
+*Experiments conducted on image pairs with 512 resolution*
+
 ### Resolution Support
 | Resolution | Processing | Quality | Speed |
 |------------|------------|---------|-------|
@@ -98,10 +135,11 @@ Output: {Depth, Normals, Point maps} with structural coupling
 
 ### Key Achievements
 - ✅ **Best normal prediction** across all benchmarks (16.1° mean error on NYUv2)
-- ✅ **72.2% accuracy** on iBims-1 (δ<11.25°), outperforming all baselines
-- ✅ **Consistent improvement** across indoor (NYUv2, ScanNet) and outdoor (DIODE) datasets
-- ✅ **High-resolution support** up to 2K resolution
-- ✅ **Unified framework** for multiple geometric quantities
+- ✅ **72.2% accuracy** on iBims-1 (δ<11.25°), highest among all methods
+- ✅ **State-of-the-art pose estimation**: 30.4px reprojection error (76% better than DUSt3R)
+- ✅ **Superior two-view matching**: 65.6% AUC@5° on ScanNet (best performance)
+- ✅ **Efficient architecture**: 11% less memory (4.1GB vs 4.6GB) with shared encoder-decoder
+- ✅ **High-resolution support** up to 2K resolution with unified framework
 
 ## 💡 Insights & Impact
 
