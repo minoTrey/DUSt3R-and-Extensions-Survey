@@ -172,13 +172,51 @@ confidence = output['confidence']
 - **[MASt3R](mast3r.md)**: When you need accurate matches
 - **[MASt3R-SfM](mast3r-sfm.md)**: For large image collections
 
-## 🔮 Future Directions
+## 🔮 Future Research Directions
 
-1. **Video Understanding**: Extending to temporal consistency
-2. **Language Integration**: Text-guided 3D reconstruction  
-3. **Generative 3D**: Creating new 3D content
-4. **Real-time Mobile**: On-device processing
-5. **4D Reconstruction**: Dynamic scene understanding
+Based on current trends and remaining challenges, several promising research directions emerge:
+
+### 1. **Temporal Coherence & Video Foundation Models**
+- **Challenge**: Current models process frames independently, lacking temporal consistency
+- **Opportunity**: Develop transformer architectures that model spatio-temporal relationships
+- **Key Research**: Long-range temporal attention, motion-aware feature learning
+- **Impact**: Enable robust video-based 3D reconstruction and tracking
+
+### 2. **Multi-modal 3D Understanding**
+- **Challenge**: Limited integration with language and audio modalities
+- **Opportunity**: Joint embedding spaces for vision-language-3D alignment
+- **Key Research**: Cross-modal attention mechanisms, unified scene representations
+- **Impact**: Natural language-guided 3D editing and reasoning
+
+### 3. **Efficient Architectures for Edge Deployment**
+- **Challenge**: Current models require significant GPU memory (>24GB for large scenes)
+- **Opportunity**: Model compression, quantization, and mobile-optimized architectures
+- **Key Research**: Knowledge distillation, neural architecture search for 3D tasks
+- **Impact**: Real-time 3D reconstruction on mobile devices and embedded systems
+
+### 4. **Self-supervised Learning at Scale**
+- **Challenge**: Limited diversity in training data (mostly indoor/outdoor scenes)
+- **Opportunity**: Internet-scale pretraining with minimal supervision
+- **Key Research**: Contrastive learning across viewpoints, synthetic-to-real transfer
+- **Impact**: Generalization to arbitrary domains without fine-tuning
+
+### 5. **Uncertainty Quantification & Robustness**
+- **Challenge**: Limited understanding of failure modes and uncertainty estimation
+- **Opportunity**: Probabilistic foundation models with calibrated uncertainties
+- **Key Research**: Bayesian transformers, out-of-distribution detection
+- **Impact**: Reliable deployment in safety-critical applications
+
+### 6. **Physics-aware 3D Reconstruction**
+- **Challenge**: Current models lack physical priors (lighting, materials, dynamics)
+- **Opportunity**: Incorporate differentiable physics and rendering
+- **Key Research**: Neural radiance fields integration, inverse graphics
+- **Impact**: Physically plausible reconstruction and simulation
+
+### 7. **Compositional Scene Understanding**
+- **Challenge**: Limited object-level understanding and part decomposition
+- **Opportunity**: Hierarchical scene representations with explicit structure
+- **Key Research**: Object-centric transformers, part-whole relationships
+- **Impact**: Scene editing, manipulation, and reasoning at multiple granularities
 
 ## 🔗 Relationship to Extensions
 
