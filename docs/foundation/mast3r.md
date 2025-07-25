@@ -22,55 +22,51 @@
 
 ### Architecture
 - **Base**: Built on DUSt3R's transformer framework
-- **Key Addition**: Dense descriptor head for local feature extraction
+- **Encoder**: ViT-Large (same as DUSt3R)
+- **Decoder**: ViT-Base (same as DUSt3R)
+- **Key Addition**: Dense descriptor head for local feature extraction (24-dim)
 - **Outputs**:
   - 3D pointmaps (inherited from DUSt3R)
-  - Dense local feature descriptors
+  - Dense local feature descriptors (24 dimensions)
   - Confidence maps
-- **Input**: Uncalibrated image pairs
+- **Input**: Uncalibrated image pairs at multiple resolutions
 
 ### Key Innovations
 1. **Matching as 3D Problem**: Recognizes that finding correspondences is inherently linked to 3D structure
-2. **InfoNCE Loss**: Replaces scale-invariant regression with contrastive learning for features
-3. **Reciprocal Matching**: Efficient algorithm avoiding quadratic complexity
+2. **InfoNCE Loss**: Contrastive learning for features with temperature τ=0.07
+3. **Fast Reciprocal Matching (FRM)**: Efficient algorithm avoiding quadratic complexity
 4. **Joint Optimization**: Simultaneously learns 3D geometry and feature matching
+5. **Coarse-to-Fine Matching**: Improves accuracy for challenging scenarios
 
 ### Training Strategy
-- **Datasets**: Same as DUSt3R with additional matching supervision
+- **Optimizer**: Adam with base learning rate 1e-4
+- **Batch size**: 64
+- **Epochs**: 35
+- **Input resolutions**: 512×384, 512×336, 512×288, 512×256, 512×160
 - **Loss Functions**:
   - 3D reconstruction loss (from DUSt3R)
-  - InfoNCE matching loss
-  - Confidence-weighted training
-- **Pre-training**: Leverages CroCo initialization
+  - InfoNCE matching loss (β=1, temperature τ=0.07)
+  - Confidence loss (α=0.2)
+- **Local feature dimension**: 24
+- **Initialization**: DUSt3R checkpoint
 
 ## 📊 Results
 
 ### Quantitative Performance
 
-#### Feature Matching (HPatches)
-| Method | MMA@3px | MMA@5px | MMA@10px |
-|--------|---------|---------|----------|
-| SuperPoint + SuperGlue | 52.4% | 68.1% | 82.7% |
-| LoFTR | 65.9% | 79.1% | 88.2% |
-| **MASt3R** | **68.2%** | **81.3%** | **91.4%** |
+#### Aachen Day-Night Localization
+| Method | Matching | Top1 ↑ | Top20 ↑ |
+|--------|----------|--------|---------|
+| MASt3R | Standard | - | - |
+| **MASt3R** | **Coarse-to-fine** | **79.6%** | **83.4%** |
 
-#### 3D Reconstruction (DTU)
-| Method | Accuracy ↓ | Completeness ↓ | Overall ↓ |
-|--------|------------|----------------|-----------|
-| DUSt3R | 2.667 | 0.805 | 1.741 |
-| **MASt3R** | **0.403** | **0.344** | **0.374** |
+#### Key Features
+- **Fast Reciprocal Matching (FRM)**: Provides more uniform spatial coverage
+- **Basin-biased sampling**: Improves convergence efficiency
+- **Multi-resolution support**: Handles various input sizes
+- **Real-time capability**: Efficient matching algorithm
 
-#### Map-free Localization
-| Method | VCRE AUC ↑ | Rotation Error ↓ |
-|--------|------------|------------------|
-| Previous SOTA | ~40% | 11.0° |
-| **MASt3R** | **70%** | **2.2°** |
-
-### Key Achievements
-- **80% reduction** in median rotation error
-- **30% absolute improvement** in localization accuracy
-- **Sub-millimeter** average reconstruction error
-- **Orders of magnitude** faster matching
+*Note: Full benchmark results available in the paper*
 
 ## 💡 Insights & Impact
 
