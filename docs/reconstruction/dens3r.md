@@ -1,22 +1,22 @@
-# Dens3R: Unified Geometric Dense Prediction for 3D Reconstruction (arXiv 2025)
+# Dens3R: A Foundation Model for 3D Geometry Prediction (arXiv 2025)
 
 ![Dens3R Teaser](https://g-1nonly.github.io/Dens3R/static/images/Teaser.png)
 *Dens3R provides unified geometric dense prediction for high-quality 3D reconstruction from unposed images through joint modeling of multiple geometric quantities*
 
 ## 📋 Overview
-- **Authors**: Xianze Fang, Jingnan Gao, Chenyang Lu, Tianyang Hu, Linxin Chen, Yuliang Xiu, Hongdong Li, Jianfei Cai
+- **Authors**: Xianze Fang, Jingnan Gao, Zhe Wang, Zhuo Chen, Xingyu Ren, Jiangjing Lyu, Qiaomu Ren, Zhonglei Yang, Xiaokang Yang, Yichao Yan, Chengfei Lyu
 - **Institution**: Alibaba Group, Shanghai Jiao Tong University
 - **Venue**: arXiv preprint (2025)
-- **Links**: [Paper](https://arxiv.org/abs/2507.16290v1) | [Project Page](https://g-1nonly.github.io/Dens3R/) | [Code](https://github.com/G-1nOnly/Dens3R)
-- **TL;DR**: Unified geometric dense prediction model that jointly predicts depth, surface normals, and point maps for robust 3D reconstruction from unposed images.
+- **Links**: [Paper](https://arxiv.org/abs/2507.16290) | [Project Page](https://g-1nonly.github.io/Dens3R/) | [Code](https://github.com/G-1nOnly/Dens3R)
+- **TL;DR**: Foundation model for unified 3D geometry prediction that jointly models depth, surface normals, and point maps with explicit structural coupling.
 
 ## 🎯 Key Contributions
 
-1. **Unified Geometric Prediction**: Joint modeling of depth, normals, and point maps
+1. **Unified Framework**: Joint geometric dense prediction for multiple quantities
 2. **Structural Coupling**: Explicitly models relationships between geometric properties
-3. **Multi-View Consistency**: Consistent geometry perception across view counts
+3. **Intrinsic Invariance**: Achieves invariance in pointmap representation
 4. **High-Resolution Support**: Handles 2K inputs with quality geometric predictions
-5. **Adaptable Framework**: Flexible backbone for downstream applications
+5. **Versatile Foundation Model**: Adaptable to various downstream 3D reconstruction tasks
 
 ## 🔧 Technical Details
 
@@ -43,10 +43,10 @@ Output: {Depth, Normals, Point maps} with structural coupling
 ```
 
 #### 3. Key Components
-- **Shared Encoder-Decoder**: Lightweight efficient backbone
-- **Position-Interpolated RPE**: Rotary positional encoding for spatial awareness
+- **Shared Encoder-Decoder**: Lightweight backbone architecture
+- **Position-Interpolated RoPE**: Rotary positional encoding for spatial awareness
 - **Multi-Head Prediction**: Joint geometric quantity regression
-- **Structural Coupling**: Explicit modeling of geometric relationships
+- **Image-Pair Matching**: Integrates matching features for improved geometry
 
 ### Geometric Coupling Strategy
 - **Cross-Property Learning**: Depth and normals inform each other
@@ -56,13 +56,13 @@ Output: {Depth, Normals, Point maps} with structural coupling
 
 ## 📊 Results
 
-### Geometric Prediction Quality
-| Task | Previous SOTA | Dens3R | Improvement |
-|------|---------------|--------|-------------|
-| Depth Estimation | Baseline | **Superior** | Significant |
-| Normal Prediction | Baseline | **Superior** | Significant |
-| Point Map Quality | DUSt3R | **Enhanced** | Notable |
-| Multi-view Consistency | Limited | **Excellent** | Major |
+### Qualitative Results
+- **Depth Maps**: High-quality dense depth predictions
+- **Normal Maps**: Accurate surface normal estimation
+- **Point Maps**: Robust 3D point cloud generation
+- **Multi-view**: Consistent predictions across different viewpoints
+
+*Note: Quantitative benchmarks and comparisons available in the paper*
 
 ### Resolution Support
 | Resolution | Processing | Quality | Speed |
