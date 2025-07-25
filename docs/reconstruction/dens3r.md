@@ -59,35 +59,98 @@ Output: {Depth, Normals, Point maps} with structural coupling
 ### Surface Normal Prediction Results
 
 #### Quantitative Comparison (Angular Error)
-| Dataset | Method | Mean ↓ | Median ↓ | δ<11.25° ↑ |
-|---------|--------|--------|----------|------------|
-| **NYUv2** | DSINE | 18.6 | 9.9 | 56.1% |
-| | Lotus-G | 17.5 | 8.6 | 58.7% |
-| | GeoWizard | 20.4 | 11.9 | 47.0% |
-| | StableNormal | 19.7 | 10.5 | 53.0% |
-| | **Ours** | **16.1** | **7.4** | **62.5%** |
-| **ScanNet** | DSINE | 18.6 | 9.9 | 56.1% |
-| | Lotus-G | 18.1 | 8.8 | 58.2% |
-| | GeoWizard | 21.4 | 13.9 | 37.1% |
-| | StableNormal | 18.1 | 10.1 | 56.0% |
-| | **Ours** | **16.9** | **7.1** | **64.0%** |
-| **iBims-1** | DSINE | 18.8 | 8.3 | 64.1% |
-| | Lotus-G | 19.2 | 5.6 | 66.2% |
-| | GeoWizard | 19.7 | 9.7 | 58.4% |
-| | StableNormal | 17.2 | 8.1 | 66.7% |
-| | **Ours** | **16.0** | **4.3** | **72.2%** |
-| **Sintel** | DSINE | 34.9 | 28.1 | 21.5% |
-| | Lotus-G | 35.7 | 28.0 | 20.5% |
-| | GeoWizard | 41.6 | 34.3 | 11.8% |
-| | StableNormal | 35.0 | 27.0 | 19.5% |
-| | **Ours** | **30.7** | **21.4** | **28.9%** |
-| **DIODE-outdoor** | DSINE | 22.0 | 14.5 | 39.6% |
-| | Lotus-G | 24.7 | 15.9 | 32.9% |
-| | GeoWizard | 27.0 | 19.8 | 24.0% |
-| | StableNormal | 26.9 | 16.1 | 36.1% |
-| | **Ours** | **20.8** | **12.8** | **43.0%** |
+| Dataset | Method | Mean ↓ | Median ↓ | δ<11.25° ↑ | δ<22.5° ↑ | δ<30° ↑ |
+|---------|--------|--------|----------|------------|-----------|---------|
+| **NYUv2** | DSINE | 18.6 | 9.9 | 56.1% | 76.9% | 82.6% |
+| | Lotus | 17.5 | 8.6 | 58.7% | 76.4% | 82.0% |
+| | GeoWizard | 20.4 | 11.9 | 47.0% | 73.8% | 80.8% |
+| | StableNormal | 19.7 | 10.5 | 53.0% | 75.9% | 81.7% |
+| | **Ours** | **16.1** | **7.4** | **62.5%** | **78.8%** | **84.0%** |
+| **ScanNet** | DSINE | 18.6 | 9.9 | 56.1% | 76.9% | 82.0% |
+| | Lotus | 18.1 | 8.8 | 58.2% | 75.3% | 80.8% |
+| | GeoWizard | 21.4 | 13.9 | 37.1% | 71.7% | 79.7% |
+| | StableNormal | 18.1 | 10.1 | 56.0% | 78.8% | 84.1% |
+| | **Ours** | **16.9** | **7.1** | **64.0%** | **78.1%** | **82.7%** |
+| **iBims-1** | DSINE | 18.8 | 8.3 | 64.1% | 78.6% | 82.2% |
+| | Lotus | 19.2 | 5.6 | 66.2% | 74.9% | 78.1% |
+| | GeoWizard | 19.7 | 9.7 | 58.4% | 77.6% | 81.6% |
+| | StableNormal | 17.2 | 8.1 | 66.7% | 81.1% | 84.6% |
+| | **Ours** | **16.0** | **4.3** | **72.2%** | **80.1%** | **83.0%** |
+| **Sintel** | DSINE | 34.9 | 28.1 | 21.5% | 41.5% | 52.7% |
+| | Lotus | 35.7 | 28.0 | 20.5% | 41.8% | 52.8% |
+| | GeoWizard | 41.6 | 34.3 | 11.8% | 31.8% | 43.9% |
+| | StableNormal | 35.0 | 27.0 | 19.5% | 42.4% | 54.6% |
+| | **Ours** | **30.7** | **21.4** | **28.9%** | **51.9%** | **62.2%** |
+| **DIODE-outdoor** | DSINE | 22.0 | 14.5 | 39.6% | 67.5% | 75.4% |
+| | Lotus | 24.7 | 15.9 | 32.9% | 63.9% | 71.9% |
+| | GeoWizard | 27.0 | 19.8 | 24.0% | 56.6% | 68.9% |
+| | StableNormal | 26.9 | 16.1 | 36.1% | 60.6% | 67.5% |
+| | **Ours** | **20.8** | **12.8** | **43.0%** | **70.7%** | **77.0%** |
 
-*Note: Lower is better for Mean/Median errors, higher is better for δ<11.25°*
+*Note: Lower is better for Mean/Median errors, higher is better for δ thresholds*
+
+#### Ablation Study on Normal Prediction
+| Dataset | Metrics | w/o IIT | w/o C2F | **Ours** |
+|---------|---------|---------|---------|----------|
+| NYUv2 | Mean ↓ | 17.8 | 17.6 | **16.1** |
+| | δ<11.25° ↑ | 50.6% | 50.5% | **62.5%** |
+| ScanNet | Mean ↓ | 18.6 | 17.8 | **16.9** |
+| | δ<11.25° ↑ | 49.4% | 58.8% | **64.0%** |
+| iBims | Mean ↓ | 20.2 | 18.6 | **16.0** |
+| | δ<11.25° ↑ | 56.8% | 63.9% | **72.2%** |
+| Sintel | Mean ↓ | 35.9 | 35.8 | **30.7** |
+| | δ<11.25° ↑ | 18.9% | 22.3% | **28.9%** |
+| DIODE-outdoor | Mean ↓ | 23.5 | 21.6 | **20.8** |
+| | δ<11.25° ↑ | 33.7% | 40.2% | **43.0%** |
+
+*IIT: Intrinsic-Invariant Training, C2F: Coarse-to-Fine Strategy*
+
+### Image Matching Results (ZEB Dataset)
+
+| Method | Mean AUC@5° ↑ | Real AUC@5° ↑ | Simulate AUC@5° ↑ |
+|--------|---------------|----------------|-------------------|
+| SIFT | 31.8 | 43.5 | 33.6 |
+| SuperGlue | 34.3 | 43.2 | 34.2 |
+| LoFTR | 39.1 | 50.6 | 43.9 |
+| DKM | 51.2 | 63.3 | 53.0 |
+| ROMA | 53.2 | 61.8 | 53.8 |
+| MASt3R | 59.9 | 57.8 | 52.3 |
+| **Ours** | **64.5** | **61.3** | **59.2** |
+
+### Monocular Depth Prediction Results
+
+#### NYUv2 Dataset
+| Method | REL ↓ | RMSE ↓ | δ₁ ↑ | δ₂ ↑ | δ₃ ↑ |
+|--------|-------|--------|-------|-------|-------|
+| GenPercept | 0.052 | 0.214 | 96.7% | 99.3% | 99.8% |
+| Lotus | 0.053 | 0.262 | 96.5% | 99.1% | 99.7% |
+| DepthAnythingV2 | 0.049 | 0.204 | 97.3% | 99.3% | 99.8% |
+| DUSt3R | 0.046 | 0.197 | 97.1% | 99.3% | 99.8% |
+| VGGT | 0.038 | 0.194 | 98.0% | 99.4% | 99.8% |
+| MoGe | **0.035** | **0.167** | 97.9% | 99.4% | **99.9%** |
+| **Ours** | 0.042 | 0.189 | 97.5% | 99.3% | 99.8% |
+
+#### DIODE-indoor Dataset
+| Method | REL ↓ | RMSE ↓ | δ₁ ↑ | δ₂ ↑ | δ₃ ↑ |
+|--------|-------|--------|-------|-------|-------|
+| GenPercept | 0.107 | 0.924 | 89.1% | 96.0% | 98.1% |
+| Lotus | 0.111 | 1.123 | 88.7% | 96.0% | 98.4% |
+| DepthAnythingV2 | 0.091 | 0.878 | 92.5% | 97.3% | 98.6% |
+| DUSt3R | 0.083 | 0.375 | 92.0% | 97.7% | 99.0% |
+| VGGT | **0.064** | 0.404 | 93.1% | **98.0%** | **99.2%** |
+| MoGe | 0.080 | 0.879 | 92.6% | 97.3% | 98.7% |
+| **Ours** | 0.072 | **0.372** | **93.7%** | 97.5% | 98.8% |
+
+#### DIODE-outdoor Dataset  
+| Method | REL ↓ | RMSE ↓ | δ₁ ↑ | δ₂ ↑ | δ₃ ↑ |
+|--------|-------|--------|-------|-------|-------|
+| GenPercept | 0.727 | 5.571 | 67.3% | 84.2% | 90.6% |
+| Lotus | 0.488 | 9.960 | 47.1% | 63.3% | 71.8% |
+| DepthAnythingV2 | 0.705 | 5.525 | 67.8% | 83.4% | 89.7% |
+| DUSt3R | 0.451 | 5.217 | 67.7% | 84.3% | 90.7% |
+| VGGT | 0.400 | 4.861 | 70.6% | 84.9% | 90.6% |
+| MoGe | 0.578 | 5.177 | **72.8%** | 86.7% | 91.9% |
+| **Ours** | **0.387** | **4.740** | 72.2% | **87.0%** | **92.3%** |
 
 ### Camera Pose Estimation Results
 
@@ -134,12 +197,12 @@ Output: {Depth, Normals, Point maps} with structural coupling
 | **2048×2048** | **High-quality** | **Excellent** | **Practical** |
 
 ### Key Achievements
-- ✅ **Best normal prediction** across all benchmarks (16.1° mean error on NYUv2)
-- ✅ **72.2% accuracy** on iBims-1 (δ<11.25°), highest among all methods
-- ✅ **State-of-the-art pose estimation**: 30.4px reprojection error (76% better than DUSt3R)
-- ✅ **Superior two-view matching**: 65.6% AUC@5° on ScanNet (best performance)
+- ✅ **Best normal prediction** across all benchmarks (16.1° mean error on NYUv2, 72.2% δ<11.25° on iBims-1)
+- ✅ **State-of-the-art image matching**: 64.5% mean AUC@5° on ZEB dataset (outperforms MASt3R)
+- ✅ **Superior pose estimation**: 30.4px reprojection error on Map-free (76% better than DUSt3R)
+- ✅ **Top depth prediction**: 0.387 REL on DIODE-outdoor (best among all methods)
 - ✅ **Efficient architecture**: 11% less memory (4.1GB vs 4.6GB) with shared encoder-decoder
-- ✅ **High-resolution support** up to 2K resolution with unified framework
+- ✅ **Unified framework**: Single model for depth, normals, matching, and pose estimation
 
 ## 💡 Insights & Impact
 
