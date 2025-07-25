@@ -31,8 +31,11 @@ Dens3R: Joint geometric prediction → Consistent, coupled geometric understandi
 #### 1. Two-Stage Training Framework
 - **Stage 1**: Foundation geometric understanding
 - **Stage 2**: Multi-view consistency and refinement
-- Progressive training for optimal convergence
-- Joint optimization across geometric quantities
+- **Training Data**: 30+ datasets (~50M image pairs)
+  - Type A: High-quality synthetic (Hypersim, UnrealStereo4K, etc.)
+  - Type B: Medium-quality (ScanNet++, Habitat, etc.)
+  - Type C: Real-world (MegaDepth, Waymo, Co3Dv2, etc.)
+- **Loss Functions**: Lpts_loc, Lpts_glb, Ln, Lmatch, Lpts_n
 
 #### 2. Unified Architecture
 ```
@@ -200,7 +203,7 @@ Output: {Depth, Normals, Point maps} with structural coupling
 - ✅ **Best normal prediction** across all benchmarks (16.1° mean error on NYUv2, 72.2% δ<11.25° on iBims-1)
 - ✅ **State-of-the-art image matching**: 64.5% mean AUC@5° on ZEB dataset (outperforms MASt3R)
 - ✅ **Superior pose estimation**: 30.4px reprojection error on Map-free (76% better than DUSt3R)
-- ✅ **Top depth prediction**: 0.387 REL on DIODE-outdoor (best among all methods)
+- ✅ **Strong depth prediction**: 0.387 REL on DIODE-outdoor (2nd best, competitive with VGGT)
 - ✅ **Efficient architecture**: 11% less memory (4.1GB vs 4.6GB) with shared encoder-decoder
 - ✅ **Unified framework**: Single model for depth, normals, matching, and pose estimation
 
