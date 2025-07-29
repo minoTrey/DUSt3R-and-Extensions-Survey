@@ -52,8 +52,15 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 |-------|------------|----------------|-----------|-------|---------|
 | **π³ (Pi3)** | **-** | **-** | **-** | Fast | **Current SOTA** |
 | VGGT | 0.677 | 0.72 | 0.798 | 0.2s | Previous SOTA |
-| MV-DUSt3R+ | - | - | 91.5% DAc | ~2s | Cross-reference fusion |
 | DUSt3R | 0.923 | 0.96 | 0.689 | ~10s | Original |
+
+### Multi-View Performance (HM3D Dataset)
+| Model | 12 Views DAc ↑ | Speed | Architecture | Key Innovation |
+|-------|----------------|--------|--------------|----------------|
+| **MV-DUSt3R+** | **91.5%** | **0.89s** | Single-stage | Cross-reference fusion |
+| MV-DUSt3R | 79.5% | 0.15s | Single-stage | Single reference |
+| DUSt3R | 30.7% | 8.28s | Two-stage | Pairwise matching |
+| Spann3R | 0.0% | 1.34s | Sequential | No global consistency |
 
 ### Scalability Comparison
 | Model | Max Images | Complexity | Memory Growth | Processing Time | Best For |
@@ -61,6 +68,7 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 | DUSt3R | 10-20 | O(N²) | O(N²) | ~10s/pair | Small scenes |
 | MASt3R | 20-50 | O(N²) | O(N²) | ~7s/pair | Better matching |
 | MUSt3R | 1000+ | O(N) | O(1) per image | 8.4 FPS | Large multi-view |
+| MV-DUSt3R+ | 100+ | O(N) | O(N) | ~2s total | Fast multi-view |
 | Fast3R | 1500+ | O(N) | Low | 251 FPS | Speed priority |
 | Spann3R | Unlimited | O(N) | Constant | Sequential | Unbounded scenes |
 
