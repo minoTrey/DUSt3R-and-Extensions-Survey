@@ -291,11 +291,12 @@ pts3d = output['pts3d']  # Your 3D points!
 ### 🎓 Recommended Learning Path
 1. **Start Here**: [DUSt3R paper](docs/foundation/dust3r.md) - Understand the core innovation
 2. **Deep Dive**: [Foundation Models](docs/foundation/) - Learn the fundamentals
-3. **Pick Your Interest**:
+3. **Core Methods**: [3D Reconstruction](docs/reconstruction/) - Master the main techniques
+4. **Pick Your Interest**:
    - **Neural Rendering** → [Gaussian Splatting](docs/gaussian-splatting/)
    - **Video/Motion** → [Dynamic Scenes](docs/dynamic/)
    - **Applications** → [Robotics](docs/robotics/) or [Medical](docs/medical/)
-4. **Latest SOTA**: [π³ (Pi3)](docs/reconstruction/pi3.md) - See cutting edge
+5. **Latest SOTA**: [π³ (Pi3)](docs/reconstruction/pi3.md) - See cutting edge
 
 ### 📖 Additional Resources
 - [📊 Complete Papers List](docs/papers-list.md) - All 54 papers with summaries
