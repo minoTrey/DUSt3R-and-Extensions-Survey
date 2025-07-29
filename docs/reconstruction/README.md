@@ -26,7 +26,7 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 - **SLAM3R**: Dense reconstruction from monocular RGB videos
 - **Fast3R**: 1000+ images in one forward pass
 - **MASt3R-SLAM**: Real-time SLAM with 3D priors
-- **MV-DUSt3R+**: 2-second reconstruction from sparse views
+- **MV-DUSt3R+**: 2-second reconstruction with cross-reference fusion
 
 ### 3. **Large-scale & Multi-view** 🌍
 - **Spann3R**: Spatial memory for unbounded scenes
@@ -52,7 +52,7 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 |-------|------------|----------------|-----------|-------|---------|
 | **π³ (Pi3)** | **-** | **-** | **-** | Fast | **Current SOTA** |
 | VGGT | 0.677 | 0.72 | 0.798 | 0.2s | Previous SOTA |
-| MV-DUSt3R+ | 0.640 | 0.72 | 0.798 | ~2s | Fast baseline |
+| MV-DUSt3R+ | - | - | 91.5% DAc | ~2s | Cross-reference fusion |
 | DUSt3R | 0.923 | 0.96 | 0.689 | ~10s | Original |
 
 ### Scalability Comparison
@@ -75,7 +75,7 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 4. [**SLAM3R**: Real-Time Dense Scene Reconstruction](slam3r.md)
 5. [**Fast3R**: 3D Reconstruction of 1000+ Images](fast3r.md)
 6. [**MASt3R-SLAM**: Real-Time Dense SLAM](mast3r-slam.md)
-7. [**MV-DUSt3R+**: Single-Stage Scene Reconstruction](mv-dust3r-plus.md)
+7. [**MV-DUSt3R+**: Single-Stage Scene Reconstruction](mv-dust3r-plus.md) - 13.8× faster
 
 ### 🌍 Large-scale & Multi-view
 8. [**MUSt3R**: Multi-view Stereo 3D Reconstruction (O(N) complexity)](must3r.md)
@@ -100,7 +100,7 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 1. **Permutation Equivariance** (Pi3): Handling arbitrary view orders naturally
 2. **Unified Geometry** (VGGT): Joint estimation of all geometric properties
 3. **Spatial Memory** (Spann3R): Unbounded scene reconstruction
-4. **Single-Stage Pipeline** (MV-DUSt3R+): Avoiding pairwise matching
+4. **Single-Stage Pipeline** (MV-DUSt3R+): O(N) complexity with cross-reference fusion
 
 ### Technical Innovations
 - **Memory Efficiency**: From O(N²) to O(N) complexity

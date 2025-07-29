@@ -51,7 +51,7 @@ Core advances in static scene reconstruction, multi-view consistency, and large-
 
 - **🏆 State-of-the-Art**: [π³ (Pi3)](docs/reconstruction/pi3.md) - Permutation-equivariant architecture beats VGGT
 - **⚡ Real-time Systems**: [SLAM3R](docs/reconstruction/slam3r.md), [Fast3R](docs/reconstruction/fast3r.md), [MASt3R-SLAM](docs/reconstruction/mast3r-slam.md), [Spann3R](docs/reconstruction/spann3r.md), [Light3R-SfM](docs/reconstruction/light3r-sfm.md)
-- **👁️ Multi-view**: [MUSt3R](docs/reconstruction/must3r.md) (1000+ images), [MV-DUSt3R+](docs/reconstruction/mv-dust3r-plus.md)
+- **👁️ Multi-view**: [MUSt3R](docs/reconstruction/must3r.md) (1000+ images), [MV-DUSt3R+](docs/reconstruction/mv-dust3r-plus.md) (2-second reconstruction)
 - **🤖 Foundation Models**: [MoGe](docs/reconstruction/moge.md) (affine-invariant geometry), [LoRA3D](docs/reconstruction/lora3d.md), [Test3R](docs/reconstruction/test3r.md), [Pow3R](docs/reconstruction/pow3r.md), [Dens3R](docs/reconstruction/dens3r.md)
 - **🌍 Large-scale**: [REGIST3R](docs/reconstruction/regist3r.md), [Spurfies](docs/reconstruction/spurfies.md), [ReconX](docs/reconstruction/reconx.md)
 - **🎯 Specialized**: [SPARS3R](docs/reconstruction/spars3r.md)
@@ -197,6 +197,7 @@ Efficient pose regression from DUSt3R's foundation.
 | DUSt3R | 10-20 | O(N²) | O(N) | - | 2024 |
 | MASt3R | 20-50 | O(N²) | O(N) | - | 2024 |
 | **[MUSt3R](docs/reconstruction/must3r.md)** ⭐ | **1000+** | **O(N)** | **O(1)** | **5.5cm ATE** | **2025** |
+| **[MV-DUSt3R+](docs/reconstruction/mv-dust3r-plus.md)** | **100+** | **O(N)** | **O(N)** | **91.5% DAc** | **2025** |
 
 *MUSt3R: Linear complexity breakthrough enables 50-100× more images with 4× memory efficiency.*
 
@@ -274,6 +275,7 @@ pts3d = output['pts3d']  # Your 3D points!
 | **[Dens3R](docs/reconstruction/dens3r.md)** | Unified dense prediction (depth+normals) | 72.2% δ<11.25° on iBims |
 | **[Fast3R](docs/reconstruction/fast3r.md)** | 1500 views in one pass | 320× faster than DUSt3R |
 | **[Light3R-SfM](docs/reconstruction/light3r-sfm.md)** | Feed-forward SfM | 49× faster than MASt3R-SfM |
+| **[MV-DUSt3R+](docs/reconstruction/mv-dust3r-plus.md)** | Single-stage multi-view | 13.8× faster with cross-reference fusion |
 | **[LoRA3D](docs/reconstruction/lora3d.md)** | Self-calibration pipeline | 88% camera error reduction |
 | **[MonST3R](docs/dynamic/monst3r.md)** | Monocular video tracking | Robust dynamic 3D |
 
