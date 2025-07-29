@@ -1,8 +1,11 @@
 # DUSt3R: Geometric 3D Vision Made Easy (CVPR 2024)
 
+![DUSt3R Architecture](https://github.com/naver/dust3r/raw/main/assets/dust3r_archi.jpg)
+*DUSt3R revolutionizes 3D reconstruction with end-to-end pointmap regression from uncalibrated image pairs*
+
 ## 📋 Overview
 - **Authors**: Shuzhe Wang, Vincent Leroy, Yohann Cabon, Boris Chidlovskii, Jérôme Revaud
-- **Institution**: NAVER LABS Europe
+- **Institutions**: Aalto University, NAVER LABS Europe
 - **Venue**: CVPR 2024
 - **Links**: [Paper](https://arxiv.org/abs/2312.14132) | [Code](https://github.com/naver/dust3r) | [Project Page](https://dust3r.europe.naverlabs.com/)
 - **TL;DR**: End-to-end 3D reconstruction from uncalibrated images using a transformer that directly regresses 3D pointmaps with confidence scores.
@@ -34,29 +37,67 @@
 4. **Robustness**: Handles arbitrary camera configurations
 
 ### Training Strategy
-- **Pretext Task**: 3D pointmap regression with confidence weighting
-- **Loss Functions**: 
-  - 3D regression loss (L1) on confident predictions
-  - Confidence-aware filtering
-- **Self-Training Loop**: Iteratively refines predictions using high-confidence regions
+- **Dataset**: 8.5M image pairs from 8 diverse datasets
+- **Pretraining**: Uses CroCo pretraining
+- **Resolution**: 224×224 initially, then 512×512
+- **Loss Function**: 3D regression loss with confidence weighting
+- **Training Objective**: Direct 3D pointmap regression
 
 ## 📊 Results
 
-### Quantitative Performance
+**Model Details**: All results use DUSt3R-512 (ViT-Large encoder, Base decoder, 512×512 resolution) with global alignment (GA) where noted.
 
-#### DTU Dataset (3D Reconstruction)
+### DTU Dataset (3D Reconstruction)
+
 | Method | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ |
 |--------|------|------------|----------------|-----------|
-| COLMAP | Traditional | 0.70 | 0.96 | 0.83 |
+| Gipuma | Traditional+GT | 0.283 | 0.873 | 0.578 |
 | MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 |
-| **DUSt3R** | **Feed-forward** | **2.667** | **0.805** | **1.741** |
+| CVP-MVSNet | Learning+GT | 0.296 | 0.406 | 0.351 |
+| **DUSt3R-512** | **No GT cameras** | **2.677** | **0.805** | **1.741** |
 
-#### 7-Scenes (Pose Estimation)
-| Scene | DUSt3R | COLMAP | PoseNet |
-|-------|--------|---------|---------|
-| Chess | 0.03m | 0.04m | 0.13m |
-| Fire | 0.03m | 0.03m | 0.27m |
-| Heads | 0.02m | 0.02m | 0.17m |
+*Note: DUSt3R operates without calibration or GT depth, making direct comparison complex.*
+
+### Multi-view Pose Estimation (CO3Dv2)
+
+| Metric | DUSt3R-512 (w/ GA) | Description |
+|--------|-------------------|-------------|
+| RRA@15 ↑ | 96.2% | Relative Rotation Accuracy |
+| RTA@15 ↑ | 86.8% | Relative Translation Accuracy |
+| mAA(30) ↑ | 76.7% | Mean Average Accuracy |
+
+### Visual Localization (7-Scenes)
+
+| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Model |
+|-------|-------------------|------------------|--------|
+| Chess | 3 | 0.97 | DUSt3R-512 |
+| Fire | 3 | 0.95 | DUSt3R-512 |
+| Heads | 2 | 1.37 | DUSt3R-512 |
+| Office | 3 | 1.01 | DUSt3R-512 |
+| Pumpkin | 4 | 1.14 | DUSt3R-512 |
+| Kitchen | 4 | 1.34 | DUSt3R-512 |
+| Stairs | 11 | 2.84 | DUSt3R-512 |
+
+### Visual Localization (Cambridge Landmarks)
+
+| Scene | Trans. Error (cm) ↓ | Rot. Error (°) ↓ | Model |
+|-------|-------------------|------------------|--------|
+| St. Facade | 6 | 0.26 | DUSt3R-512 |
+| Old Hospital | 17 | 0.33 | DUSt3R-512 |
+| King's College | 11 | 0.20 | DUSt3R-512 |
+| St. Mary's | 7 | 0.24 | DUSt3R-512 |
+| Great Court | 38 | 0.16 | DUSt3R-512 |
+
+### Multi-view Depth Estimation
+
+| Dataset | Rel. Error ↓ | Inlier τ@1.25 ↑ | Model |
+|---------|-------------|-----------------|--------|
+| KITTI | 9.11 | 39.49 | DUSt3R-512 |
+| ScanNet | 4.93 | 60.20 | DUSt3R-512 |
+| ETH3D | 2.91 | 76.91 | DUSt3R-512 |
+| DTU | 3.52 | 69.33 | DUSt3R-512 |
+| Tanks & Temples | 3.17 | 76.68 | DUSt3R-512 |
+| **Average** | **4.73** | **64.52** | **DUSt3R-512** |
 
 ### Qualitative Results
 - Handles diverse scenes: indoor, outdoor, close-up, wide baseline
@@ -67,9 +108,9 @@
 
 ### Revolutionary Aspects
 1. **Simplicity**: Removes need for feature matching, bundle adjustment, calibration
-2. **Speed**: Real-time capable (compared to minutes/hours for traditional methods)
+2. **Speed**: ~40ms per image pair on H100 GPU, seconds for global alignment
 3. **Robustness**: Works where traditional methods fail (low texture, wide baselines)
-4. **Accessibility**: Democratizes 3D reconstruction for non-experts
+4. **Accessibility**: Makes 3D vision tasks easier with unified approach
 
 ### Paradigm Comparison
 | Aspect | Traditional (SfM+MVS) | DUSt3R |
@@ -88,24 +129,24 @@
 
 ## 🔗 Impact on Research
 
-### Direct Extensions (59+ papers)
-- **Efficiency**: Fast3R, SLAM3R (real-time variants)
-- **Quality**: VGGT, Test3R (improved accuracy)
-- **Scale**: Pow3R, Align3R (large scenes)
-- **Applications**: Gaussian Splatting integration, robotics
+### Direct Extensions
+- **Efficiency**: Fast3R, SLAM3R, Spann3R (speed improvements)
+- **Quality**: MASt3R, VGGT, π³ (Pi3) (improved accuracy)
+- **Scale**: REGIST3R, ReconX, Light3R-SfM (larger scenes)
+- **Applications**: Splatt3R, Dust-GS (Gaussian Splatting), RIG3R (robotics)
 
 ### Research Directions Enabled
-1. **Dynamic Reconstruction**: MonST3R, DynaMoSt3R
-2. **Neural Rendering**: Integration with 3DGS
-3. **Scene Understanding**: Semantic 3D reconstruction
-4. **Robotics**: Direct integration into SLAM systems
+1. **Dynamic Reconstruction**: MonST3R, POMATO, D²USt3R, Stereo4D
+2. **Neural Rendering**: Splatt3R, PreF3R, InstantSplat
+3. **Scene Understanding**: PE3R, MEt3R, LargeSpatialModel
+4. **Robotics**: RIG3R, GraphSeg, SLAM3R
 
 ## 📚 Key Takeaways
 
 DUSt3R fundamentally changed 3D reconstruction by:
 1. **Making it accessible**: No expertise in multi-view geometry required
 2. **Unifying tasks**: Single model for reconstruction, pose, matching
-3. **Enabling research**: 59+ follow-up papers in under 2 years
+3. **Enabling research**: Inspired numerous follow-up works
 4. **Proving feasibility**: Feed-forward 3D reconstruction is not only possible but practical
 
-The paper's title "Geometric 3D Vision Made Easy" perfectly captures its contribution - transforming a complex, brittle pipeline into a simple neural network inference, thereby democratizing 3D reconstruction for the broader community.
+The paper's title "Geometric 3D Vision Made Easy" perfectly captures its contribution - transforming a complex, brittle pipeline into a simple neural network inference for broader accessibility.

@@ -1,39 +1,46 @@
 # Light3R-SfM: Towards Feed-forward Structure-from-Motion (CVPR 2025)
 
+![Light3R Pipeline](https://selflein.github.io/Light3R/static/images/pipeline_4.png)
+*Light3R achieves 49× speedup in SfM through learnable global alignment, reconstructing 200 images in 33 seconds*
+
 ## 📋 Overview
-- **Authors**: Sven Elflein, Qunjie Zhou, Laura Leal-Taixé
+- **Authors**: Sven Elflein, Qunjie Zhou, Sérgio Agostinho, Laura Leal-Taixé
 - **Institutions**: NVIDIA, University of Toronto, Vector Institute
 - **Venue**: CVPR 2025
 - **Links**: [Paper](https://arxiv.org/abs/2501.14914) | [Project Page](https://selflein.github.io/Light3R/)
-- **TL;DR**: Feed-forward SfM system using learnable global alignment module, achieving 49× speedup over traditional optimization-based methods.
+- **TL;DR**: Feed-forward SfM system using learnable global alignment module in latent space, achieving 49× speedup over optimization-based methods.
 
 ## 🎯 Key Contributions
 
-1. **Latent Global Alignment**: Novel attention-based module replaces optimization
-2. **Feed-forward Pipeline**: End-to-end neural SfM without RANSAC or BA
-3. **Extreme Speed**: 200-image reconstruction in 33 seconds
-4. **IMC24 Winner**: First place in Image Matching Challenge 2024
-5. **Scalability**: Efficient O(N²) complexity for N images
+1. **Latent Global Alignment**: Novel attention-based module that replaces traditional optimization
+2. **Feed-forward Pipeline**: End-to-end neural SfM without RANSAC or bundle adjustment
+3. **Sparse Scene Graph**: Efficient construction using shortest path tree algorithm
+4. **Extreme Speed**: 200-image reconstruction in 33 seconds (49× faster than MASt3R-SfM)
+5. **Versatile Performance**: Strong results across diverse datasets (indoor/outdoor/driving)
 
 ## 🔧 Technical Details
 
-### Core Innovation: Attention-based Alignment
+### Core Innovation: Attention-based Global Alignment
 ```
-Traditional SfM: Images → Features → RANSAC → Bundle Adjustment
-Light3R-SfM: Images → Latent Alignment → Direct Reconstruction
+Traditional SfM: Images → Features → Matching → RANSAC → Bundle Adjustment → 3D
+Light3R-SfM: Images → Encoder → Latent Alignment → Decoder → Direct 3D
 ```
 
 ### Five-Stage Architecture
 
 #### 1. Image Encoding
+- **Encoder**: ViT-Large (ViT-L)
 - Transform images to feature tokens
 - Leverage pre-trained foundation models
 - Extract rich geometric representations
 
-#### 2. Latent Global Alignment
+#### 2. Latent Global Alignment Module
+- **Architecture**: 4 attention blocks
+- **Mechanism**: Self-attention + Cross-attention
+- **Purpose**: Align features globally without explicit optimization
 ```python
-# Conceptual attention flow
-for layer in alignment_layers:
+# Conceptual flow
+for block in range(4):
     # Global information exchange
     global_tokens = self_attention(global_tokens)
     # Propagate to image features
@@ -41,113 +48,140 @@ for layer in alignment_layers:
 ```
 
 #### 3. Scene Graph Construction
-- Build sparse graph using Shortest Path Tree (SPT)
-- Select most reliable connections
-- Ensure global connectivity
+- **Algorithm**: Shortest Path Tree (SPT)
+- **Goal**: Create sparse but connected graph
+- **Efficiency**: Avoids O(N²) pairwise decoding
+- Select most reliable image connections
 
-#### 4. Pairwise Decoding
-- Generate pointmaps for selected pairs
-- Use aligned features from stage 2
-- Maintain global consistency
+#### 4. Pairwise Pointmap Decoding
+- **Decoder**: ViT-Base (ViT-B)
+- Generate pointmaps only for graph edges
+- Use globally aligned features from stage 2
+- Maintain consistency across pairs
 
-#### 5. Global Merging
-- Merge pairwise predictions
-- No optimization needed
-- Direct globally aligned output
+#### 5. Global Accumulation
+- Merge pairwise predictions along spanning tree
+- No optimization required
+- Direct globally consistent 3D output
 
 ### Technical Specifications
-- **Complexity**: O(N² + N×T) where T = tokens/image
-- **Memory**: Scales with number of images
-- **Foundation**: Built on DUSt3R/MASt3R
-- **Training**: Learning-free approach
+- **Complexity**: O(N² + N×T) where T = tokens per image
+- **Memory Scaling**: Linear with number of images
+- **Foundation**: Built on DUSt3R/MASt3R pre-trained models
+- **Training Data**: Waymo, CO3Dv2, MegaDepth, TartanAir
 
 ## 📊 Results
 
-### Speed Comparison
-| Method | 200 Images | Speedup | Quality |
-|--------|------------|---------|---------|
-| MASt3R-SfM | 27 min | 1× | Baseline |
-| Spann3R | 3.3 min | 8× | Lower |
-| **Light3R-SfM** | **33 sec** | **49×** | **Comparable** |
+### Tanks & Temples Dataset (Scene-level)
+| Views | Method | RRA@5° ↑ | RTA@5° ↑ | ATE ↓ | Runtime ↓ |
+|-------|--------|----------|----------|--------|-----------|
+| **200** | MASt3R-SfM | ~70% | ~70% | 0.012 | 27 min |
+| | Spann3R | 26.8% | 17.9% | 0.040 | 3.3 min |
+| | **Light3R** | **52.4%** | **53.1%** | **0.016** | **33 sec** |
 
-### Accuracy Metrics (IMC24)
-| Metric | Score | Rank |
-|--------|-------|------|
-| mAA@10° | 73.5% | 1st |
-| Pose Error | 0.021 | 1st |
-| Overall | Best | **Winner** |
+*Note: Light3R achieves 49× speedup with competitive accuracy*
+
+### CO3Dv2 Dataset (Object-centric)
+| Views | Method | RRA@15° ↑ | RTA@15° ↑ | mAA@30° ↑ |
+|-------|--------|-----------|-----------|-----------|
+| **10** | MASt3R | 90.1% | 81.9% | 86.0% |
+| | MASt3R-SfM | 92.7% | 91.9% | 92.3% |
+| | Spann3R | 90.5% | 81.2% | 85.8% |
+| | **Light3R** | **94.7%** | **85.8%** | **90.3%** |
+| **2** | MASt3R | 94.2% | 86.5% | 90.3% |
+| | **Light3R** | **95.5%** | **88.6%** | **92.0%** |
+
+### Waymo Dataset (Driving Scenes)
+| Method | RRA@5° ↑ | RTA@5° ↑ | ATE ↓ | Runtime ↓ |
+|--------|----------|----------|--------|-----------|
+| Spann3R | 55.1% | 31.5% | 0.126 | 53.8s |
+| **Light3R** | **78.3%** | **60.9%** | **0.086** | **8.5s** |
+
+*Light3R shows 42% improvement in accuracy and 6.3× speedup*
+
+### Runtime Breakdown (Courthouse scene, 200 images)
+| Component | 224×224 | 512×512 |
+|-----------|---------|---------|
+| Image Encoding | 2.3s | 7.8s |
+| Latent Alignment | 3.9s | 4.1s |
+| Graph Construction | 1.5s | 9.3s |
+| Pointmap Decoding | 24.1s | 103.5s |
+| Global Accumulation | 1.1s | 6.3s |
+| **Total** | **32.9s** | **131.0s** |
+| GPU Memory | 8.0 GB | 25.6 GB |
 
 ### Scalability Analysis
-| Images | Light3R | Traditional | Ratio |
-|--------|---------|-------------|-------|
-| 50 | 8s | 2 min | 15× |
-| 100 | 18s | 8 min | 27× |
-| 200 | 33s | 27 min | 49× |
-| 500 | 1.5 min | >2 hours | >80× |
+| Images | Light3R | MASt3R-SfM | Speedup |
+|--------|---------|------------|---------|
+| 25 | 4.4s | 101s | 23× |
+| 50 | 8.8s | 245s | 28× |
+| 100 | 17.9s | 571s | 32× |
+| 200 | 32.9s | 1605s | 49× |
 
 ## 💡 Insights & Impact
 
 ### Paradigm Shift in SfM
 
-**Before Light3R-SfM**:
-- Feature detection → Matching → RANSAC → Bundle adjustment
-- Iterative optimization required
-- Runtime scales poorly
-- Engineering-heavy pipeline
+**Traditional Pipeline Challenges**:
+1. Feature detection and matching (SIFT/SuperPoint)
+2. Geometric verification (RANSAC)
+3. Bundle adjustment optimization
+4. Hours of runtime for large scenes
+5. Complex engineering and tuning
 
-**With Light3R-SfM**:
-- Single forward pass through network
-- No iterative optimization
-- Predictable runtime
-- Data-driven approach
+**Light3R-SfM Innovation**:
+1. Single forward pass through neural network
+2. Implicit optimization via attention
+3. Predictable sub-minute runtime
+4. Data-driven robustness
+5. Simple end-to-end pipeline
 
 ### Why It Works
-1. **Attention is Alignment**: Global reasoning through attention
-2. **Implicit Optimization**: Network learns to align
-3. **Foundation Models**: Leverages strong priors
-4. **Sparse Sufficient**: Not all pairs needed
+1. **Attention as Optimization**: Self-attention performs implicit global alignment
+2. **Strong Priors**: Leverages foundation model knowledge
+3. **Sparse is Sufficient**: Not all image pairs needed for accurate reconstruction
+4. **Latent Space**: More efficient than optimizing in 3D space
 
-### Applications Enabled
-- **Real-time Mapping**: Fast enough for online use
-- **Large-scale Reconstruction**: Handle thousands of images
-- **Robotics**: Quick scene understanding
-- **AR/VR**: Rapid environment capture
-- **Photogrammetry**: Accelerated workflows
+### Real-World Applications
+- **Robotics**: Real-time mapping for navigation
+- **AR/VR**: Quick environment capture
+- **Photogrammetry**: Accelerated 3D modeling
+- **Autonomous Driving**: Fast scene understanding
+- **Cultural Heritage**: Rapid site documentation
 
-### Comparison with Related Work
-
-| Method | Approach | Speed | Optimization |
-|--------|----------|-------|--------------|
-| COLMAP | Traditional | Hours | Heavy |
-| DUSt3R | Neural + Opt | Minutes | Moderate |
-| MASt3R-SfM | Hybrid | Minutes | Moderate |
-| Spann3R | Sequential | Fast | None |
-| **Light3R-SfM** | **Feed-forward** | **Fastest** | **None** |
+### Limitations
+- **Scale**: Currently limited to ~1000 images (not city-scale)
+- **Accuracy**: Less precise at very tight thresholds (e.g., RRA@1°)
+- **Dynamic Scenes**: Struggles with significant motion
+- **Memory**: Requires substantial GPU memory for large scenes
 
 ## 🔗 Related Work
 
+### Comparison Matrix
+| Method | Type | Optimization | Speed | Max Images |
+|--------|------|--------------|-------|------------|
+| COLMAP | Classical | Heavy | Hours | Unlimited |
+| DUSt3R | Neural+Opt | Moderate | Minutes | ~100 |
+| MASt3R-SfM | Hybrid | Moderate | Minutes | ~500 |
+| Spann3R | Sequential | None | Fast | 1000+ |
+| **Light3R** | **Feed-forward** | **None** | **Fastest** | **~1000** |
+
 ### Building On
-- **DUSt3R**: Dense reconstruction foundation
-- **MASt3R**: Matching capabilities
-- **Attention Mechanisms**: Global reasoning
+- **DUSt3R**: Dense pointmap representation
+- **MASt3R**: Enhanced matching capabilities
+- **Transformer Architectures**: Global reasoning via attention
 
-### Comparison with Spann3R
-- Both: Feed-forward, no optimization
-- Spann3R: Sequential processing with memory
-- Light3R-SfM: Global alignment, better accuracy
-- Trade-off: Light3R faster but less online
-
-### Enables
-- Next-gen real-time SfM systems
-- Integration with instant reconstruction
-- Foundation for future feed-forward methods
+### Key Differences
+- **vs MASt3R-SfM**: No optimization loop, 49× faster
+- **vs Spann3R**: Better accuracy through global alignment
+- **vs COLMAP**: End-to-end learning replaces hand-crafted pipeline
 
 ## 📚 Key Takeaways
 
 Light3R-SfM demonstrates that:
-1. **Optimization can be replaced**: Neural networks can align globally
-2. **Speed matters**: 49× faster enables new applications
-3. **Accuracy maintained**: Fast doesn't mean inaccurate
-4. **Simplicity wins**: Feed-forward beats complex pipelines
+1. **Optimization can be learned**: Neural networks can perform implicit global alignment
+2. **Speed enables applications**: 49× speedup opens new use cases
+3. **Accuracy scales with data**: Performance improves with more training
+4. **Simplicity matters**: Removing complex components improves robustness
 
-The success of Light3R-SfM, winning IMC24 and achieving massive speedups, marks a turning point in SfM technology, showing that data-driven approaches can revolutionize classical computer vision pipelines.
+The success of Light3R-SfM represents a major step toward real-time, learning-based 3D reconstruction, showing that feed-forward approaches can challenge decades-old optimization-based methods in both speed and accuracy.

@@ -1,5 +1,8 @@
 # ODHSR: Online Dense 3D Reconstruction of Humans and Scenes from Monocular Videos (CVPR 2025)
 
+![ODHSR Pipeline](https://eth-ait.github.io/ODHSR/static/images/pipeline.jpg)
+*ODHSR achieves unified online reconstruction of humans and scenes from monocular video with 75× speedup*
+
 ## 📋 Overview
 - **Authors**: Zetong Zhang, Manuel Kaufmann, Lixin Xue, Jie Song, Martin R. Oswald
 - **Institutions**: ETH Zürich, HKUST(GZ), HKUST, University of Amsterdam

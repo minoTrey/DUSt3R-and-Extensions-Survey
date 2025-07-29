@@ -1,5 +1,8 @@
 # Easi3R: Estimating Disentangled Motion from DUSt3R Without Training (ICCV 2025)
 
+![Easi3R Pipeline](https://easi3r.github.io/static/images/fig_pipe.png)
+*Easi3R extracts motion information from DUSt3R's attention maps without any additional training*
+
 ## 📋 Overview
 - **Authors**: Xingyu Chen, Yue Chen, Yuliang Xiu, Andreas Geiger, Anpei Chen
 - **Institution**: MPI-IS, University of Tübingen, ETH Zürich

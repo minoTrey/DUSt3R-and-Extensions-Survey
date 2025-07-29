@@ -1,5 +1,8 @@
 # Pow3R: Empowering Unconstrained 3D Reconstruction with Camera and Scene Priors (CVPR 2025)
 
+![Pow3R Overview](https://raw.githubusercontent.com/naver/pow3r/main/assets/overview.jpg)
+*Pow3R conditions on any combination of camera intrinsics, poses, and depth for versatile 3D reconstruction*
+
 ## 📋 Overview
 - **Authors**: Wonbong Jang, Philippe Weinzaepfel, Vincent Leroy, Lourdes Agapito, Jerome Revaud
 - **Institutions**: UCL, Naver Labs Europe

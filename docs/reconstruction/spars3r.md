@@ -1,5 +1,8 @@
 # SPARS3R: Semantic Prior Alignment and Regularization for Sparse 3D Reconstruction (CVPR 2025)
 
+![SPARS3R Pipeline](https://raw.githubusercontent.com/snldmt/SPARS3R/main/assets/pipeline.png)
+*SPARS3R fuses DUSt3R priors with SfM calibration using semantic-aware alignment for high-quality sparse-view reconstruction*
+
 ## 📋 Overview
 - **Authors**: Yutao Tang, Yuxiang Guo, Deming Li, Cheng Peng
 - **Institution**: Johns Hopkins University

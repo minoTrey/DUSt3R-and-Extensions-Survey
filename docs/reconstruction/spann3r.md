@@ -1,5 +1,8 @@
 # Spann3R: 3D Reconstruction with Spatial Memory (3DV 2025)
 
+![Spann3R Pipeline](https://hengyiwang.github.io/projects/spanner/images/pipeline_dark_v2.jpg)
+*Spann3R achieves real-time 3D reconstruction using dual spatial memory for globally aligned pointmap generation*
+
 ## 📋 Overview
 - **Authors**: Hengyi Wang, Lourdes Agapito
 - **Institution**: University College London

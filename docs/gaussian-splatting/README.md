@@ -7,112 +7,178 @@ The Gaussian Splatting category represents the integration of DUSt3R's 3D recons
 ## 📈 Research Timeline
 
 ```
-2024-2025: Rapid adoption of DUSt3R for 3DGS:
-- Pose-free Gaussian Splatting initialization
-- Quality enhancement through dense priors
-- Real-time rendering with robust geometry
-- Style transfer and artistic applications
+2024: Early Integration
+- First pose-free Gaussian Splatting methods
+- Eliminating SfM dependency
+
+2025: Rapid Evolution
+- Quality enhancement with foundation models
+- Coarse-to-fine strategies
+- Style transfer and dynamics
+- Real-time capabilities
 ```
 
 ## 🎯 Key Research Directions
 
-### 1. **Core Integration**
-- **Splatt3R**: Zero-shot 3DGS from uncalibrated pairs
-- **EasySplat**: View-adaptive learning without SfM
-- **InstantSplat**: Sparse-view reconstruction in 40 seconds
-- **PreF3R**: Pose-free feed-forward pipeline
+### 1. **Core Integration Methods**
+- Zero-shot Gaussian Splatting from image pairs
+- Pose-free initialization
+- Direct foundation model integration
 
 ### 2. **Quality Enhancement**
-- **FlowR**: Flow-matching for dense reconstructions
-- **LM-Gaussian**: Large model priors for robustness
-- **Dense Point Clouds Matter**: Dust-GS hybrid initialization
-- **SPARS3R**: Semantic alignment (also in reconstruction)
+- Large model priors for better quality
+- Dense initialization strategies
+- Progressive reconstruction
 
-### 3. **Style and Appearance**
-- **Styl3R**: Instant 3D stylization
-- **ArtSplat3R**: Artistic rendering
-- **StyleGS**: Style-aware Gaussian Splatting
+### 3. **Specialized Applications**
+- Style transfer and artistic rendering
+- Dynamic scene filtering
+- Avatar reconstruction
 
-### 4. **Efficiency and Scale**
-- **MVSplat**: Multi-view Splatting
-- **Dust to Tower**: Coarse-to-fine optimization
-- **DAS3R**: Dynamics-aware for static scenes
+## 📚 Paper List (10 papers)
+
+### 🚀 Core Methods
+1. [**Splatt3R**: Zero-shot Gaussian Splatting from Uncalibrated Image Pairs](splatt3r.md)
+   - **Venue**: arXiv 2024
+   - **Innovation**: First to enable 3DGS from just two images
+   - **Key**: MASt3R integration for instant Gaussians
+
+2. [**InstantSplat**: Unbounded Sparse-view Pose-free Gaussian Splatting in 40 Seconds](instantsplat.md)
+   - **Venue**: arXiv 2024
+   - **Innovation**: Fast sparse-view reconstruction
+   - **Key**: 40-second pipeline without SfM
+
+3. [**PreF3R**: Pose-Free Feed-Forward 3D Gaussian Splatting](pref3r.md)
+   - **Venue**: arXiv 2024
+   - **Innovation**: Variable-length sequence handling
+   - **Key**: Fully pose-free pipeline
+
+### 🎨 Quality Enhancement
+4. [**LM-Gaussian**: Boost Sparse-view 3D Gaussian Splatting with Large Model Priors](lm-gaussian.md)
+   - **Venue**: arXiv 2024
+   - **Innovation**: Foundation model priors for quality
+   - **Key**: Significant quality boost with few views
+
+5. [**Dust-GS**: Dense Point Clouds Matter for Scene Reconstruction](dust-gs.md)
+   - **Venue**: arXiv 2024
+   - **Innovation**: Dense initialization from DUSt3R
+   - **Key**: Better than sparse SfM points
+
+6. [**Dust to Tower**: Coarse-to-Fine Photo-Realistic Scene Reconstruction](dust-to-tower.md)
+   - **Venue**: arXiv 2024
+   - **Innovation**: Progressive refinement strategy
+   - **Key**: Coarse-to-fine optimization
+
+### 🌊 Advanced Techniques
+7. [**FlowR**: Flowing from Sparse to Dense 3D Reconstructions](flowr.md)
+   - **Venue**: arXiv 2025
+   - **Innovation**: Flow-based densification
+   - **Key**: Smooth transition sparse→dense
+
+8. [**DAS3R**: Dynamics-Aware Gaussian Splatting for Static Scene Reconstruction](das3r.md)
+   - **Venue**: arXiv 2024
+   - **Innovation**: Filtering dynamic elements
+   - **Key**: Clean static reconstruction
+
+### 🎭 Creative Applications
+9. [**Styl3R**: Instant 3D Stylized Reconstruction](styl3r.md)
+   - **Venue**: arXiv 2025
+   - **Innovation**: Style transfer in 3D
+   - **Key**: Arbitrary style application
+
+10. [**Avat3R**: Large Animatable Gaussian Reconstruction Model](avat3r.md)
+    - **Venue**: ICCV 2025
+    - **Innovation**: High-fidelity head avatars
+    - **Key**: Animatable Gaussians
+
+## 💡 Key Insights & Impact
+
+### Why DUSt3R + 3DGS is Revolutionary
+
+**Traditional 3DGS Pipeline**:
+1. Capture images
+2. Run COLMAP/SfM (slow, can fail)
+3. Initialize Gaussians from sparse points
+4. Optimize appearance
+
+**DUSt3R-Enhanced Pipeline**:
+1. Input images
+2. DUSt3R/MASt3R inference (fast, robust)
+3. Initialize from dense geometry
+4. Better final quality
+
+### Technical Advantages
+
+1. **No SfM Required**: Eliminates the main bottleneck
+2. **Dense Initialization**: ~50-100× more points than SfM
+3. **Robustness**: Works where SfM fails (textureless, etc.)
+4. **Speed**: Minutes → Seconds for initialization
+5. **Flexibility**: Works with 2+ images
 
 ## 📊 Performance Comparison
 
-### Initialization Methods
-| Method | SfM Required | Init Time | Quality | Robustness |
-|--------|--------------|-----------|---------|------------|
-| Original 3DGS | ✅ Required | Minutes | High | Low (sparse) |
-| InstantSplat | ❌ DUSt3R | 40 sec | High | High |
-| Splatt3R | ❌ MASt3R | Instant | Good | Very High |
-| EasySplat | ❌ Adaptive | Fast | High | High |
+### Initialization Quality
+| Method | Init Points | Time | Robustness | Min Views |
+|--------|-------------|------|------------|-----------|
+| COLMAP | 1-10K | Minutes | Low | 10+ |
+| DUSt3R | 100K-1M | Seconds | High | 2 |
+| Splatt3R | Direct 3DGS | Instant | High | 2 |
 
-### Novel View Synthesis Quality
-| Method | PSNR ↑ | SSIM ↑ | LPIPS ↓ | Views |
-|--------|---------|---------|----------|--------|
-| 3DGS+COLMAP | 27.2 | 0.89 | 0.12 | Dense |
-| InstantSplat | 28.1 | 0.91 | 0.09 | Sparse |
-| Splatt3R | 26.8 | 0.88 | 0.11 | 2 only |
-| SPARS3R | **29.3** | **0.93** | **0.08** | Sparse |
+### Novel View Quality (on standard benchmarks)
+| Method | PSNR ↑ | SSIM ↑ | LPIPS ↓ | Setup Time |
+|--------|--------|--------|---------|------------|
+| 3DGS+COLMAP | 27.2 | 0.815 | 0.121 | >5 min |
+| InstantSplat | 26.8 | 0.811 | 0.125 | 40 sec |
+| LM-Gaussian | **28.5** | **0.832** | **0.098** | 1 min |
 
-## 🔗 Paper Links
+## 🔧 Practical Applications
 
-### Core Integration Methods
-1. [Splatt3R: Zero-shot Gaussian Splatting](splatt3r.md)
-2. [EasySplat: View-Adaptive Learning](easysplat.md)
-3. [InstantSplat: 40-Second Reconstruction](instantsplat.md)
-4. [PreF3R: Pose-Free Feed-Forward](pref3r.md)
+### Current Use Cases
+- **Instant 3D Capture**: From phone photos to 3D
+- **Content Creation**: Quick 3D assets
+- **VR/AR**: Real-time environment capture
+- **E-commerce**: Product visualization
+- **Cultural Heritage**: Artifact preservation
 
-### Quality Enhancement
-5. [FlowR: Sparse to Dense Flow](flowr.md)
-6. [LM-Gaussian: Large Model Priors](lm-gaussian.md)
-7. [Dust-GS: Dense Initialization Matters](dust-gs.md)
-
-### Style and Artistic
-8. [Styl3R: Instant 3D Stylization](styl3r.md)
-9. [ArtSplat3R: Artistic Rendering](artsplat3r.md)
-
-### Advanced Applications
-10. [MVSplat: Multi-view Splatting](mvsplat.md)
-11. [Dust to Tower: Coarse-to-Fine](dust-to-tower.md)
-12. [DAS3R: Dynamics-Aware Static](das3r.md)
-
-## 💡 Key Insights
-
-### Why DUSt3R + 3DGS Works Well
-1. **Complementary Strengths**: DUSt3R provides geometry, 3DGS provides appearance
-2. **No SfM Required**: Eliminates traditional 3DGS's main bottleneck
-3. **Dense Initialization**: Better than sparse SfM points
-4. **Robustness**: Handles challenging scenarios where SfM fails
-
-### Technical Innovations
-- **Direct Gaussian Prediction**: Some methods predict Gaussian parameters directly
-- **Hybrid Initialization**: Combining neural and classical approaches
-- **Confidence-Guided**: Using DUSt3R's confidence for quality
-- **Multi-Scale**: Coarse-to-fine strategies for efficiency
-
-### Common Challenges
-1. **Scale Ambiguity**: DUSt3R's metric scale vs 3DGS requirements
-2. **Optimization**: Balancing initialization quality with refinement
-3. **Memory**: Dense point clouds need efficient handling
-4. **View Sparsity**: Maintaining quality with few inputs
+### Enabled by DUSt3R Integration
+- **Casual Capture**: No careful setup needed
+- **Challenging Scenes**: Works on difficult geometry
+- **Real-time Preview**: Fast enough for live feedback
+- **Style Transfer**: Artistic 3D rendering
 
 ## 🚀 Getting Started
 
-For different scenarios:
-- **Two views only**: Use Splatt3R (designed for pairs)
-- **Sparse views**: Use InstantSplat or SPARS3R
-- **No camera info**: Use pose-free methods (PreF3R, EasySplat)
-- **Style transfer**: Use Styl3R for artistic rendering
-- **Best quality**: Use SPARS3R with semantic alignment
+### Choose Your Method:
 
-## 📈 Future Directions
+**For Speed** ⚡:
+- **Splatt3R**: Instant from 2 images
+- **InstantSplat**: 40 seconds for more views
 
-1. **End-to-End Training**: Joint optimization of reconstruction and rendering
-2. **Real-Time Systems**: Instant 3DGS from live capture
-3. **Generative Models**: Combining with diffusion for creation
-4. **Dynamic Gaussian Splatting**: Extending to 4D scenarios
-5. **Semantic Understanding**: Object-aware Gaussian Splatting
+**For Quality** 🎨:
+- **LM-Gaussian**: Best quality with priors
+- **Dust to Tower**: Progressive refinement
 
-The integration of DUSt3R with Gaussian Splatting has democratized high-quality novel view synthesis by removing the SfM bottleneck, enabling applications from instant 3D capture to artistic content creation.
+**For Specific Needs** 🎯:
+- **Styl3R**: Artistic rendering
+- **DAS3R**: Clean static scenes
+- **Avat3R**: Animatable heads
+
+## 🔮 Future Directions
+
+1. **4D Gaussian Splatting**: Extending to dynamic scenes
+2. **Generative 3DGS**: Creating new content
+3. **Mobile Deployment**: On-device processing
+4. **Semantic Gaussians**: Understanding what they represent
+5. **Neural Compression**: Efficient storage/streaming
+
+## 🔗 Relationship to DUSt3R Ecosystem
+
+The Gaussian Splatting category shows how DUSt3R's geometric foundation enables:
+- **Democratization**: 3D for everyone, not just experts
+- **Speed**: Real-time applications become possible
+- **Robustness**: Works in real-world conditions
+- **Quality**: Dense initialization improves results
+
+---
+
+*The marriage of DUSt3R and Gaussian Splatting has transformed novel view synthesis from a complex multi-hour pipeline to a simple minute-long process, opening 3D content creation to millions of users.*

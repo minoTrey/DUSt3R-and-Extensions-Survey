@@ -1,5 +1,8 @@
 # Splatt3R: Zero-shot Gaussian Splatting from Uncalibrated Image Pairs (arXiv 2024)
 
+![Splatt3R Overview](https://splatt3r.active.vision/static/images/methodology.svg)
+*Splatt3R enables instant 3D Gaussian Splatting from uncalibrated image pairs by extending MASt3R with Gaussian parameter prediction*
+
 ## 📋 Overview
 - **Authors**: Brandon Smart, Chuanxia Zheng, Iro Laina, Victor Adrian Prisacariu
 - **Institution**: Active Vision Lab, University of Oxford

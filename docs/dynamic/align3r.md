@@ -1,5 +1,8 @@
 # Align3R: Aligned Monocular Depth Estimation for Dynamic Videos (CVPR 2025)
 
+![Align3R Framework](https://igl-hkust.github.io/Align3R.github.io/static/img/framework_00.jpg)
+*Align3R combines monocular depth estimation with DUSt3R to achieve temporally consistent depth for dynamic videos*
+
 ## 📋 Overview
 - **Authors**: Jiahao Lu*, Tianyu Huang*, Peng Li, Zhiyang Dou, Cheng Lin, Zhiming Cui, Zhen Dong, Sai-Kit Yeung, Wenping Wang, Yuan Liu (*Equal contribution)
 - **Institutions**: HKUST, CUHK, HKU, ShanghaiTech, WHU, TAMU, NTU

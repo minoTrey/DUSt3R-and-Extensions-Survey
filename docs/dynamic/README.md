@@ -2,115 +2,182 @@
 
 ## 🎬 Overview
 
-The Dynamic Scene Reconstruction category extends DUSt3R's capabilities to handle motion, temporal consistency, and dynamic objects. These papers address the fundamental challenge of reconstructing scenes with moving elements, from human motion to general dynamic scenes, enabling 4D reconstruction (3D + time).
+The Dynamic Scene Reconstruction category extends DUSt3R's capabilities from static scenes to the temporal domain, handling motion, deformation, and time-varying geometry. These papers tackle the fundamental challenge of understanding 4D scenes (3D + time) from visual input, enabling applications in video understanding, robotics, and immersive media.
 
-## 📈 Research Timeline
+## 🎯 Key Challenges
 
-```
-2024-2025: Major advances in dynamic reconstruction:
-- Motion modeling without explicit tracking
-- Human-specific reconstruction pipelines
-- Temporal consistency mechanisms
-- Training-free dynamic adaptations
-```
+Dynamic scenes introduce complexity beyond static reconstruction:
 
-## 🎯 Key Research Directions
+1. **Temporal Consistency**: Maintaining coherent geometry across frames
+2. **Motion Disentanglement**: Separating camera motion from object motion
+3. **Scale Consistency**: Preserving metric scale throughout sequences
+4. **Memory Efficiency**: Handling long videos without exhausting resources
+5. **Real-time Processing**: Achieving online performance for applications
 
-### 1. **Motion Modeling**
-- **MonST3R**: Separate pointmaps per timestep
-- **Easi3R**: Training-free motion extraction from attention
-- **DynaMoSt3R**: Explicit motion and structure decomposition
-- **POMATO**: Unified pointmap matching with temporal motion
+## 📚 Paper List (11 papers)
 
-### 2. **Human Reconstruction**
-- **ODHSR**: Online human-scene joint reconstruction
-- **DynCamRec**: Dynamic human capture
-- **Human-centric**: Specialized models for human motion
+### 🏃 Motion Modeling & Tracking
+1. [**POMATO**: Pointmap Matching with Temporal Motion for Dynamic Scene Reconstruction](pomato.md)
+   - **Venue**: ICCV 2025
+   - **Innovation**: Unified framework for pointmap matching + motion
+   - **Key**: Handles complex dynamic scenes
 
-### 3. **Temporal Consistency**
-- **CUT3R**: Stateful recurrent transformer
-- **FlowSt3R**: Optical flow integration
-- **TempSt3R**: Temporal smoothing mechanisms
-- **Align3R**: Temporally aligned depth estimation
+2. [**MonST3R**: Monocular Tracking and Reconstruction](monst3r.md)
+   - **Venue**: ICLR 2025
+   - **Innovation**: Per-frame pointmaps with temporal links
+   - **Key**: Robust monocular video processing
 
-### 4. **4D Understanding**
-- **Dynamic Point Maps**: Spatiotemporal representations
-- **Geo4D**: Video diffusion for 4D scenes
-- **Stereo4D**: Learning from internet stereo videos
+3. [**Easi3R**: Efficient Attention for Single Image-to-3D Reconstruction](easi3r.md)
+   - **Venue**: ICCV 2025
+   - **Innovation**: Training-free motion from attention patterns
+   - **Key**: Zero-shot dynamic understanding
 
-## 📊 Performance Comparison
+4. [**D²USt3R**: Dense Depth from Uncalibrated Dynamic Stereo Videos](d2ust3r.md)
+   - **Venue**: arXiv 2025
+   - **Innovation**: 4D pointmap regression
+   - **Key**: Direct 4D reconstruction
 
-### Motion Handling Approaches
-| Model | Method | Training | Speed | Key Feature |
-|-------|--------|----------|--------|-------------|
-| MonST3R | Per-frame pointmaps | Required | Fast | Simple, effective |
-| Easi3R | Attention analysis | **Free** | Very Fast | No training needed |
-| CUT3R | Recurrent state | Required | Real-time | Continuous tracking |
-| POMATO | Unified framework | Required | Medium | Motion + matching |
+### ⏱️ Temporal Consistency
+5. [**CUT3R**: Continuous 3D Perception via Memory](cut3r.md)
+   - **Venue**: CVPR 2025
+   - **Innovation**: Persistent 3D state across time
+   - **Key**: Long-term scene understanding
 
-### Temporal Consistency Methods
-| Model | Approach | Consistency | Use Case |
-|-------|----------|-------------|----------|
-| Align3R | Depth alignment | High | Video depth |
-| CUT3R | Persistent state | Very High | Streaming |
-| Dynamic Maps | 4D pointmaps | Medium | Scene flow |
-| Geo4D | Video diffusion | High | Full 4D |
+6. [**Align3R**: Aligned Monocular Depth for Dynamic Videos](align3r.md)
+   - **Venue**: CVPR 2025
+   - **Innovation**: Scale-consistent depth across frames
+   - **Key**: Solves scale drift problem
 
-## 🔗 Paper Links
+7. [**Dynamic Point Maps**: Efficient 4D Representation](dynamic-point-maps.md)
+   - **Venue**: arXiv 2025
+   - **Innovation**: Versatile 4D scene representation
+   - **Key**: Memory-efficient design
 
-### Core Dynamic Methods
-1. [MonST3R: Estimating Geometry in the Presence of Motion](monst3r.md)
-2. [Easi3R: Motion from DUSt3R Without Training](easi3r.md)
-3. [CUT3R: Continuous 3D with Persistent State](cut3r.md)
+### 👥 Specialized Applications
+8. [**ODHSR**: One-shot Deformable Human and Scene Reconstruction](odhsr.md)
+   - **Venue**: CVPR 2025
+   - **Innovation**: Joint human-scene understanding
+   - **Key**: Handles human-object interaction
 
-### Human-Specific
-4. [ODHSR: Online Dense Human-Scene Reconstruction](odhsr.md)
-5. [DynCamRec: Dynamic Human Capture](dyncamrec.md)
+9. [**Geo4D**: Learning 4D Geometric Representations](geo4d.md)
+   - **Venue**: ICCV 2025  
+   - **Innovation**: Video generators for 4D
+   - **Key**: Generative 4D modeling
 
-### Temporal Consistency
-6. [Align3R: Aligned Depth for Dynamic Videos](align3r.md)
-7. [Dynamic Point Maps: 4D Representation](dynamic-maps.md)
+10. [**Stereo4D**: Learning How Things Move from Internet Videos](stereo4d.md)
+    - **Venue**: CVPR 2025
+    - **Innovation**: Self-supervised motion learning
+    - **Key**: Learns from wild videos
 
-### Advanced 4D
-8. [Geo4D: Video Generators for 4D Reconstruction](geo4d.md)
-9. [POMATO: Pointmap Matching with Motion](pomato.md)
-10. [Stereo4D: Learning from Internet Videos](stereo4d.md)
+11. [**Adapt3R**: Adaptive 3D Scene Representation](adapt3r.md)
+    - **Venue**: arXiv 2025
+    - **Innovation**: Domain adaptation for dynamic scenes
+    - **Key**: Generalizes across domains
 
-## 💡 Key Insights
+## 💡 Technical Approaches & Innovations
 
-### Common Challenges
-1. **Motion-Structure Ambiguity**: Separating camera motion from object motion
-2. **Temporal Consistency**: Maintaining coherent geometry across frames
-3. **Computational Efficiency**: Real-time processing requirements
-4. **Occlusion Handling**: Dealing with appearing/disappearing objects
+### 1. **Temporal Extension Strategies**
 
-### Technical Innovations
-- **Per-timestep Representations**: MonST3R's simple but effective approach
-- **Attention-based Motion**: Easi3R's training-free motion extraction
-- **Recurrent Architectures**: CUT3R's stateful processing
-- **4D Representations**: Extending pointmaps to spatiotemporal domain
+**Architecture Modifications**:
+- **Temporal Attention**: Cross-frame feature correlation (MonST3R, CUT3R)
+- **Recurrent Processing**: Memory-based architectures (CUT3R)
+- **4D Representations**: Joint space-time modeling (D²USt3R, Dynamic Point Maps)
 
-### Application Domains
-- **Video Understanding**: Depth, flow, and 3D from videos
-- **Human Capture**: Motion capture without markers
-- **Robotics**: Dynamic scene understanding for navigation
-- **AR/VR**: Real-time 4D reconstruction
+**Key Innovation**: Moving from 3D snapshots to continuous 4D understanding
 
-## 🚀 Getting Started
+### 2. **Motion Disentanglement Methods**
 
-For different use cases:
-- **Simple dynamic scenes**: Use MonST3R (straightforward per-frame approach)
-- **No training budget**: Use Easi3R (training-free)
-- **Real-time needs**: Use CUT3R (streaming capability)
-- **Human-focused**: Use ODHSR or specialized models
-- **High quality 4D**: Use Geo4D with video diffusion
+**Decomposition Strategies**:
+- **Two-stream Networks**: Separate camera and object motion (POMATO)
+- **Attention-based**: Motion from self-attention patterns (Easi3R)
+- **Scene Flow**: Dense 3D motion fields (Stereo4D)
 
-## 📈 Future Directions
+**Key Innovation**: Understanding "what moves" vs "how we move"
 
-1. **Unified 4D Models**: Single model for all dynamic scenarios
-2. **Physics Integration**: Incorporating physical constraints
-3. **Long-term Tracking**: Handling extended sequences
-4. **Interactive Reconstruction**: Real-time user interaction
-5. **Neural Rendering**: Combining with NeRF/3DGS for view synthesis
+### 3. **Consistency Enforcement Techniques**
 
-The dynamic reconstruction field is rapidly evolving, with approaches ranging from simple per-frame methods to sophisticated 4D representations, each offering different trade-offs between quality, speed, and training requirements.
+**Temporal Coherence**:
+- **Cross-frame Constraints**: Enforcing geometric consistency (Align3R)
+- **Scale Anchoring**: Preventing drift over time (MonST3R)
+- **Memory Networks**: Maintaining persistent state (CUT3R)
+
+**Key Innovation**: Solving the scale drift problem in monocular video
+
+## 🔧 Performance & Trade-offs
+
+### Speed vs Accuracy
+| Method | FPS | Temporal Window | Key Trade-off |
+|--------|-----|-----------------|---------------|
+| Easi3R | 30+ | Single frame | Fast but limited context |
+| MonST3R | 10-15 | 5-10 frames | Balanced performance |
+| CUT3R | 5-10 | Unlimited | Full consistency, slower |
+| D²USt3R | 1-5 | Full video | Highest quality, offline |
+
+### Memory Requirements
+- **Frame-based**: O(1) memory (Easi3R)
+- **Window-based**: O(k) memory (MonST3R, POMATO)
+- **Full sequence**: O(n) memory (D²USt3R, CUT3R)
+
+## 🎯 Applications & Use Cases
+
+### Current Applications
+1. **Autonomous Navigation**: Understanding dynamic environments
+2. **AR/VR Content**: Creating immersive experiences
+3. **Video Editing**: 3D-aware video manipulation
+4. **Robotics**: Interacting with moving objects
+5. **Medical Imaging**: Tracking organ motion
+
+### Enabled Capabilities
+- **Novel View Synthesis**: Of dynamic scenes
+- **4D Reconstruction**: Complete spatiotemporal models
+- **Motion Prediction**: Anticipating future states
+- **Scene Understanding**: Semantic motion analysis
+
+## 📊 Benchmarks & Evaluation
+
+### Standard Datasets
+| Dataset | Type | Metrics | Focus |
+|---------|------|---------|-------|
+| **Dynamic Replica** | Synthetic | Accuracy, completeness | Indoor dynamics |
+| **TartanAir** | Synthetic | Trajectory error | Outdoor navigation |
+| **KITTI** | Real | Depth, flow accuracy | Autonomous driving |
+| **Sintel** | Synthetic | Optical flow EPE | Complex motion |
+| **DyCheck** | Real | Novel view quality | View synthesis |
+
+### Evaluation Metrics
+- **Geometric**: Depth accuracy, trajectory error
+- **Motion**: Flow endpoint error, tracking accuracy
+- **Temporal**: Consistency scores, drift metrics
+- **Perceptual**: Novel view PSNR/SSIM
+
+## 🚀 Future Directions
+
+### Near-term Goals
+1. **Real-time 4D**: Achieving 30+ FPS for all methods
+2. **Longer Videos**: Handling hour-long sequences
+3. **Better Motion**: Non-rigid and articulated objects
+4. **Uncertainty**: Quantifying temporal predictions
+
+### Long-term Vision
+1. **Unified 4D Foundation Models**: One model for all spatiotemporal tasks
+2. **Physics Integration**: Incorporating physical priors and constraints
+3. **Language-guided 4D**: "Show me when the person picks up the cup"
+4. **Predictive Models**: Forecasting future 3D states
+5. **Interactive 4D**: Real-time editing of dynamic scenes
+
+## 🔗 Relationship to DUSt3R Ecosystem
+
+**Building on Foundation**:
+- Extends DUSt3R's feed-forward paradigm to time
+- Leverages pretrained spatial understanding
+- Maintains uncalibrated, accessible approach
+
+**Synergies with Other Categories**:
+- **Gaussian Splatting**: 4D Gaussians for dynamics
+- **Understanding**: Semantic motion analysis
+- **Robotics**: Perception for manipulation
+- **Medical**: Tracking deformable tissues
+
+---
+
+*Dynamic Scene Reconstruction represents the frontier of 4D vision, extending DUSt3R's revolutionary approach from spatial to spatiotemporal understanding. These methods are paving the way for AI systems that truly understand how the world moves and changes.*

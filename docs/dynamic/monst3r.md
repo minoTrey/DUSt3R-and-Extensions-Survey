@@ -1,5 +1,8 @@
 # MonST3R: A Simple Approach for Estimating Geometry in the Presence of Motion (ICLR 2025)
 
+![MonST3R Results](https://monst3r-project.github.io/files/fig5_system.png)
+*MonST3R extends DUSt3R to dynamic scenes with per-timestep geometry estimation, without explicit motion modeling*
+
 ## 📋 Overview
 - **Authors**: Junyi Zhang, Charles Herrmann, Junhwa Hur, Varun Jampani, Trevor Darrell, Forrester Cole, Deqing Sun, Ming-Hsuan Yang
 - **Institutions**: UC Berkeley, Google DeepMind, Stability AI, UC Merced

@@ -1,5 +1,8 @@
 # AVAT3R: Large Animatable Gaussian Reconstruction Model for High-fidelity 3D Head Avatars (ICCV 2025)
 
+![AVAT3R Method](https://tobias-kirschstein.github.io/avat3r/static/images/avat3r_method.jpg)
+*AVAT3R creates animatable 3D head avatars from just 4 smartphone images using pixel-aligned 3D Gaussian prediction*
+
 ## 📋 Overview
 - **Authors**: Tobias Kirschstein, Javier Romero, Artem Sevastopolsky, Matthias Nießner, Shunsuke Saito
 - **Institutions**: Technical University of Munich, Meta Reality Labs

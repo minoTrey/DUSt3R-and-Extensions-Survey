@@ -1,5 +1,8 @@
 # MASt3R: Grounding Image Matching in 3D (ECCV 2024)
 
+![MASt3R Overview](https://github.com/naver/mast3r/raw/main/assets/mast3r_archi.jpg)
+*MASt3R grounds image matching in 3D space, unifying dense correspondence with geometric reconstruction*
+
 ## 📋 Overview
 - **Authors**: Vincent Leroy, Yohann Cabon, Jérôme Revaud
 - **Institution**: NAVER LABS Europe
@@ -19,55 +22,81 @@
 
 ### Architecture
 - **Base**: Built on DUSt3R's transformer framework
-- **Key Addition**: Dense descriptor head for local feature extraction
+- **Encoder**: ViT-Large (same as DUSt3R)
+- **Decoder**: ViT-Base (same as DUSt3R)
+- **Key Addition**: Dense descriptor head for local feature extraction (24-dim)
 - **Outputs**:
   - 3D pointmaps (inherited from DUSt3R)
-  - Dense local feature descriptors
+  - Dense local feature descriptors (24 dimensions)
   - Confidence maps
-- **Input**: Uncalibrated image pairs
+- **Input**: Uncalibrated image pairs at multiple resolutions
 
 ### Key Innovations
 1. **Matching as 3D Problem**: Recognizes that finding correspondences is inherently linked to 3D structure
-2. **InfoNCE Loss**: Replaces scale-invariant regression with contrastive learning for features
-3. **Reciprocal Matching**: Efficient algorithm avoiding quadratic complexity
+2. **InfoNCE Loss**: Contrastive learning for features with temperature τ=0.07
+3. **Fast Reciprocal Matching (FRM)**: Efficient algorithm avoiding quadratic complexity
 4. **Joint Optimization**: Simultaneously learns 3D geometry and feature matching
+5. **Coarse-to-Fine Matching**: Improves accuracy for challenging scenarios
 
 ### Training Strategy
-- **Datasets**: Same as DUSt3R with additional matching supervision
+- **Optimizer**: Adam with base learning rate 1e-4
+- **Batch size**: 64
+- **Epochs**: 35
+- **Input resolutions**: 512×384, 512×336, 512×288, 512×256, 512×160
 - **Loss Functions**:
   - 3D reconstruction loss (from DUSt3R)
-  - InfoNCE matching loss
-  - Confidence-weighted training
-- **Pre-training**: Leverages CroCo initialization
+  - InfoNCE matching loss (β=1, temperature τ=0.07)
+  - Confidence loss (α=0.2)
+- **Local feature dimension**: 24
+- **Initialization**: DUSt3R checkpoint
 
 ## 📊 Results
 
 ### Quantitative Performance
 
-#### Feature Matching (HPatches)
-| Method | MMA@3px | MMA@5px | MMA@10px |
-|--------|---------|---------|----------|
-| SuperPoint + SuperGlue | 52.4% | 68.1% | 82.7% |
-| LoFTR | 65.9% | 79.1% | 88.2% |
-| **MASt3R** | **68.2%** | **81.3%** | **91.4%** |
-
 #### 3D Reconstruction (DTU)
 | Method | Accuracy ↓ | Completeness ↓ | Overall ↓ |
 |--------|------------|----------------|-----------|
-| DUSt3R | 2.667 | 0.805 | 1.741 |
+| DUSt3R | 2.677 | 0.805 | 1.741 |
 | **MASt3R** | **0.403** | **0.344** | **0.374** |
 
-#### Map-free Localization
+#### Map-free Localization (Test Set)
 | Method | VCRE AUC ↑ | Rotation Error ↓ |
 |--------|------------|------------------|
 | Previous SOTA | ~40% | 11.0° |
-| **MASt3R** | **70%** | **2.2°** |
+| DUSt3R | 69.7% | 7.1° |
+| **MASt3R (DPT)** | **72.6%** | **2.2°** |
+| **MASt3R (auto)** | **93.3%** | **2.2°** |
+
+#### Multi-view Pose Regression
+| Dataset | Method | RRA@15 | RTA@15 | mAA(30) |
+|---------|--------|---------|---------|---------|
+| CO3Dv2 | DUSt3R | 94.3 | 88.4 | 77.2 |
+| | **MASt3R** | **94.6** | **91.9** | **81.8** |
+| RealEstate10K | DUSt3R | - | - | 61.2 |
+| | **MASt3R** | - | - | **76.4** |
+
+#### Visual Localization (Aachen Day-Night & InLoc)
+| Dataset | Setting | MASt3R Performance |
+|---------|---------|-------------------|
+| Aachen Day | top20 | 83.4/95.3/99.4 |
+| Aachen Night | top20 | 76.4/91.6/100 |
+| InLoc DUC1 | top40 | 56.1/79.3/90.9 |
+| InLoc DUC2 | top40 | 71.0/87.0/91.6 |
+
+#### Key Features
+- **Fast Reciprocal Matching (FRM)**: Provides more uniform spatial coverage
+- **Basin-biased sampling**: Improves convergence efficiency
+- **Multi-resolution support**: Handles various input sizes
+- **Real-time capability**: Efficient matching algorithm
 
 ### Key Achievements
-- **80% reduction** in median rotation error
-- **30% absolute improvement** in localization accuracy
-- **Sub-millimeter** average reconstruction error
-- **Orders of magnitude** faster matching
+- **69% reduction** in median rotation error (from 7.1° to 2.2° compared to DUSt3R)
+- **53.3% absolute improvement** in VCRE AUC (from 40% to 93.3% with auto mode)
+- **78.5% reduction** in DTU overall error (from 1.741 to 0.374 compared to DUSt3R)
+- **25% improvement** in RealEstate10K mAA(30) (from 61.2 to 76.4)
+- **Orders of magnitude** faster matching with reciprocal scheme
+- State-of-the-art on multiple benchmarks: Map-free, DTU, CO3Dv2, RealEstate10K, Aachen, InLoc
 
 ## 💡 Insights & Impact
 
