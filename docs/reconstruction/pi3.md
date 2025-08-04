@@ -59,6 +59,22 @@ tokens = DINOv2(images)  # Only content, no positions
 | Order dependence | Partial | **None** |
 | Parameters | 1.26B | 959M |
 
+### Loss Function Design
+
+π³ uses a carefully designed composite loss function:
+
+```
+L_total = L_points + λ_normal·L_normal + λ_conf·L_conf + λ_cam·L_cam
+```
+
+**Key Loss Components**:
+1. **Point Reconstruction Loss (L_points)**: Depth-weighted L1 distance for robust 3D point prediction
+2. **Normal Loss (L_normal)**: Ensures consistent surface orientation across views
+3. **Confidence Loss (L_conf)**: Binary cross-entropy for reliability estimation
+4. **Camera Pose Loss (L_cam)**: Rotation and translation components with scale invariance
+
+**Critical Design Choice**: Unlike methods that enforce permutation equivariance through loss terms, π³ achieves it purely through architecture. The loss function focuses on reconstruction quality while the architecture guarantees f(π(X)) = π(f(X)).
+
 ## 📊 Results
 
 ### Table 1: Camera Pose Estimation on RealEstate10K and Co3Dv2
@@ -194,6 +210,7 @@ tokens = DINOv2(images)  # Only content, no positions
 - **Universal Performance**: SOTA across all tasks - not specialized for one
 - **Efficiency**: Smaller model (959M) outperforms larger ones (1.26B-5.57B)
 - **Robustness**: Works equally well on seen and unseen datasets
+- **Loss Function Design**: Achieves equivariance through architecture, not loss constraints
 
 ### Limitations
 - **Computational Cost**: Global attention still has O(N²) complexity for N views
