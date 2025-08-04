@@ -155,6 +155,7 @@ Efficient pose regression from DUSt3R's foundation.
 #### Recent Breakthrough Results
 | Method | Task | Performance | Venue |
 |--------|------|-------------|-------|
+| [π³ (Pi3)](docs/reconstruction/pi3.md) | Permutation Equivariance | 55.7% better ATE, near-zero order variance | arXiv'25 |
 | [Fast3R](docs/reconstruction/fast3r.md) | Multi-view (1500 images) | 251.1 FPS, 99.7% RRA@15° | CVPR'25 |
 | [MUSt3R](docs/reconstruction/must3r.md) | Scalability (1000+ images) | O(N) complexity, 4× memory efficiency | CVPR'25 |
 | [Light3R-SfM](docs/reconstruction/light3r-sfm.md) | SfM (200 images) | 33 sec (49× faster) | CVPR'25 |
@@ -210,6 +211,7 @@ Efficient pose regression from DUSt3R's foundation.
 | **Calibration** | Required | Not needed | Not needed | Zero setup |
 | **Min Images** | 10+ optimal | 2+ sufficient | 2+ sufficient | Flexible input |
 | **Accuracy** | High (given texture) | Good | State-of-the-art | Best quality |
+| **Order Sensitivity** | None | Partial | None (π³ only) | True permutation equivariance |
 
 ## 🛠️ Implementation Resources
 
@@ -270,7 +272,7 @@ pts3d = output['pts3d']  # Your 3D points!
 ### 🚀 Latest Breakthroughs (2025)
 | Paper | Innovation | Impact |
 |-------|------------|--------|
-| **[π³ (Pi3)](docs/reconstruction/pi3.md)** | Permutation-equivariant architecture | SOTA on DTU/ETH3D/Sintel |
+| **[π³ (Pi3)](docs/reconstruction/pi3.md)** | True permutation equivariance (no positional embeddings) | SOTA: 0.074 ATE on Sintel (55.7% better than VGGT) |
 | **[POMATO](docs/dynamic/pomato.md)** | Pointmap matching + temporal motion | Solves dynamic scenes |
 | **[Dens3R](docs/reconstruction/dens3r.md)** | Unified dense prediction (depth+normals) | 72.2% δ<11.25° on iBims |
 | **[Fast3R](docs/reconstruction/fast3r.md)** | 1500 views in one pass | 320× faster than DUSt3R |

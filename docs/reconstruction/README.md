@@ -18,8 +18,8 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 ## 🎯 Key Research Directions
 
 ### 1. **State-of-the-Art Methods** ⭐
-- **π³ (Pi3)**: Scalable permutation-equivariant learning - Current SOTA
-- **VGGT**: Visual geometry grounded transformer - 45× faster
+- **π³ (Pi3)**: True permutation-equivariant learning - Current SOTA (eliminates positional embeddings)
+- **VGGT**: Visual geometry grounded transformer - Previous SOTA (still uses reference frame)
 - **Dens3R**: Unified geometric dense prediction
 
 ### 2. **Real-time Systems** ⚡
@@ -47,12 +47,23 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 
 ## 📊 Performance Comparison
 
-### State-of-the-Art Results (DTU Dataset)
-| Model | Accuracy ↓ | Completeness ↓ | F-Score ↑ | Speed | Status |
-|-------|------------|----------------|-----------|-------|---------|
-| **π³ (Pi3)** | **-** | **-** | **-** | Fast | **Current SOTA** |
-| VGGT | 0.677 | 0.72 | 0.798 | 0.2s | Previous SOTA |
-| DUSt3R | 0.923 | 0.96 | 0.689 | ~10s | Original |
+### State-of-the-Art Results
+
+#### DTU Dataset
+| Model | Accuracy ↓ | Completeness ↓ | NC ↑ | Speed | Status |
+|-------|------------|----------------|------|-------|---------|
+| **π³ (Pi3)** | **1.198** | **1.849** | **0.678** | 57.4 FPS | **Current SOTA** |
+| VGGT | 1.338 | 1.896 | 0.676 | 43.2 FPS | Previous SOTA |
+| Fast3R | 3.340 | 2.929 | 0.671 | 65.8 FPS | Speed-focused |
+| DUSt3R | 2.677 | 0.805 | - | ~10s | Original |
+
+#### Camera Pose (Sintel Zero-shot)
+| Model | ATE ↓ | RPE trans ↓ | RPE rot ↓ | Order Variance |
+|-------|-------|-------------|-----------|----------------|
+| **π³ (Pi3)** | **0.074** | **0.040** | **0.282** | **Near-zero** |
+| VGGT | 0.167 | 0.062 | 0.491 | Partial |
+| CUT3R | 0.217 | 0.070 | 0.636 | High |
+| Fast3R | 0.371 | 0.298 | 13.75 | High |
 
 ### Multi-View Performance (HM3D Dataset)
 | Model | 12 Views DAc ↑ | Speed | Architecture | Key Innovation |
@@ -105,8 +116,8 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 ## 💡 Key Insights & Trends
 
 ### Major Breakthroughs
-1. **Permutation Equivariance** (Pi3): Handling arbitrary view orders naturally
-2. **Unified Geometry** (VGGT): Joint estimation of all geometric properties
+1. **True Permutation Equivariance** (Pi3): Complete elimination of positional embeddings and reference frames
+2. **Unified Geometry** (VGGT): Joint estimation of all geometric properties (still order-dependent)
 3. **Spatial Memory** (Spann3R): Unbounded scene reconstruction
 4. **Single-Stage Pipeline** (MV-DUSt3R+): O(N) complexity with cross-reference fusion
 
@@ -119,8 +130,8 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 ### Performance Evolution
 ```
 2024: DUSt3R baseline (~10s per pair, limited scale)
-2025 Q1: VGGT (0.2s, unified geometry)
-2025 Q2: π³ (SOTA quality, scalable architecture)
+2025 Q1: VGGT (43.2 FPS, unified geometry, partial permutation equivariance)
+2025 Q2: π³ (57.4 FPS, true permutation equivariance, current SOTA)
 2025: Multiple specialized systems for different use cases
 ```
 
@@ -150,8 +161,8 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 
 ## 🔮 Future Directions
 
-1. **Beyond SOTA**: Building on π³'s permutation-equivariant foundation
-2. **Hybrid Methods**: Combining neural and geometric approaches
+1. **Beyond SOTA**: Building on π³'s true permutation-equivariant foundation (no positional embeddings)
+2. **Symmetry-Aware Architectures**: Extending π³'s principles to other vision tasks
 3. **Dynamic Integration**: Bridging static and dynamic reconstruction
 4. **Uncertainty Quantification**: Confidence-aware predictions
 5. **Cross-modal Fusion**: Integrating language and other modalities
