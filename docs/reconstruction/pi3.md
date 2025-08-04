@@ -79,11 +79,37 @@
 | VGGT | | 0.022 | 0.008 | 0.027 | 0.013 | 0.663 | 0.757 | 0.017 | 0.010 | 0.015 | 0.005 | 0.893 | 0.988 |
 | **π³** | | **0.015** | **0.007** | **0.022** | **0.011** | **0.687** | **0.790** | **0.015** | **0.008** | **0.013** | **0.005** | **0.898** | **0.987** |
 
+### Table 5: Video Depth Estimation on Sintel, Bonn and KITTI
+| Method | Params | Align | Sintel | | Bonn | | KITTI | | FPS |
+|--------|--------|-------|--------|-------|------|-------|-------|-------|---------|
+| | | | Abs Rel↓ | δ<1.25↑ | Abs Rel↓ | δ<1.25↑ | Abs Rel↓ | δ<1.25↑ | |
+| DUSt3R | 571M | scale | 0.662 | 0.434 | 0.151 | 0.839 | 0.143 | 0.814 | 1.25 |
+| MASt3R | 689M | | 0.558 | 0.487 | 0.188 | 0.765 | 0.115 | 0.848 | 1.01 |
+| MonST3R | 571M | | 0.399 | 0.519 | 0.072 | 0.957 | 0.107 | 0.884 | 1.27 |
+| Fast3R | 648M | | 0.638 | 0.422 | 0.194 | 0.772 | 0.138 | 0.834 | 65.8 |
+| MVDUSt3R | 661M | | 0.805 | 0.283 | 0.426 | 0.357 | 0.456 | 0.342 | 0.69 |
+| CUT3R | 793M | | 0.417 | 0.507 | 0.078 | 0.937 | 0.122 | 0.876 | 6.98 |
+| Aether | 5.57B | | 0.324 | 0.502 | 0.273 | 0.594 | 0.056 | 0.978 | 6.14 |
+| FLARE | 1.40B | | 0.729 | 0.336 | 0.152 | 0.790 | 0.356 | 0.570 | 1.75 |
+| VGGT | 1.26B | | 0.299 | 0.638 | 0.057 | 0.966 | 0.062 | 0.969 | 43.2 |
+| **π³** | **959M** | | **0.233** | **0.664** | **0.049** | **0.975** | **0.038** | **0.986** | **57.4** |
+| DUSt3R | 571M | scale&shift | 0.570 | 0.493 | 0.152 | 0.835 | 0.135 | 0.818 | 1.25 |
+| MASt3R | 689M | | 0.480 | 0.517 | 0.189 | 0.771 | 0.115 | 0.849 | 1.01 |
+| MonST3R | 571M | | 0.402 | 0.526 | 0.070 | 0.958 | 0.098 | 0.883 | 1.27 |
+| Fast3R | 648M | | 0.518 | 0.486 | 0.196 | 0.768 | 0.139 | 0.808 | 65.8 |
+| MVDUSt3R | 661M | | 0.619 | 0.332 | 0.482 | 0.357 | 0.401 | 0.355 | 0.69 |
+| CUT3R | 793M | | 0.534 | 0.558 | 0.075 | 0.943 | 0.111 | 0.883 | 6.98 |
+| Aether | 5.57B | | 0.314 | 0.604 | 0.308 | 0.602 | 0.054 | 0.977 | 6.14 |
+| FLARE | 1.40B | | 0.791 | 0.358 | 0.142 | 0.797 | 0.357 | 0.579 | 1.75 |
+| VGGT | 1.26B | | 0.230 | 0.678 | 0.052 | 0.969 | 0.052 | 0.968 | 43.2 |
+| **π³** | **959M** | | **0.210** | **0.726** | **0.043** | **0.975** | **0.037** | **0.985** | **57.4** |
+
 ### Performance Summary
 - **Camera Pose**: 55.7% better ATE on Sintel (0.074 vs VGGT 0.167)
 - **Point Maps**: 30.7% better accuracy on ETH3D (0.194 vs VGGT 0.280)
-- **Generalization**: SOTA on both seen (Co3Dv2, ScanNet) and unseen (RE10K, Sintel) datasets
-- **Robustness**: Best performance across sparse and dense view settings
+- **Video Depth**: Best results across all datasets with both scale and scale&shift alignment
+- **Speed**: 57.4 FPS on KITTI (vs VGGT 43.2 FPS, Fast3R 65.8 FPS)
+- **Efficiency**: 959M params achieving better results than models with 1.26B-5.57B params
 
 ## 💡 Critical Analysis
 
@@ -114,8 +140,9 @@
 ### Key Differences from VGGT
 - **Architecture**: Eliminates reference view bias through symmetric processing
 - **Robustness**: Invariant to input ordering (near-zero variance)
-- **Performance**: 55.7% better camera pose estimation on Sintel
+- **Performance**: Better on all tasks - pose (55.7%), point maps (30.7%), video depth (22%)
 - **Speed**: 33% faster inference (57.4 vs 43.2 FPS)
+- **Efficiency**: Smaller model (959M vs 1.26B params) with better results
 
 ## 📚 Conclusions
 
