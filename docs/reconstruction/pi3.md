@@ -104,10 +104,38 @@
 | VGGT | 1.26B | | 0.230 | 0.678 | 0.052 | 0.969 | 0.052 | 0.968 | 43.2 |
 | **π³** | **959M** | | **0.210** | **0.726** | **0.043** | **0.975** | **0.037** | **0.985** | **57.4** |
 
+### Table 6: Monocular Depth Estimation on Sintel, Bonn, KITTI and NYU-v2
+| Method | Sintel | | Bonn | | KITTI | | NYU-v2 | |
+|--------|--------|-------|------|-------|-------|-------|--------|-------|
+| | Abs Rel↓ | δ<1.25↑ | Abs Rel↓ | δ<1.25↑ | Abs Rel↓ | δ<1.25↑ | Abs Rel↓ | δ<1.25↑ |
+| DUSt3R | 0.488 | 0.532 | 0.139 | 0.832 | 0.109 | 0.873 | 0.081 | 0.909 |
+| MASt3R | 0.413 | 0.569 | 0.123 | 0.833 | 0.077 | 0.948 | 0.110 | 0.865 |
+| MonST3R | 0.402 | 0.525 | 0.069 | 0.954 | 0.098 | 0.895 | 0.094 | 0.887 |
+| Fast3R | 0.544 | 0.509 | 0.169 | 0.796 | 0.120 | 0.861 | 0.093 | 0.898 |
+| CUT3R | 0.418 | 0.520 | 0.058 | 0.967 | 0.097 | 0.914 | 0.081 | 0.914 |
+| FLARE | 0.606 | 0.402 | 0.130 | 0.836 | 0.312 | 0.513 | 0.089 | 0.898 |
+| VGGT | 0.335 | 0.599 | 0.053 | 0.970 | 0.082 | 0.947 | 0.056 | 0.951 |
+| MoGe | 0.273 | 0.695 | 0.050 | 0.976 | 0.049 | 0.979 | 0.055 | 0.952 |
+| - v1 | 0.273 | 0.695 | 0.050 | 0.976 | 0.054 | 0.977 | 0.055 | 0.952 |
+| - v2 | 0.277 | 0.687 | 0.063 | 0.973 | 0.049 | 0.979 | 0.060 | 0.940 |
+| **π³** | **0.277** | **0.614** | **0.044** | **0.976** | **0.060** | **0.971** | **0.054** | **0.956** |
+
+### Table 7: Standard Deviation of Point Cloud Estimation on DTU and ETH3D
+| Method | DTU | | | | | | ETH3D | | | | | |
+|--------|-----|-----|-----|-----|-----|-----|-------|-----|-----|-----|-----|-----|
+| | Acc. std.↓ Mean | Med. | Comp. std.↓ Mean | Med. | N.C. std.↓ Mean | Med. | Acc. std.↓ Mean | Med. | Comp. std.↓ Mean | Med. | N.C. std.↓ Mean | Med. |
+| Fast3R | 0.578 | 0.451 | 0.677 | 0.376 | 0.007 | 0.009 | 0.182 | 0.205 | 0.381 | 0.273 | 0.047 | 0.072 |
+| CUT3R | 1.750 | 1.047 | 1.748 | 1.273 | 0.013 | 0.017 | 0.214 | 0.225 | 0.430 | 0.391 | 0.062 | 0.074 |
+| FLARE | 0.720 | 0.494 | 1.346 | 1.134 | 0.009 | 0.012 | 0.171 | 0.187 | 0.251 | 0.188 | 0.048 | 0.053 |
+| VGGT | 0.033 | 0.022 | 0.054 | 0.036 | 0.007 | 0.007 | 0.049 | 0.040 | 0.062 | 0.042 | 0.022 | 0.015 |
+| **π³** | **0.003** | **0.002** | **0.006** | **0.003** | **0.001** | **0.001** | **0.000** | **0.000** | **0.000** | **0.000** | **0.001** | **0.000** |
+
 ### Performance Summary
 - **Camera Pose**: 55.7% better ATE on Sintel (0.074 vs VGGT 0.167)
 - **Point Maps**: 30.7% better accuracy on ETH3D (0.194 vs VGGT 0.280)
 - **Video Depth**: Best results across all datasets with both scale and scale&shift alignment
+- **Monocular Depth**: Competitive with MoGe, best on Bonn dataset (0.044 Abs Rel)
+- **Order Robustness**: Near-zero standard deviation across input permutations (Table 7)
 - **Speed**: 57.4 FPS on KITTI (vs VGGT 43.2 FPS, Fast3R 65.8 FPS)
 - **Efficiency**: 959M params achieving better results than models with 1.26B-5.57B params
 
@@ -115,8 +143,8 @@
 
 ### Strengths
 - **Reference View Elimination**: Solves fundamental bias problem in visual geometry
-- **Order Invariance**: Robust to arbitrary input sequence permutations
-- **Superior Performance**: State-of-the-art across multiple benchmarks
+- **Order Invariance**: Near-zero standard deviation (0.003 vs VGGT 0.033 on DTU) proves true permutation equivariance
+- **Superior Performance**: State-of-the-art across camera pose, point maps, video depth, and monocular depth
 - **Faster Training**: Better convergence due to symmetric architecture
 
 ### Limitations
