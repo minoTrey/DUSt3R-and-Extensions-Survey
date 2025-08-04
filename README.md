@@ -142,15 +142,16 @@ Efficient pose regression from DUSt3R's foundation.
 
 ### 🏆 Performance Overview
 
-#### DTU Dataset (3D Reconstruction) 
-| Model | Type | Accuracy ↓ | Completeness ↓ | Overall ↓ | Speed | Year |
-|-------|------|------------|-----------------|-----------|--------|------|
-| COLMAP | Traditional | 0.835 | 0.554 | 0.695 | - | - |
-| MVSNet | Learning+GT | 0.396 | 0.527 | 0.462 | - | 2018 |
-| [DUSt3R](docs/foundation/dust3r.md) | Zero-shot | 2.677 | 0.805 | 1.741 | ~10s | 2024 |
-| **[MASt3R](docs/foundation/mast3r.md)** | **Zero-shot** | **0.403** | **0.344** | **0.374** | ~7s | 2024 |
+#### State-of-the-Art: 3D Reconstruction & Camera Pose
+| Model | DTU Acc. ↓ | DTU Comp. ↓ | Sintel ATE ↓ | Order Variance | Speed | Year |
+|-------|------------|--------------|--------------|----------------|--------|------|
+| COLMAP | 0.835 | 0.554 | - | None | Minutes | - |
+| [DUSt3R](docs/foundation/dust3r.md) | 2.677 | 0.805 | - | High | ~10s | 2024 |
+| [MASt3R](docs/foundation/mast3r.md) | 0.403 | 0.344 | - | High | ~7s | 2024 |
+| [VGGT](docs/reconstruction/vggt.md) | 1.338 | 1.896 | 0.167 | Partial | 43.2 FPS | 2025 |
+| **[π³ (Pi3)](docs/reconstruction/pi3.md)** ⭐ | **1.198** | **1.849** | **0.074** | **Near-zero** | **57.4 FPS** | **2025** |
 
-*Note: Lower is better for all metrics. MASt3R shows 78.5% improvement over DUSt3R in overall score.*
+*Note: π³ achieves true permutation equivariance with no positional embeddings, resulting in near-zero variance across input orders.*
 
 #### Recent Breakthrough Results
 | Method | Task | Performance | Venue |
@@ -173,13 +174,15 @@ Efficient pose regression from DUSt3R's foundation.
 
 *MoGe: 47% better than DUSt3R on point maps, 71% better FOV estimation than UniDepth.*
 
-#### Camera Pose Estimation (Zero-shot)
-| Model | Sintel ATE ↓ | TUM-dyn ATE ↓ | Co3Dv2 RRA@30 ↑ | Speed | Year |
-|-------|--------------|-----------------|-------------------|--------|------|
-| [VGGT](docs/reconstruction/vggt.md) | 0.167 | 0.012 | 98.96 | 43.2 FPS | 2025 |
-| **[π³ (Pi3)](docs/reconstruction/pi3.md)** ⭐ | **0.074** | **0.014** | **99.05** | **57.4 FPS** | **2025** |
+#### Video Depth Estimation (Scale-aligned)
+| Model | Params | Sintel Abs Rel ↓ | Bonn Abs Rel ↓ | KITTI Abs Rel ↓ | Speed | Architecture |
+|-------|--------|------------------|-----------------|-----------------|-------|---------------|
+| [MonST3R](docs/dynamic/monst3r.md) | 571M | 0.402 | 0.070 | 0.098 | 1.27 FPS | Temporal |
+| [CUT3R](docs/dynamic/cut3r.md) | 793M | 0.534 | 0.075 | 0.111 | 6.98 FPS | Cross-time |
+| [VGGT](docs/reconstruction/vggt.md) | 1.26B | 0.230 | 0.052 | 0.052 | 43.2 FPS | Reference-based |
+| **[π³ (Pi3)](docs/reconstruction/pi3.md)** ⭐ | **959M** | **0.210** | **0.043** | **0.037** | **57.4 FPS** | **Permutation-equivariant** |
 
-*Pi3: 55% better on Sintel, 33% faster than VGGT, with permutation-equivariant design.*
+*π³ outperforms larger models while maintaining true view-order independence.*
 
 #### Foundation Models Evolution
 | Model | Year | Venue | Key Innovation | Best Performance |
@@ -221,7 +224,7 @@ Efficient pose regression from DUSt3R's foundation.
 - **[MUSt3R](docs/reconstruction/must3r.md)**: [`naver/must3r`](https://github.com/naver/must3r) - 1000+ image scalability
 - **[MonST3R](docs/dynamic/monst3r.md)**: [`Junyi42/MonST3R`](https://github.com/Junyi42/MonST3R) - Dynamic scenes
 - **[Splatt3R](docs/gaussian-splatting/splatt3r.md)**: [`splatt3r/splatt3r`](https://github.com/splatt3r/splatt3r) - Instant 3DGS
-- **[π³ (Pi3)](docs/reconstruction/pi3.md)**: [`yyfz/Pi3`](https://github.com/yyfz/Pi3) - Current SOTA (57.4 FPS)
+- **[π³ (Pi3)](docs/reconstruction/pi3.md)**: [`yyfz/Pi3`](https://github.com/yyfz/Pi3) - Current SOTA with true permutation equivariance
 
 ### 🚀 Quick Start Guide
 ```bash
@@ -266,8 +269,9 @@ pts3d = output['pts3d']  # Your 3D points!
 
 ### 🏆 Most Influential Papers
 1. **[DUSt3R](docs/foundation/dust3r.md)** - The foundation that started the revolution
-2. **[MASt3R](docs/foundation/mast3r.md)** - Brought 3D understanding to feature matching
-3. **[Splatt3R](docs/gaussian-splatting/splatt3r.md)** - Enabled instant Gaussian Splatting
+2. **[MASt3R](docs/foundation/mast3r.md)** - Brought 3D understanding to feature matching  
+3. **[π³ (Pi3)](docs/reconstruction/pi3.md)** - True permutation equivariance through architectural design
+4. **[Splatt3R](docs/gaussian-splatting/splatt3r.md)** - Enabled instant Gaussian Splatting
 
 ### 🚀 Latest Breakthroughs (2025)
 | Paper | Innovation | Impact |
@@ -294,11 +298,12 @@ pts3d = output['pts3d']  # Your 3D points!
 1. **Start Here**: [DUSt3R paper](docs/foundation/dust3r.md) - Understand the core innovation
 2. **Deep Dive**: [Foundation Models](docs/foundation/) - Learn the fundamentals
 3. **Core Methods**: [3D Reconstruction](docs/reconstruction/) - Master the main techniques
-4. **Pick Your Interest**:
+4. **Breakthrough Concept**: [π³ (Pi3)](docs/reconstruction/pi3.md) - True permutation equivariance
+5. **Pick Your Interest**:
    - **Neural Rendering** → [Gaussian Splatting](docs/gaussian-splatting/)
    - **Video/Motion** → [Dynamic Scenes](docs/dynamic/)
    - **Applications** → [Robotics](docs/robotics/) or [Medical](docs/medical/)
-5. **Latest SOTA**: [π³ (Pi3)](docs/reconstruction/pi3.md) - See cutting edge
+6. **Specialized Topics**: Choose based on your use case
 
 ### 📖 Additional Resources
 - [📊 Complete Papers List](docs/papers-list.md) - All 54 papers with summaries

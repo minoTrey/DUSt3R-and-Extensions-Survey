@@ -8,8 +8,12 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 
 ```
 2024: Foundation laid with MASt3R-SLAM and early extensions
-2025: Explosive growth with breakthrough methods like π³ (Pi3) and VGGT
-- State-of-the-art: π³ (Pi3) surpasses VGGT with permutation-equivariant approach
+2025: Explosive growth with breakthrough methods
+- Jan: VGGT introduces unified geometry (partial permutation equivariance)
+- Feb: π³ (Pi3) achieves true permutation equivariance - Current SOTA
+  - Eliminates ALL positional embeddings and reference frames
+  - Architecture guarantees f(π(X)) = π(f(X))
+  - Loss function purely for reconstruction quality
 - Real-time systems: SLAM3R, Fast3R, MV-DUSt3R+
 - Large-scale: Spann3R, REGIST3R, Pow3R
 - Quality focus: MoGe, LoRA3D, Test3R, Dens3R
@@ -18,8 +22,13 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 ## 🎯 Key Research Directions
 
 ### 1. **State-of-the-Art Methods** ⭐
-- **π³ (Pi3)**: True permutation-equivariant learning - Current SOTA (eliminates positional embeddings)
-- **VGGT**: Visual geometry grounded transformer - Previous SOTA (still uses reference frame)
+- **π³ (Pi3)**: True permutation-equivariant learning - Current SOTA
+  - Eliminates positional embeddings and reference frames completely
+  - Near-zero order variance (0.003 vs VGGT's 0.033)
+  - Loss function focuses on quality while architecture ensures equivariance
+- **VGGT**: Visual geometry grounded transformer - Previous SOTA 
+  - Still uses reference frame (first view special)
+  - Partial permutation equivariance only
 - **Dens3R**: Unified geometric dense prediction
 
 ### 2. **Real-time Systems** ⚡
@@ -140,9 +149,11 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 ### Choose Based on Your Needs:
 
 **For Best Quality** 🏆
-- Use **π³ (Pi3)** for state-of-the-art results
-- Use **VGGT** for fast high-quality reconstruction
-- Use **Dens3R** for unified dense prediction
+- Use **π³ (Pi3)** for state-of-the-art results with true permutation equivariance
+  - Best when input order may vary or is unknown
+  - Ideal for multi-camera systems with arbitrary arrangements
+- Use **VGGT** if you have a consistent reference view
+- Use **Dens3R** for unified dense prediction (depth + normals)
 
 **For Real-time Applications** ⚡
 - Use **SLAM3R** for live video processing
