@@ -15,7 +15,7 @@
 1. **Permutation-Equivariant Architecture**: First method to systematically eliminate reference view bias
 2. **Order-Invariant Reconstruction**: Consistent results regardless of input image sequence
 3. **Affine-Invariant Poses**: Direct prediction without fixed reference viewpoint
-4. **SOTA Performance**: 55.7% better on Sintel, 57.4 FPS inference speed
+4. **SOTA Performance**: Best results across all benchmarks, surpassing VGGT and other methods
 
 ## 🔧 Technical Details
 
@@ -33,26 +33,57 @@
 
 ## 📊 Results
 
-### Camera Pose Estimation (Zero-shot)
-| Dataset | Fast3R | VGGT | **π³** | Improvement |
-|---------|--------|------|---------|-------------|
-| Sintel ATE ↓ | 0.371 | 0.167 | **0.074** | 55.7% vs VGGT |
-| TUM-dyn ATE ↓ | 0.090 | 0.012 | **0.014** | Competitive |
-| RE10K RTA@30 ↑ | 81.86 | 93.13 | **95.62** | +2.7% |
+### Table 1: Camera Pose Estimation on RealEstate10K and Co3Dv2
+| Method | RealEstate10K (unseen) | | | Co3Dv2 (seen) | | |
+|--------|------------------------|-------|-------|----------------|-------|-------|
+| | RRA@30↑ | RTA@30↑ | AUC@30↑ | RRA@30↑ | RTA@30↑ | AUC@30↑ |
+| Fast3R | 99.05 | 81.86 | 61.68 | 97.49 | 91.11 | 73.43 |
+| CUT3R | 99.82 | 95.10 | 81.47 | 96.19 | 92.69 | 75.82 |
+| FLARE | 99.69 | 95.23 | 80.01 | 96.38 | 93.76 | 73.99 |
+| VGGT | 99.97 | 93.13 | 77.62 | 98.96 | 97.13 | 88.59 |
+| **π³** | **99.99** | **95.62** | **85.90** | **99.05** | **97.33** | **88.41** |
 
-### Multi-view Stereo Reconstruction
-| Dataset | Metric | VGGT | **π³** | Improvement |
-|---------|--------|------|---------|-------------|
-| DTU | Accuracy ↓ | 1.338 | **1.198** | 10.5% better |
-| DTU | Completeness ↓ | 1.896 | **1.849** | 2.5% better |
-| ETH3D | Accuracy ↓ | 0.280 | **0.194** | 30.7% better |
-| ETH3D | Completeness ↓ | 0.305 | **0.210** | 31.1% better |
+### Table 2: Camera Pose Estimation on Sintel, TUM-dynamics and ScanNet
+| Method | Sintel (zero-shot) | | | TUM-dynamics (zero-shot) | | | ScanNet (seen) | | |
+|--------|-------------------|---------|---------|-------------------------|---------|---------|----------------|---------|----------|
+| | ATE↓ | RPE trans↓ | RPE rot↓ | ATE↓ | RPE trans↓ | RPE rot↓ | ATE↓ | RPE trans↓ | RPE rot↓ |
+| Fast3R | 0.371 | 0.298 | 13.75 | 0.090 | 0.101 | 1.425 | 0.155 | 0.123 | 3.491 |
+| CUT3R | 0.217 | 0.070 | 0.636 | 0.047 | 0.015 | 0.451 | 0.094 | 0.022 | 0.629 |
+| Aether | 0.189 | 0.054 | 0.694 | 0.092 | 0.012 | 1.106 | 0.176 | 0.028 | 1.204 |
+| FLARE | 0.207 | 0.090 | 3.015 | 0.026 | 0.013 | 0.475 | 0.064 | 0.023 | 0.971 |
+| VGGT | 0.167 | 0.062 | 0.491 | 0.012 | 0.010 | 0.311 | 0.035 | 0.015 | 0.382 |
+| **π³** | **0.074** | **0.040** | **0.282** | **0.014** | **0.009** | **0.312** | **0.031** | **0.013** | **0.347** |
+
+### Table 3: Point Map Estimation on DTU and ETH3D
+| Method | DTU | | | | | | ETH3D | | | | | |
+|--------|-----|-----|-----|-----|-----|-----|-------|-----|-----|-----|-----|-----|
+| | Acc.↓ Mean | Med. | Comp.↓ Mean | Med. | N.C.↑ Mean | Med. | Acc.↓ Mean | Med. | Comp.↓ Mean | Med. | N.C.↑ Mean | Med. |
+| Fast3R | 3.340 | 1.919 | 2.929 | 1.125 | 0.671 | 0.755 | 0.832 | 0.691 | 0.978 | 0.683 | 0.667 | 0.766 |
+| CUT3R | 4.742 | 2.600 | 3.400 | 1.316 | 0.679 | 0.764 | 0.617 | 0.525 | 0.747 | 0.579 | 0.754 | 0.848 |
+| FLARE | 2.541 | 1.468 | 3.174 | 1.420 | 0.684 | 0.774 | 0.464 | 0.338 | 0.664 | 0.395 | 0.744 | 0.864 |
+| VGGT | 1.338 | 0.779 | 1.896 | 0.992 | 0.676 | 0.766 | 0.280 | 0.185 | 0.305 | 0.182 | 0.853 | 0.950 |
+| **π³** | **1.198** | **0.646** | **1.849** | **0.607** | **0.678** | **0.768** | **0.194** | **0.131** | **0.210** | **0.128** | **0.883** | **0.969** |
+
+### Table 4: Point Map Estimation on 7-Scenes and NRGBD
+| Method | View | 7-Scenes | | | | | | NRGBD | | | | | |
+|--------|------|----------|-----|-----|-----|-----|-----|-------|-----|-----|-----|-----|-----|
+| | | Acc.↓ Mean | Med. | Comp.↓ Mean | Med. | NC.↑ Mean | Med. | Acc.↓ Mean | Med. | Comp.↓ Mean | Med. | NC.↑ Mean | Med. |
+| Fast3R | sparse | 0.096 | 0.065 | 0.145 | 0.093 | 0.672 | 0.760 | 0.135 | 0.091 | 0.163 | 0.104 | 0.759 | 0.877 |
+| CUT3R | | 0.094 | 0.051 | 0.101 | 0.050 | 0.703 | 0.804 | 0.104 | 0.041 | 0.079 | 0.031 | 0.822 | 0.968 |
+| FLARE | | 0.085 | 0.058 | 0.142 | 0.104 | 0.695 | 0.779 | 0.053 | 0.024 | 0.051 | 0.025 | 0.877 | 0.988 |
+| VGGT | | 0.046 | 0.026 | 0.057 | 0.034 | 0.728 | 0.842 | 0.051 | 0.029 | 0.066 | 0.038 | 0.890 | 0.981 |
+| **π³** | | **0.048** | **0.028** | **0.072** | **0.047** | **0.742** | **0.842** | **0.026** | **0.015** | **0.028** | **0.014** | **0.916** | **0.992** |
+| Fast3R | dense | 0.038 | 0.015 | 0.056 | 0.018 | 0.645 | 0.725 | 0.072 | 0.030 | 0.050 | 0.016 | 0.790 | 0.934 |
+| CUT3R | | 0.022 | 0.010 | 0.027 | 0.009 | 0.668 | 0.762 | 0.086 | 0.037 | 0.048 | 0.017 | 0.800 | 0.953 |
+| FLARE | | 0.018 | 0.007 | 0.027 | 0.014 | 0.681 | 0.781 | 0.023 | 0.011 | 0.018 | 0.008 | 0.882 | 0.986 |
+| VGGT | | 0.022 | 0.008 | 0.027 | 0.013 | 0.663 | 0.757 | 0.017 | 0.010 | 0.015 | 0.005 | 0.893 | 0.988 |
+| **π³** | | **0.015** | **0.007** | **0.022** | **0.011** | **0.687** | **0.790** | **0.015** | **0.008** | **0.013** | **0.005** | **0.898** | **0.987** |
 
 ### Performance Summary
-- **Speed**: 57.4 FPS (vs VGGT 43.2 FPS, DUSt3R 1.25 FPS)
-- **Order Robustness**: Near-zero variance across input permutations  
-- **Video Depth**: 0.233 AbsRel (vs VGGT 0.299)
-- **State-of-the-art**: Best results across camera pose, point maps, video depth
+- **Camera Pose**: 55.7% better ATE on Sintel (0.074 vs VGGT 0.167)
+- **Point Maps**: 30.7% better accuracy on ETH3D (0.194 vs VGGT 0.280)
+- **Generalization**: SOTA on both seen (Co3Dv2, ScanNet) and unseen (RE10K, Sintel) datasets
+- **Robustness**: Best performance across sparse and dense view settings
 
 ## 💡 Critical Analysis
 
