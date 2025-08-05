@@ -139,15 +139,15 @@ Key innovation: Confidence-aware loss allows model to be uncertain in occluded/e
 
 ### Table 2: High-Resolution Multi-View Depth Estimation
 
-| Method | Aux. | | High | KITTI | | Tanks & Temples | | Time |
-|--------|------|-----|------|-------|-------|-----------------|-------|------|
-| | K | RT | Res. | rel↓ | τ@1.03↑ | rel↓ | τ@1.03↑ | (sec) |
-| DUSt3R | - | - | - | 7.3 | 73.8 | 7.5 | 65.5 | 0.7 |
-| DUSt3R | - | - | ✓ | 14.1 | 48.4 | 13.9 | 39.2 | 1.5 |
-| Pow3R | - | - | - | 6.9 | 75.0 | 6.8 | 68.4 | 0.7 |
-| Pow3R | - | - | ✓ | 14.2 | 48.7 | 14.0 | 39.1 | 1.5 |
-| Pow3R | ✓ | ✓ | - | 6.0 | 79.4 | 5.3 | 74.9 | 0.7 |
-| Pow3R | ✓ | ✓ | ✓ | 6.0 | 79.4 | 5.3 | 74.9 | 1.5 |
+| Method | Aux. Mod. | | High- | KITTI | | T&T | | Time |
+|--------|-----------|-----|-------|-------|-------|------|-------|-------|
+| | Ks | RT | Res. | rel↓ | τ↑ | rel↓ | τ↑ | (sec)↓ |
+| DUSt3R₅₁₂ | × | × | × | 5.4 | 49.5 | 3.3 | 75.1 | 0.13 |
+| Pow3R₅₁₂ | ✓ | ✓ | × | 5.3 | 48.7 | 3.2 | 78.2 | 0.13 |
+| Pow3R₅₁₂ | ✓ | ✓ | (n) | 7.5 | 34.4 | 3.9 | 68.0 | 0.48 |
+| Pow3R₅₁₂ | ✓ | ✓ | ✓ | 4.6 | 53.5 | 2.5 | 82.3 | 0.40 |
+
+*(n): naively inputting high-resolution images without downsampling to Pow3R*
 
 ### Table 3: Multi-View Depth Estimation Across Datasets
 
