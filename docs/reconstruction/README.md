@@ -41,7 +41,7 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 - **Spann3R**: Spatial memory for unbounded scenes
 - **MUSt3R**: O(N) complexity for 1000+ images (5.5cm ATE on TUM RGB-D)
 - **REGIST3R**: Incremental registration with stereo foundation
-- **Pow3R**: Unconstrained reconstruction with camera/scene priors
+- **Pow3R**: Universal flexibility - handles any combination of camera intrinsics, poses, depth
 
 ### 4. **Quality & Robustness** 🎨
 - **MoGe**: Monocular geometry for open-domain images
@@ -59,12 +59,13 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 ### State-of-the-Art Results
 
 #### DTU Dataset
-| Model | Accuracy ↓ | Completeness ↓ | NC ↑ | Speed | Status |
-|-------|------------|----------------|------|-------|---------|
-| **π³ (Pi3)** | **1.198** | **1.849** | **0.678** | 57.4 FPS | **Current SOTA** |
-| VGGT | 1.338 | 1.896 | 0.676 | 43.2 FPS | Previous SOTA |
-| Fast3R | 3.340 | 2.929 | 0.671 | 65.8 FPS | Speed-focused |
-| DUSt3R | 2.677 | 0.805 | - | ~10s | Original |
+| Model | Accuracy ↓ | Completeness ↓ | Overall ↓ | Speed | Status |
+|-------|------------|----------------|-----------|-------|----------|
+| **Pow3R w/ K+RT** | **1.384** | **0.846** | **1.115** | 3.2 FPS | **Best with priors** |
+| **π³ (Pi3)** | **1.198** | **1.849** | - | 57.4 FPS | **Permutation-equivariant SOTA** |
+| VGGT | 1.338 | 1.896 | - | 43.2 FPS | Previous SOTA |
+| Pow3R | 2.116 | 1.370 | 1.743 | 3.7 FPS | Universal flexibility |
+| DUSt3R | 2.677 | 0.805 | 1.741 | ~3s | Original |
 
 #### Camera Pose (Sintel Zero-shot)
 | Model | ATE ↓ | RPE trans ↓ | RPE rot ↓ | Order Variance |
@@ -73,6 +74,13 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 | VGGT | 0.167 | 0.062 | 0.491 | Partial |
 | CUT3R | 0.217 | 0.070 | 0.636 | High |
 | Fast3R | 0.371 | 0.298 | 13.75 | High |
+
+#### Universal Flexibility (Pow3R)
+| Input Configuration | Co3Dv2 RRA@15↑ | RealEstate10K mAA(30)↑ | Speed (fps) | Key Benefit |
+|--------------------|----------------|------------------------|-------------|-------------|
+| RGB only | 94.8 | 62.5 | 3.2 | No calibration needed |
+| RGB + Intrinsics | 95.0 | 72.5 | 30.1 | Consumer camera ready |
+| RGB + All priors | 95.0 | 72.5 | 30.1 | Professional use |
 
 ### Multi-View Performance (HM3D Dataset)
 | Model | 12 Views DAc ↑ | Speed | Architecture | Key Innovation |
@@ -87,6 +95,7 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 |-------|------------|------------|---------------|-----------------|----------|
 | DUSt3R | 10-20 | O(N²) | O(N²) | ~10s/pair | Small scenes |
 | MASt3R | 20-50 | O(N²) | O(N²) | ~7s/pair | Better matching |
+| Pow3R | Any | O(N²) | O(N²) | 3.7 FPS | With auxiliary inputs |
 | MUSt3R | 1000+ | O(N) | O(1) per image | 8.4 FPS | Large multi-view |
 | MV-DUSt3R+ | 100+ | O(N) | O(N) | ~2s total | Fast multi-view |
 | Fast3R | 1500+ | O(N) | Low | 251 FPS | Speed priority |
@@ -95,9 +104,10 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 ## 📚 Complete Paper List (18 papers)
 
 ### 🏆 State-of-the-Art Methods
-1. [**π³ (Pi3)**: Scalable Permutation-Equivariant Visual Geometry Learning](pi3.md) ⭐ SOTA
+1. [**π³ (Pi3)**: Scalable Permutation-Equivariant Visual Geometry Learning](pi3.md) ⭐ SOTA (no positional embeddings)
 2. [**VGGT**: Visual Geometry Grounded Transformer](vggt.md) - 45× faster
-3. [**Dens3R**: Unified Geometric Dense Prediction](dens3r.md)
+3. [**Pow3R**: Empowering Unconstrained 3D Reconstruction](pow3r.md) - Best with auxiliary inputs
+4. [**Dens3R**: Unified Geometric Dense Prediction](dens3r.md)
 
 ### ⚡ Real-time Systems
 4. [**SLAM3R**: Real-Time Dense Scene Reconstruction](slam3r.md)
@@ -108,7 +118,7 @@ The 3D Reconstruction category represents the core extensions of DUSt3R that foc
 ### 🌍 Large-scale & Multi-view
 8. [**MUSt3R**: Multi-view Stereo 3D Reconstruction (O(N) complexity)](must3r.md)
 9. [**Spann3R**: 3D Reconstruction with Spatial Memory](spann3r.md)
-10. [**Pow3R**: Unconstrained 3D with Camera/Scene Priors](pow3r.md)
+10. [**Pow3R**: Universal 3D Reconstruction with Any Auxiliary Inputs](pow3r.md) - CVPR'25
 11. [**REGIST3R**: Incremental Registration](regist3r.md)
 
 ### 🎨 Quality Enhancement

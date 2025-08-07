@@ -148,6 +148,8 @@ Efficient pose regression from DUSt3R's foundation.
 | COLMAP | 0.835 | 0.554 | - | None | Minutes | - |
 | [DUSt3R](docs/foundation/dust3r.md) | 2.677 | 0.805 | - | High | ~10s | 2024 |
 | [MASt3R](docs/foundation/mast3r.md) | 0.403 | 0.344 | - | High | ~7s | 2024 |
+| [Pow3R](docs/reconstruction/pow3r.md) | 2.116 | 1.370 | - | High | 3.7 FPS | 2025 |
+| [Pow3R w/ K+RT](docs/reconstruction/pow3r.md) | **1.384** | **0.846** | - | High | 3.2 FPS | 2025 |
 | [VGGT](docs/reconstruction/vggt.md) | 1.338 | 1.896 | 0.167 | Partial | 43.2 FPS | 2025 |
 | **[π³ (Pi3)](docs/reconstruction/pi3.md)** ⭐ | **1.198** | **1.849** | **0.074** | **Near-zero** | **57.4 FPS** | **2025** |
 
@@ -157,6 +159,7 @@ Efficient pose regression from DUSt3R's foundation.
 | Method | Task | Performance | Venue |
 |--------|------|-------------|-------|
 | [π³ (Pi3)](docs/reconstruction/pi3.md) | Permutation Equivariance | 55.7% better ATE, near-zero order variance | arXiv'25 |
+| [Pow3R](docs/reconstruction/pow3r.md) | Universal Flexibility | Any input combo: 99.3% RRA@15 with K+RT | CVPR'25 |
 | [Fast3R](docs/reconstruction/fast3r.md) | Multi-view (1500 images) | 251.1 FPS, 99.7% RRA@15° | CVPR'25 |
 | [MUSt3R](docs/reconstruction/must3r.md) | Scalability (1000+ images) | O(N) complexity, 4× memory efficiency | CVPR'25 |
 | [Light3R-SfM](docs/reconstruction/light3r-sfm.md) | SfM (200 images) | 33 sec (49× faster) | CVPR'25 |
@@ -277,6 +280,7 @@ pts3d = output['pts3d']  # Your 3D points!
 | Paper | Innovation | Impact |
 |-------|------------|--------|
 | **[π³ (Pi3)](docs/reconstruction/pi3.md)** | True permutation equivariance (no positional embeddings) | SOTA: 0.074 ATE on Sintel (55.7% better than VGGT) |
+| **[Pow3R](docs/reconstruction/pow3r.md)** | Universal flexibility with any auxiliary inputs | DTU: 1.115 overall with K+RT (36% better than DUSt3R) |
 | **[POMATO](docs/dynamic/pomato.md)** | Pointmap matching + temporal motion | Solves dynamic scenes |
 | **[Dens3R](docs/reconstruction/dens3r.md)** | Unified dense prediction (depth+normals) | 72.2% δ<11.25° on iBims |
 | **[Fast3R](docs/reconstruction/fast3r.md)** | 1500 views in one pass | 320× faster than DUSt3R |
